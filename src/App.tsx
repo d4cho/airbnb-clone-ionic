@@ -9,6 +9,7 @@ import {
     setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+// import { CreateAnimation } from '@ionic/react';
 
 /* Pages */
 import ExplorePage from './pages/ExplorePage';
@@ -42,13 +43,16 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaAirbnb } from 'react-icons/fa';
 import { BiMessage } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
+// import { useAppContext } from './context/AppContext';
 
 setupIonicReact();
 
 const App: React.FC = () => {
+    // const { offset, scrollDirection } = useAppContext();
+
     const iconStyle = {
         fontSize: 26,
-        paddingBottom: 3,
+        padding: '1.5px 0',
     };
 
     return (

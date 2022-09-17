@@ -37,6 +37,28 @@ const ExplorePage: React.FC = () => {
         setIsModalOpen(true);
     };
 
+    const btnContent = (
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <span style={{ paddingRight: '5px' }}>Map</span>
+            <BsFillMapFill />
+        </div>
+    );
+
+    const btnStyleOverride = {
+        outline: '1px solid rgba(0, 0, 0, 0.08)',
+        borderRadius: '24px',
+        padding: '11px 19px',
+        color: '#FFF',
+        fontSize: '12px',
+        backgroundColor: 'rgb(34, 34, 34)',
+    };
+
     return (
         <IonPage className='ExplorePage_container'>
             <IonHeader className='ExplorePageHeader'>
@@ -75,32 +97,12 @@ const ExplorePage: React.FC = () => {
                         slot='fixed'
                     >
                         <Button
-                            btnContent={
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <span style={{ paddingRight: '5px' }}>
-                                        Map
-                                    </span>
-                                    <BsFillMapFill />
-                                </div>
-                            }
+                            btnContent={btnContent}
                             onButtonClick={() => {
                                 alert('map clicked!');
                             }}
                             btnOptions={null}
-                            btnStyleOverride={{
-                                outline: '1px solid rgba(0, 0, 0, 0.08)',
-                                borderRadius: '24px',
-                                padding: '11px 19px',
-                                color: '#FFF',
-                                fontSize: '12px',
-                                backgroundColor: 'rgb(34, 34, 34)',
-                            }}
+                            btnStyleOverride={btnStyleOverride}
                         />
                     </div>
                 </CreateAnimation>
