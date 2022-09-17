@@ -1,0 +1,57 @@
+@use '../../../../styles/styles.scss' as *;
+
+.WhereCard_container {
+    .title {
+        font-size: 22px;
+        padding: 0 1.5rem 0.75rem;
+    }
+
+    .button {
+        padding: 0 1.5rem;
+    }
+
+    .image_scroll {
+        overflow-y: scroll;
+        display: flex;
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+
+        .image_and_text {
+            min-width: 126px;
+            margin-right: 1rem;
+
+            img {
+                width: 126px;
+                height: 126px;
+                border: 1px solid $lightgray;
+                border-radius: 10px;
+            }
+
+            .text {
+                margin: 8px 2px 0;
+                font-size: 14px;
+                color: $gray;
+            }
+
+            .selected_img {
+                border: 2px solid black;
+            }
+
+            .selected_text {
+                font-weight: bold;
+                color: $darkgray;
+            }
+        }
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.image_scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.image_scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}

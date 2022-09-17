@@ -10,6 +10,7 @@ import Button from '../components/atoms/Button/Button';
 import { CreateAnimation } from '@ionic/react';
 
 import Modal from '../components/organisms/Modal/Modal';
+import SearchModalPage from '../components/views/SearchModalPage/SearchModalPage';
 
 const ExplorePage: React.FC = () => {
     const {
@@ -112,9 +113,19 @@ const ExplorePage: React.FC = () => {
 
                 <Modal
                     isModalOpen={isModalOpen}
-                    handleModalClose={handleModalClose}
                     modalRef={modalRef}
-                    modalContent={<div>hello world</div>}
+                    modalContent={
+                        modalType === 'search' ? (
+                            <SearchModalPage closeModal={handleModalClose} />
+                        ) : (
+                            <div>
+                                <button onClick={handleModalClose}>
+                                    close
+                                </button>
+                                <h1>filter modal page</h1>
+                            </div>
+                        )
+                    }
                 />
             </IonContent>
         </IonPage>

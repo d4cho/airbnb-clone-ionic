@@ -1,0 +1,48 @@
+@use '../../../styles/styles.scss' as *;
+
+.SearchCards_container {
+    border-radius: 15px;
+    background-color: $white;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    .expanded_container {
+        padding: 1.5rem 0;
+    }
+
+    .collapsed_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        font-size: 14px;
+
+        .short_title {
+            color: $gray;
+        }
+
+        .collapsed_text {
+            max-width: 12rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.shadow {
+    box-shadow: 0px 3px 5px $gray;
+}
+
+.animate {
+    animation: slide-up 0.75s ease-in-out;
+}
+
+@keyframes slide-up {
+    0% {
+        translate: 0 -10px;
+    }
+    100% {
+        translate: 0 0px;
+    }
+}

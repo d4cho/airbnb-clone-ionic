@@ -1,0 +1,35 @@
+@use '../../../styles/styles.scss' as *;
+
+.TwoButton_container {
+    background-color: $lightgray;
+    border-radius: 50px;
+    padding: 0.25rem;
+    margin-inline: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+
+    .button {
+        width: 100%;
+        text-align: center;
+        border-radius: 50px;
+        padding: 0.5rem;
+        font-size: 14px;
+    }
+
+    .active {
+        background-color: $white;
+        animation: grow-shrink 0.2s linear;
+    }
+
+    @keyframes grow-shrink {
+        0% {
+            scale: 0.95;
+        }
+        50% {
+            scale: 1.05;
+        }
+        100% {
+            scale: 1;
+        }
+    }
+}

@@ -16,9 +16,11 @@ const ClickableSearchBar = (props) => {
         handleFilterClick();
     };
 
-    const btnOptions = {
-        hasBorder: true,
-        hasPadding: true,
+    const filterBtnStyle = {
+        border: '1px solid #dddddd',
+        borderRadius: '50%',
+        padding: '0.5rem',
+        backgroundColor: '#FFF',
     };
 
     return (
@@ -35,8 +37,8 @@ const ClickableSearchBar = (props) => {
             <div className='filter'>
                 <Button
                     btnContent={<BsToggles2 />}
-                    btnOptions={btnOptions}
                     onButtonClick={handleButtonClick}
+                    btnStyleOverride={filterBtnStyle}
                 />
             </div>
         </div>

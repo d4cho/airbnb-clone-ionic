@@ -1,0 +1,64 @@
+@use '../../../../../styles/styles.scss' as *;
+
+.FlexibleView_container {
+    .section {
+        margin: 1.5rem 1.5rem 0;
+        padding-top: 0.5rem;
+        border-top: 2px solid $lightgray;
+
+        .buttons {
+            padding-top: 0.5rem;
+            display: flex;
+
+            div {
+                margin-right: 0.125rem;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .scrollableButtons {
+        margin: 0.5rem 1rem 0;
+        padding: 0.5rem 0.5rem;
+        display: flex;
+        overflow-y: scroll;
+
+        .calendar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .month {
+                padding-top: 0.5rem;
+            }
+        }
+    }
+}
+
+.active {
+    animation: grow-shrink 0.2s linear;
+}
+
+@keyframes grow-shrink {
+    0% {
+        scale: 0.95;
+    }
+    50% {
+        scale: 1.05;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollableButtons::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollableButtons {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}
