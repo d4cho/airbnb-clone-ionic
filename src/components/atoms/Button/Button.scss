@@ -1,0 +1,19 @@
+@use '../../../styles/styles.scss' as *;
+
+.Button_container {
+    color: $black;
+
+    .border {
+        border: 1px solid $gray;
+        border-radius: 100%;
+    }
+
+    .padding {
+        padding: 0.5rem;
+    }
+}
+
+.disabled {
+    opacity: 0.2;
+    user-select: none;
+}

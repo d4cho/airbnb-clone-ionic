@@ -1,0 +1,38 @@
+@use '../../../styles/styles.scss' as *;
+
+.ClickableSearchBar_container {
+    margin: 1rem 1.5rem;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1000px;
+
+    .search {
+        display: flex;
+        align-items: center;
+
+        .icon {
+            padding: 0 16px 0 20px;
+        }
+
+        .text {
+            .where {
+                font-size: 0.875rem;
+                font-weight: bold;
+                color: $darkgray;
+            }
+
+            .any {
+                font-size: 0.75rem;
+                color: $gray;
+            }
+        }
+    }
+
+    .filter {
+        padding: 0 10px;
+    }
+}
