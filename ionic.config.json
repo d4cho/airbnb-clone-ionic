@@ -1,0 +1,7 @@
+{
+  "name": "airbnb-clone-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
