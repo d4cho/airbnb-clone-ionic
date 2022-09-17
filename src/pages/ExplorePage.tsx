@@ -1,12 +1,5 @@
-import React, { useState } from 'react';
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-} from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import React, { useState, useRef } from 'react';
+import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import ScrollableSelectionBar from '../components/molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import './ExplorePage.scss';
 import ClickableSearchBar from '../components/molecules/ClickableSearchBar/ClickableSearchBar';
@@ -15,6 +8,8 @@ import LandingPageCardsSection from '../components/organisms/LandingPageCardsSec
 import { BsFillMapFill } from 'react-icons/bs';
 import Button from '../components/atoms/Button/Button';
 import { CreateAnimation } from '@ionic/react';
+
+import Modal from '../components/organisms/Modal/Modal';
 
 const ExplorePage: React.FC = () => {
     const {
@@ -59,6 +54,13 @@ const ExplorePage: React.FC = () => {
         backgroundColor: 'rgb(34, 34, 34)',
     };
 
+    // modal code
+    const modalRef = useRef<HTMLIonModalElement>(null);
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        modalRef.current?.dismiss();
+    };
+
     return (
         <IonPage className='ExplorePage_container'>
             <IonHeader className='ExplorePageHeader'>
@@ -76,6 +78,7 @@ const ExplorePage: React.FC = () => {
                 onIonScroll={(e) => handleContentScroll(e)}
             >
                 <LandingPageCardsSection />
+
                 <CreateAnimation
                     duration={300}
                     fromTo={[
@@ -106,6 +109,13 @@ const ExplorePage: React.FC = () => {
                         />
                     </div>
                 </CreateAnimation>
+
+                <Modal
+                    isModalOpen={isModalOpen}
+                    handleModalClose={handleModalClose}
+                    modalRef={modalRef}
+                    modalContent={<div>hello world</div>}
+                />
             </IonContent>
         </IonPage>
     );
