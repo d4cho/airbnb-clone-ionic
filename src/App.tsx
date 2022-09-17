@@ -78,7 +78,7 @@ const App: React.FC = () => (
                         <IonLabel>Wishlists</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab='trips' href='/trips'>
-                        <FaAirbnb style={{ fontSize: 26, paddingBottom: 2 }} />
+                        <FaAirbnb style={{ fontSize: 26, padding: '2px 0' }} />
                         <IonLabel>Trips</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab='inbox' href='/inbox'>
