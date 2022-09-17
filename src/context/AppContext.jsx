@@ -58,34 +58,39 @@ export function AppContextProvider({ children }) {
     };
 
     const [offset, setOffset] = useState(0);
-    // const [scrollSpeed, setScrollSpeed] = useState('slow');
     const [scrollDirection, setScrollDirection] = useState('down');
 
     // scroll animations code starts
-    React.useEffect(() => {
-        const onScroll = () => {
-            if (offset < window.pageYOffset) {
-                setScrollDirection('down');
-            } else {
-                setScrollDirection('up');
-            }
+    // React.useEffect(() => {
+    //     const onScroll = () => {
+    //         if (offset < window.pageYOffset) {
+    //             setScrollDirection('down');
+    //         } else {
+    //             setScrollDirection('up');
+    //         }
+    //         setOffset(window.pageYOffset);
+    //     };
 
-            // if (Math.abs(window.pageYOffset - offset) > 25) {
-            //     setScrollSpeed('fast');
-            // } else {
-            //     setScrollSpeed('slow');
-            // }
-            setOffset(window.pageYOffset);
-        };
-
-        // clean up code
-        window.removeEventListener('scroll', onScroll);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
-    }, [offset]);
+    //     // clean up code
+    //     window.removeEventListener('scroll', onScroll);
+    //     window.addEventListener('scroll', onScroll, { passive: true });
+    //     return () => window.removeEventListener('scroll', onScroll);
+    // }, [offset]);
     // scroll animations code ends
 
-    console.log(offset);
+    const handleContentScroll = (e) => {
+        console.log(e.detail.currentY);
+        if (offset < e.detail.currentY) {
+            setScrollDirection('down');
+        } else {
+            setScrollDirection('up');
+        }
+        setOffset(e.detail.currentY);
+    };
+
+    React.useEffect(() => {
+        console.log(offset, scrollDirection);
+    }, [offset, scrollDirection]);
 
     return (
         <AppContext.Provider
@@ -101,6 +106,7 @@ export function AppContextProvider({ children }) {
                 // setScrollSpeed,
                 scrollDirection,
                 setScrollDirection,
+                handleContentScroll,
             }}
         >
             {children}

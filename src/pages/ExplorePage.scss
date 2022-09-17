@@ -1,5 +1,16 @@
 @use '../styles/styles.scss' as *;
 
-.ExplorePageHeader {
-    background-color: $white;
+.ExplorePage_container {
+    .ExplorePageHeader {
+        background-color: $white;
+    }
+
+    .map_btn {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
 }

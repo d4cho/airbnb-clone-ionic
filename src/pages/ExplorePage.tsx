@@ -12,9 +12,18 @@ import './ExplorePage.scss';
 import ClickableSearchBar from '../components/molecules/ClickableSearchBar/ClickableSearchBar';
 import { useAppContext } from '../context/AppContext';
 import LandingPageCardsSection from '../components/organisms/LandingPageCardsSection/LandingPageCardsSection';
+import { BsFillMapFill } from 'react-icons/bs';
+import Button from '../components/atoms/Button/Button';
+import { CreateAnimation } from '@ionic/react';
 
 const ExplorePage: React.FC = () => {
-    const { isModalOpen, setIsModalOpen } = useAppContext();
+    const {
+        isModalOpen,
+        setIsModalOpen,
+        offset,
+        scrollDirection,
+        handleContentScroll,
+    } = useAppContext();
     const [modalType, setModalType] = useState('search');
     const [selectedTab, setSelectedTab] = useState(0);
 
@@ -29,7 +38,7 @@ const ExplorePage: React.FC = () => {
     };
 
     return (
-        <IonPage>
+        <IonPage className='ExplorePage_container'>
             <IonHeader className='ExplorePageHeader'>
                 <ClickableSearchBar
                     handleSearchClick={handleSearchClick}
@@ -40,14 +49,61 @@ const ExplorePage: React.FC = () => {
                     setSelectedTab={setSelectedTab}
                 />
             </IonHeader>
-            <IonContent>
-                {/* <IonHeader collapse='condense'>
-                    <IonToolbar>
-                        <IonTitle size='large'>Explore Page</IonTitle>
-                    </IonToolbar>
-                </IonHeader> */}
+            <IonContent
+                scrollEvents={true}
+                onIonScroll={(e) => handleContentScroll(e)}
+            >
                 <LandingPageCardsSection />
-                {/* <ExploreContainer name='Explore Page' /> */}
+                <CreateAnimation
+                    duration={300}
+                    fromTo={[
+                        {
+                            property: 'bottom',
+                            fromValue: '0px',
+                            toValue: '30px',
+                        },
+                        { property: 'opacity', fromValue: '0', toValue: '1' },
+                    ]}
+                    play={offset >= 200}
+                >
+                    <div
+                        className={`map_btn ${offset < 200 ? 'hidden' : ''} ${
+                            offset >= 1000 && scrollDirection === 'down'
+                                ? 'move_down'
+                                : ''
+                        }`}
+                        slot='fixed'
+                    >
+                        <Button
+                            btnContent={
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <span style={{ paddingRight: '5px' }}>
+                                        Map
+                                    </span>
+                                    <BsFillMapFill />
+                                </div>
+                            }
+                            onButtonClick={() => {
+                                alert('map clicked!');
+                            }}
+                            btnOptions={null}
+                            btnStyleOverride={{
+                                outline: '1px solid rgba(0, 0, 0, 0.08)',
+                                borderRadius: '24px',
+                                padding: '11px 19px',
+                                color: '#FFF',
+                                fontSize: '12px',
+                                backgroundColor: 'rgb(34, 34, 34)',
+                            }}
+                        />
+                    </div>
+                </CreateAnimation>
             </IonContent>
         </IonPage>
     );

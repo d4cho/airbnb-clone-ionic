@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageCarousel from '../../atoms/ImageCarousel/ImageCarousel';
 import './RoomsCards.scss';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const RoomsCards = (props) => {
     const { roomData } = props;
@@ -9,6 +10,10 @@ const RoomsCards = (props) => {
     return (
         <div className='RoomsCards_container'>
             <div className='carousel'>
+                <AiOutlineHeart
+                    className='icon'
+                    onClick={() => alert('add to wishlist')}
+                />
                 <ImageCarousel images={images} />
             </div>
             <div className='content'>

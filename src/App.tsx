@@ -1,7 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
     IonApp,
-    IonIcon,
     IonLabel,
     IonRouterOutlet,
     IonTabBar,
@@ -10,7 +9,6 @@ import {
     setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { heart, chatbox, search, person } from 'ionicons/icons';
 
 /* Pages */
 import ExplorePage from './pages/ExplorePage';
@@ -39,60 +37,71 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 /* Icons */
+import { BiSearch } from 'react-icons/bi';
+import { AiOutlineHeart } from 'react-icons/ai';
 import { FaAirbnb } from 'react-icons/fa';
+import { BiMessage } from 'react-icons/bi';
+import { CgProfile } from 'react-icons/cg';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-    <IonApp>
-        <IonReactRouter>
-            <IonTabs>
-                <IonRouterOutlet>
-                    <Route exact path='/explore'>
-                        <ExplorePage />
-                    </Route>
-                    <Route exact path='/wishlists'>
-                        <WishlistsPage />
-                    </Route>
-                    <Route path='/trips'>
-                        <TripsPage />
-                    </Route>
-                    <Route path='/inbox'>
-                        <InboxPage />
-                    </Route>
-                    <Route path='/profile'>
-                        <ProfilePage />
-                    </Route>
-                    <Route exact path='/'>
-                        <Redirect to='/explore' />
-                    </Route>
-                </IonRouterOutlet>
+const App: React.FC = () => {
+    const iconStyle = {
+        fontSize: 26,
+        paddingBottom: 3,
+    };
 
-                <IonTabBar slot='bottom'>
-                    <IonTabButton tab='explore' href='/explore'>
-                        <IonIcon icon={search} />
-                        <IonLabel>Explore</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab='wishlists' href='/wishlists'>
-                        <IonIcon icon={heart} />
-                        <IonLabel>Wishlists</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab='trips' href='/trips'>
-                        <FaAirbnb style={{ fontSize: 26, padding: '2px 0' }} />
-                        <IonLabel>Trips</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab='inbox' href='/inbox'>
-                        <IonIcon icon={chatbox} />
-                        <IonLabel>Inbox</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab='profile' href='/profile'>
-                        <IonIcon icon={person} />
-                        <IonLabel>Profile</IonLabel>
-                    </IonTabButton>
-                </IonTabBar>
-            </IonTabs>
-        </IonReactRouter>
-    </IonApp>
-);
+    return (
+        <IonApp>
+            <IonReactRouter>
+                <IonTabs>
+                    <IonRouterOutlet>
+                        <Route exact path='/explore'>
+                            <ExplorePage />
+                        </Route>
+                        <Route exact path='/wishlists'>
+                            <WishlistsPage />
+                        </Route>
+                        <Route path='/trips'>
+                            <TripsPage />
+                        </Route>
+                        <Route path='/inbox'>
+                            <InboxPage />
+                        </Route>
+                        <Route path='/profile'>
+                            <ProfilePage />
+                        </Route>
+                        <Route exact path='/'>
+                            <Redirect to='/explore' />
+                        </Route>
+                    </IonRouterOutlet>
+
+                    <IonTabBar slot='bottom'>
+                        <IonTabButton tab='explore' href='/explore'>
+                            <BiSearch style={iconStyle} />
+                            <IonLabel>Explore</IonLabel>
+                        </IonTabButton>
+                        <IonTabButton tab='wishlists' href='/wishlists'>
+                            <AiOutlineHeart style={iconStyle} />
+                            <IonLabel>Wishlists</IonLabel>
+                        </IonTabButton>
+                        <IonTabButton tab='trips' href='/trips'>
+                            <FaAirbnb style={iconStyle} />
+                            <IonLabel>Trips</IonLabel>
+                        </IonTabButton>
+                        <IonTabButton tab='inbox' href='/inbox'>
+                            <BiMessage style={iconStyle} />
+                            <IonLabel>Inbox</IonLabel>
+                        </IonTabButton>
+                        <IonTabButton tab='profile' href='/profile'>
+                            <CgProfile style={iconStyle} />
+                            <IonLabel>Profile</IonLabel>
+                        </IonTabButton>
+                    </IonTabBar>
+                </IonTabs>
+            </IonReactRouter>
+        </IonApp>
+    );
+};
 
 export default App;
