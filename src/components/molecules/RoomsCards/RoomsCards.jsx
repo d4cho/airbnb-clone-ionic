@@ -14,7 +14,11 @@ const RoomsCards = (props) => {
                     className='icon'
                     onClick={() => alert('add to wishlist')}
                 />
-                <ImageCarousel images={images} />
+                <ImageCarousel
+                    images={images}
+                    paginationType='dots'
+                    styleOverride={{ borderRadius: '10px' }}
+                />
             </div>
             <div className='content'>
                 <div className='location_and_rank'>

@@ -88,9 +88,9 @@ export function AppContextProvider({ children }) {
         setOffset(e.detail.currentY);
     };
 
-    React.useEffect(() => {
-        console.log(offset, scrollDirection);
-    }, [offset, scrollDirection]);
+    // React.useEffect(() => {
+    //     console.log(offset, scrollDirection);
+    // }, [offset, scrollDirection]);
 
     return (
         <AppContext.Provider

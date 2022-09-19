@@ -43,6 +43,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaAirbnb } from 'react-icons/fa';
 import { BiMessage } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
+import RoomDetailsPage from './pages/RoomDetailsPage';
 // import { useAppContext } from './context/AppContext';
 
 setupIonicReact();
@@ -60,6 +61,9 @@ const App: React.FC = () => {
             <IonReactRouter>
                 <IonTabs>
                     <IonRouterOutlet>
+                        <Route exact path='/'>
+                            <Redirect to='/explore' />
+                        </Route>
                         <Route exact path='/explore'>
                             <ExplorePage />
                         </Route>
@@ -75,8 +79,8 @@ const App: React.FC = () => {
                         <Route path='/profile'>
                             <ProfilePage />
                         </Route>
-                        <Route exact path='/'>
-                            <Redirect to='/explore' />
+                        <Route path='/rooms/:id'>
+                            <RoomDetailsPage />
                         </Route>
                     </IonRouterOutlet>
 

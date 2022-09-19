@@ -1,5 +1,6 @@
 export const roomsData = [
     {
+        id: '1',
         location: 'Mill Creek, Pennsylvania, US',
         rating: '4.95',
         distance: '376',
@@ -12,8 +13,23 @@ export const roomsData = [
             'https://a0.muscache.com/im/pictures/3f4fcc31-f77c-4260-a575-88338dfa8446.jpg?aki_policy=large',
         ],
         category: ['Tiny homes'],
+        // room details
+        title: 'The Triangle: A-Frame Cabin for your city retreat',
+        reviews: 434,
+        superHost: true,
+        rare: true,
+        guests: 4,
+        rooms: {
+            bedrooms: 2,
+            beds: 4,
+            bath: 1,
+        },
+        selfCheckIn: true,
+        airCover: true,
+        desc: 'long desc...',
     },
     {
+        id: '2',
         location: 'Reunion, Florida, US',
         rating: 'New',
         distance: '1,723',
@@ -27,6 +43,7 @@ export const roomsData = [
         category: ['Luxe'],
     },
     {
+        id: '3',
         location: 'Lac-Beauport, Canada',
         rating: '4.99',
         distance: '736',
@@ -41,6 +58,7 @@ export const roomsData = [
         category: ['OMG!'],
     },
     {
+        id: '4',
         location: 'Presque Isle, Wisconsin, US',
         rating: '4.83',
         distance: '863',
@@ -56,6 +74,7 @@ export const roomsData = [
         category: ['Islands'],
     },
     {
+        id: '5',
         location: 'Mill Creek, Pennsylvania, US',
         rating: '4.95',
         distance: '376',
@@ -70,6 +89,7 @@ export const roomsData = [
         category: ['Tiny homes'],
     },
     {
+        id: '6',
         location: 'Reunion, Florida, US',
         rating: 'New',
         distance: '1,723',
@@ -83,6 +103,7 @@ export const roomsData = [
         category: ['Luxe'],
     },
     {
+        id: '7',
         location: 'Lac-Beauport, Canada',
         rating: '4.99',
         distance: '736',
@@ -97,6 +118,7 @@ export const roomsData = [
         category: ['OMG!'],
     },
     {
+        id: '8',
         location: 'Presque Isle, Wisconsin, US',
         rating: '4.83',
         distance: '863',
@@ -112,6 +134,7 @@ export const roomsData = [
         category: ['Islands'],
     },
     {
+        id: '9',
         location: 'Mill Creek, Pennsylvania, US',
         rating: '4.95',
         distance: '376',
@@ -126,6 +149,7 @@ export const roomsData = [
         category: ['Tiny homes'],
     },
     {
+        id: '10',
         location: 'Reunion, Florida, US',
         rating: 'New',
         distance: '1,723',
@@ -139,6 +163,7 @@ export const roomsData = [
         category: ['Luxe'],
     },
     {
+        id: '11',
         location: 'Lac-Beauport, Canada',
         rating: '4.99',
         distance: '736',
@@ -153,6 +178,7 @@ export const roomsData = [
         category: ['OMG!'],
     },
     {
+        id: '12',
         location: 'Presque Isle, Wisconsin, US',
         rating: '4.83',
         distance: '863',

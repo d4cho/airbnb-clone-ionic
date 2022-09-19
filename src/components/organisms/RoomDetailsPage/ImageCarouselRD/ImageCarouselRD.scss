@@ -1,0 +1,24 @@
+@use '../../../../styles/styles.scss' as *;
+
+.ImageCarouselRD_container {
+    .link {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+
+    .share_btn {
+        position: absolute;
+        top: 10px;
+        right: 56px;
+        z-index: 1;
+    }
+
+    .wishlist_btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+    }
+}
