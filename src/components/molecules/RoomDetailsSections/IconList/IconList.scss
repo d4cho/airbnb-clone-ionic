@@ -1,0 +1,17 @@
+@use '../../../../styles/styles.scss' as *;
+
+.IconList_container {
+    .heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
+
+    .row {
+        padding-bottom: 0.5rem;
+    }
+
+    .button {
+        padding-top: 1rem;
+    }
+}

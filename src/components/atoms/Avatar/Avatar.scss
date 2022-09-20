@@ -1,0 +1,9 @@
+.Avatar_container {
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--borderRadius);
+    background-image: var(--imageUrl);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

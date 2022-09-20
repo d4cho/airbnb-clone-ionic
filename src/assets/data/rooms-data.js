@@ -26,7 +26,11 @@ export const roomsData = [
             beds: 4,
             bath: 1,
         },
-        selfCheckIn: true,
+        perks: {
+            selfCheckIn: true,
+            freeCancellation: true,
+            freeCancellationEndDate: 'Dec. 6',
+        },
         airCover: true,
         desc: 'long desc...',
     },
