@@ -1,6 +1,53 @@
 @use '../../../../styles/styles.scss' as *;
 
 .DetailsRD_container {
+    --ion-grid-padding: 0;
     padding-top: 1rem;
     border: 1px solid red;
+
+    .content {
+        margin-inline: 1.5rem;
+
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            padding-bottom: 1rem;
+        }
+
+        .extra {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            padding-bottom: 0.5rem;
+
+            .reviews {
+                text-decoration: underline;
+            }
+        }
+
+        .location {
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .flex-end {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .roomsAvailability {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .roomsInfo {
+            padding-top: 0.25rem;
+        }
+    }
+
+    .line {
+        margin: 1.5rem 1.5rem;
+        border-bottom: 1px solid $gray;
+    }
 }

@@ -14,6 +14,8 @@ export const roomsData = [
         ],
         category: ['Tiny homes'],
         // room details
+        user: 'Elijah',
+        type: 'cabin',
         title: 'The Triangle: A-Frame Cabin for your city retreat',
         reviews: 434,
         superHost: true,

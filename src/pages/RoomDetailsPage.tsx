@@ -19,7 +19,7 @@ const RoomDetailsPage: React.FC = () => {
         <IonPage className='RoomDetailsPage_container'>
             <IonContent className='content' fullscreen>
                 <ImageCarouselRD roomData={roomData} />
-                <DetailsRD />
+                <DetailsRD roomData={roomData} />
             </IonContent>
         </IonPage>
     );
