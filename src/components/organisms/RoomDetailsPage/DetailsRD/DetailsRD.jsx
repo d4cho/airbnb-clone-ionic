@@ -10,6 +10,7 @@ import Avatar from '../../../atoms/Avatar/Avatar';
 import ClickableSection from '../../../molecules/RoomDetailsSections/ClickableSection/ClickableSection';
 import IconList from '../../../molecules/RoomDetailsSections/IconList/IconList';
 import SlidesPerViewCarousel from '../../../molecules/RoomDetailsSections/SlidesPerViewCarousel/SlidesPerViewCarousel';
+import ImageCarousel from '../../../atoms/ImageCarousel/ImageCarousel';
 
 const DetailsRD = (props) => {
     const { roomData } = props;
@@ -27,6 +28,7 @@ const DetailsRD = (props) => {
         perks,
         airCover,
         desc,
+        roomImages,
     } = roomData;
 
     return (
@@ -187,17 +189,30 @@ const DetailsRD = (props) => {
                 </>
             )}
 
-            <div className='content'>
-                <SlidesPerViewCarousel
-                    heading={'What this place offers'}
-                    list={[
-                        {
-                            card: <GiForkKnifeSpoon size={22} />,
-                            cardTitle: '',
-                            cartText: '',
-                        },
-                    ]}
-                    ctaText={'Show all 434 reviews'}
+            <div className='noMarginContent'>
+                <div className='roomsInfoHeading'>Where you'll sleep</div>
+                <ImageCarousel
+                    list={roomImages}
+                    slideWidth={163}
+                    slidesPerView={2.1}
+                    spaceBetweenSlides={12}
+                    imageStyleOverride={{
+                        borderRadius: '10px',
+                        width: 163,
+                        height: 109,
+                        marginLeft: '1.5rem',
+                    }}
+                    titleStyleOverride={{
+                        marginLeft: '1.5rem',
+                        marginTop: '0.5rem',
+                        fontWeight: 'bold',
+                    }}
+                    textStyleOverride={{
+                        marginLeft: '1.5rem',
+                        marginTop: '0.25rem',
+                        fontSize: '14px',
+                        color: '#767676',
+                    }}
                 />
             </div>
             <div className='line'></div>

@@ -38,4 +38,9 @@
         right: 20px;
         bottom: 20px;
     }
+
+    .swiper-slide {
+        width: var(--slideWidth) !important;
+        height: var(--slideHeight) !important;
+    }
 }

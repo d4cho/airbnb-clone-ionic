@@ -44,9 +44,9 @@ const ImageCarouselRD = (props) => {
                 />
             </div>
             <ImageCarousel
-                images={roomData.images}
+                list={roomData.images}
                 paginationType='fraction'
-                styleOverride={{
+                imageStyleOverride={{
                     height: '260px',
                 }}
             />

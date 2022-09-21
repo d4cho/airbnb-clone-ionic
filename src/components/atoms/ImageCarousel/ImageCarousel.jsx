@@ -7,7 +7,17 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const ImageCarousel = (props) => {
-    const { images, paginationType, styleOverride } = props;
+    const {
+        list,
+        paginationType,
+        slideWidth,
+        slideHeight,
+        slidesPerView,
+        spaceBetweenSlides,
+        imageStyleOverride,
+        titleStyleOverride,
+        textStyleOverride,
+    } = props;
 
     const handlePaginationType = () => {
         switch (paginationType) {
@@ -18,23 +28,50 @@ const ImageCarousel = (props) => {
                 return { type: 'fraction' };
 
             default:
-                return true;
+                return false;
         }
     };
 
     return (
         <div className='ImageCarousel_container'>
-            <Swiper modules={[Pagination]} pagination={handlePaginationType()}>
-                {images.map((url, idx) => {
+            <Swiper
+                slidesPerView={slidesPerView || 1}
+                spaceBetween={spaceBetweenSlides || 0}
+                modules={[Pagination]}
+                pagination={handlePaginationType()}
+            >
+                {list.map((item, idx) => {
                     return (
-                        <SwiperSlide key={idx}>
-                            <div
-                                style={{
-                                    ...styleOverride,
-                                    '--url': `url(${url})`,
-                                }}
-                                className='slide_image'
-                            ></div>
+                        <SwiperSlide
+                            key={idx}
+                            style={{
+                                '--slideWidth': slideWidth
+                                    ? `${slideWidth}px`
+                                    : '100%',
+                                '--slideHeight': slideHeight
+                                    ? `${slideHeight}px`
+                                    : '100%',
+                            }}
+                        >
+                            <>
+                                <div
+                                    style={{
+                                        ...imageStyleOverride,
+                                        '--url': `url(${item.url})`,
+                                    }}
+                                    className='slide_image'
+                                />
+                                {item.title && (
+                                    <div style={titleStyleOverride}>
+                                        {item.title}
+                                    </div>
+                                )}
+                                {item.desc && (
+                                    <div style={textStyleOverride}>
+                                        {item.desc}
+                                    </div>
+                                )}
+                            </>
                         </SwiperSlide>
                     );
                 })}
