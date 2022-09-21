@@ -53,6 +53,10 @@ export const roomsData = [
         category: ['Tiny homes'],
         // room details
         user: 'Elijah',
+        userJoined: 'May 2014',
+        userAvatarUrl:
+            'https://a0.muscache.com/im/pictures/user/f7c8efbe-b96b-4195-a0f4-41c1988f8d8e.jpg?im_w=240',
+        userLanguages: ['English', 'Espanol'],
         type: 'cabin',
         title: 'The Triangle: A-Frame Cabin for your city retreat',
         reviews: 434,

@@ -17,6 +17,7 @@ const DetailsRD = (props) => {
     const { roomData } = props;
     const {
         user,
+        userAvatarUrl,
         type,
         title,
         rating,
@@ -86,11 +87,7 @@ const DetailsRD = (props) => {
                             </div>
                         </IonCol>
                         <IonCol className='ion-align-self-center flex-end'>
-                            <Avatar
-                                imageUrl={
-                                    'https://a0.muscache.com/im/pictures/user/f7c8efbe-b96b-4195-a0f4-41c1988f8d8e.jpg?im_w=240'
-                                }
-                            />
+                            <Avatar imageUrl={userAvatarUrl} />
                         </IonCol>
                     </IonRow>
                     <div className='roomsInfo'>
@@ -295,7 +292,7 @@ const DetailsRD = (props) => {
             <div className='line'></div>
 
             <div className='content'>
-                <HostCard />
+                <HostCard roomData={roomData} />
             </div>
             <div className='line'></div>
 
