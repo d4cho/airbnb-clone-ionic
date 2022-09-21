@@ -238,7 +238,19 @@ const DetailsRD = (props) => {
             <div className='content'>5 nights in West Farmington</div>
             <div className='line'></div>
 
-            <div className='content'>Reviews</div>
+            <div className='content'>
+                <SlidesPerViewCarousel
+                    heading={'What this place offers'}
+                    list={[
+                        {
+                            card: <GiForkKnifeSpoon size={22} />,
+                            cardTitle: '',
+                            cartText: '',
+                        },
+                    ]}
+                    ctaText={'Show all 434 reviews'}
+                />
+            </div>
             <div className='line'></div>
 
             <div className='content'>Hosted by Elijah</div>
