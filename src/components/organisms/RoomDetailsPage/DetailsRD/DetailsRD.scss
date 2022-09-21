@@ -67,6 +67,12 @@
         .report {
             padding-bottom: 1.5rem;
         }
+
+        .heading {
+            font-size: 22px;
+            font-weight: bold;
+            padding-bottom: 1rem;
+        }
     }
 
     .line {
@@ -84,5 +90,22 @@
 
     .fs14 {
         font-size: 14px;
+    }
+
+    .padding-top-bot {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .pt {
+        padding-top: 1rem;
+    }
+
+    .pb {
+        padding-bottom: 1rem;
+    }
+
+    .font-gray {
+        color: $gray;
     }
 }

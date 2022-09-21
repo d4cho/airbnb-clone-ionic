@@ -11,6 +11,7 @@ import ClickableSection from '../../../molecules/RoomDetailsSections/ClickableSe
 import IconList from '../../../molecules/RoomDetailsSections/IconList/IconList';
 import SlidesPerViewCarousel from '../../../molecules/RoomDetailsSections/SlidesPerViewCarousel/SlidesPerViewCarousel';
 import ImageCarousel from '../../../atoms/ImageCarousel/ImageCarousel';
+import HostCard from '../../../molecules/RoomDetailsSections/HostCard/HostCard';
 
 const DetailsRD = (props) => {
     const { roomData } = props;
@@ -247,10 +248,35 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
-            <div className='content'>Where you'll be</div>
+            <div className='content'>
+                <div className='heading'>Where you'll be</div>
+                <div
+                    style={{ border: '1px solid red', width: 342, height: 218 }}
+                >
+                    map
+                </div>
+                <div className='bold padding-top-bot'>{location}</div>
+                <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sequi enim cupiditate consequatur sit possimus saepe magnam
+                    obcaecati, numquam quos explicabo.
+                </div>
+                <div className='bold underline pt'>Show more</div>
+            </div>
             <div className='line'></div>
 
-            <div className='content'>5 nights in West Farmington</div>
+            <div className='content'>
+                <div className='heading'>5 nights in Mill Creek</div>
+                <div className='fs14 pb font-gray'>
+                    Dec. 11, 2022 - Dec. 16, 2022
+                </div>
+                <div
+                    style={{ border: '1px solid red', width: 342, height: 218 }}
+                >
+                    calendar
+                </div>
+                <div className='fs14 bold underline pt'>Clear dates</div>
+            </div>
             <div className='line'></div>
 
             <div className='content'>
@@ -268,7 +294,9 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
-            <div className='content'>Hosted by Elijah</div>
+            <div className='content'>
+                <HostCard />
+            </div>
             <div className='line'></div>
 
             <div className='content'>
