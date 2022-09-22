@@ -60,6 +60,27 @@ export const roomsData = [
         type: 'cabin',
         title: 'The Triangle: A-Frame Cabin for your city retreat',
         reviews: 434,
+        reviewList: [
+            {
+                avatar: 'https://a0.muscache.com/im/pictures/user/4fe193b5-1046-4bbc-b8cf-a6ac0efb23e0.jpg?im_w=240',
+                name: 'Jacky',
+                joined: 'August 2020',
+                reviewText: 'Great getaway place',
+            },
+            {
+                avatar: 'https://a0.muscache.com/im/pictures/user/834930d5-fa69-4bf8-86ab-7a4be7783917.jpg?im_w=240',
+                name: 'Daniel',
+                joined: 'December 2019',
+                reviewText:
+                    "This place is one of the coziest places I've ever visited - they have everything you need to just relax and unwind. Would come back again and recommend to others, especially couples.",
+            },
+            {
+                avatar: 'https://a0.muscache.com/im/pictures/user/40db55d0-b1e7-4867-b079-6e1c6bbc7f70.jpg?im_w=240',
+                name: 'Samantha',
+                joined: 'December 2018',
+                reviewText: 'great stay',
+            },
+        ],
         superHost: true,
         rare: true,
         guests: 4,

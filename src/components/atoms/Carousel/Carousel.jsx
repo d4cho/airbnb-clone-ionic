@@ -17,6 +17,7 @@ const Carousel = (props) => {
         imageStyleOverride,
         titleStyleOverride,
         textStyleOverride,
+        centeredSlides,
     } = props;
 
     console.log('props', props.children);
@@ -41,8 +42,49 @@ const Carousel = (props) => {
                 spaceBetween={spaceBetweenSlides || 0}
                 modules={[Pagination]}
                 pagination={handlePaginationType()}
+                centeredSlides={centeredSlides}
             >
-                {list.map((item, idx) => {
+                {props.children
+                    ? props.children.map((item, idx) => {
+                          return <SwiperSlide key={idx}>{item}</SwiperSlide>;
+                      })
+                    : list.map((item, idx) => {
+                          return (
+                              <SwiperSlide
+                                  className='custom-swiper-slide'
+                                  key={idx}
+                                  style={{
+                                      '--slideWidth': slideWidth
+                                          ? `${slideWidth}px`
+                                          : '100%',
+                                      '--slideHeight': slideHeight
+                                          ? `${slideHeight}px`
+                                          : '100%',
+                                  }}
+                              >
+                                  <>
+                                      <div
+                                          style={{
+                                              ...imageStyleOverride,
+                                              '--url': `url(${item.url})`,
+                                          }}
+                                          className='slide_image'
+                                      />
+                                      {item.title && (
+                                          <div style={titleStyleOverride}>
+                                              {item.title}
+                                          </div>
+                                      )}
+                                      {item.desc && (
+                                          <div style={textStyleOverride}>
+                                              {item.desc}
+                                          </div>
+                                      )}
+                                  </>
+                              </SwiperSlide>
+                          );
+                      })}
+                {/* {list.map((item, idx) => {
                     return (
                         <SwiperSlide
                             key={idx}
@@ -76,7 +118,7 @@ const Carousel = (props) => {
                             </>
                         </SwiperSlide>
                     );
-                })}
+                })} */}
             </Swiper>
         </div>
     );

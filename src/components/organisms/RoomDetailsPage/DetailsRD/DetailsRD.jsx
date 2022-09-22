@@ -13,6 +13,7 @@ import SlidesPerViewCarousel from '../../../molecules/RoomDetailsSections/Slides
 import Carousel from '../../../atoms/Carousel/Carousel';
 import HostCard from '../../../molecules/RoomDetailsSections/HostCard/HostCard';
 import Button from '../../../atoms/Button/Button';
+import ReviewCard from '../../../molecules/RoomDetailsSections/ReviewCard/ReviewCard';
 
 const DetailsRD = (props) => {
     const { roomData } = props;
@@ -32,7 +33,21 @@ const DetailsRD = (props) => {
         airCover,
         desc,
         roomImages,
+        reviewList,
     } = roomData;
+
+    const reviewListArr = reviewList.map((reviewInfo, idx) => {
+        return (
+            <React.Fragment key={idx}>
+                <ReviewCard reviewInfo={reviewInfo} />
+            </React.Fragment>
+        );
+    });
+    reviewListArr.push(
+        <React.Fragment key={'showAllCard'}>
+            <ReviewCard reviews={reviews} isShowAll />
+        </React.Fragment>
+    );
 
     return (
         <div className='DetailsRD_container'>
@@ -219,10 +234,7 @@ const DetailsRD = (props) => {
                         fontSize: '14px',
                         color: '#767676',
                     }}
-                >
-                    <div>hello</div>
-                    <div>world</div>
-                </Carousel>
+                />
             </div>
             <div className='line'></div>
 
@@ -291,22 +303,18 @@ const DetailsRD = (props) => {
             <div className='line'></div>
 
             {/* reviews section */}
-            <div className='content'>
-                <div className='heading'>
+            <div className='noMarginContent'>
+                <div className='reviewsHeading'>
                     <AiFillStar /> &nbsp; {rating} • {reviews} reviews
                 </div>
-                <SlidesPerViewCarousel
-                    heading={'What this place offers'}
-                    list={[
-                        {
-                            card: <GiForkKnifeSpoon size={22} />,
-                            cardTitle: '',
-                            cartText: '',
-                        },
-                    ]}
-                    ctaText={'Show all 434 reviews'}
-                />
-                <div style={{ paddingTop: '1rem' }}>
+                <Carousel
+                    slidesPerView={1.25}
+                    spaceBetweenSlides={14}
+                    centeredSlides={true}
+                >
+                    {reviewListArr}
+                </Carousel>
+                <div style={{ padding: '1.5rem 1.5rem 0 1.5rem' }}>
                     <Button
                         btnContent={`Show all ${reviews} reviews`}
                         btnStyleOverride={{
