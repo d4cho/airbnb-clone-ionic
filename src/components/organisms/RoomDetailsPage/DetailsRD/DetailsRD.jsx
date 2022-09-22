@@ -10,7 +10,7 @@ import Avatar from '../../../atoms/Avatar/Avatar';
 import ClickableSection from '../../../molecules/RoomDetailsSections/ClickableSection/ClickableSection';
 import IconList from '../../../molecules/RoomDetailsSections/IconList/IconList';
 import SlidesPerViewCarousel from '../../../molecules/RoomDetailsSections/SlidesPerViewCarousel/SlidesPerViewCarousel';
-import ImageCarousel from '../../../atoms/ImageCarousel/ImageCarousel';
+import Carousel from '../../../atoms/Carousel/Carousel';
 import HostCard from '../../../molecules/RoomDetailsSections/HostCard/HostCard';
 import Button from '../../../atoms/Button/Button';
 
@@ -197,7 +197,7 @@ const DetailsRD = (props) => {
             {/* where you'll sleep section */}
             <div className='noMarginContent'>
                 <div className='roomsInfoHeading'>Where you'll sleep</div>
-                <ImageCarousel
+                <Carousel
                     list={roomImages}
                     slideWidth={163}
                     slidesPerView={2.1}
@@ -219,7 +219,10 @@ const DetailsRD = (props) => {
                         fontSize: '14px',
                         color: '#767676',
                     }}
-                />
+                >
+                    <div>hello</div>
+                    <div>world</div>
+                </Carousel>
             </div>
             <div className='line'></div>
 

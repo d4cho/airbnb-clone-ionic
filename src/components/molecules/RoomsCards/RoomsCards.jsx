@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageCarousel from '../../atoms/ImageCarousel/ImageCarousel';
+import Carousel from '../../atoms/Carousel/Carousel';
 import './RoomsCards.scss';
 import { AiOutlineHeart } from 'react-icons/ai';
 
@@ -14,7 +14,7 @@ const RoomsCards = (props) => {
                     className='icon'
                     onClick={() => alert('add to wishlist')}
                 />
-                <ImageCarousel
+                <Carousel
                     list={images}
                     paginationType='dots'
                     imageStyleOverride={{ borderRadius: '10px' }}

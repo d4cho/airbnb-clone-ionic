@@ -1,12 +1,12 @@
 import React from 'react';
-import './ImageCarousel.scss';
+import './Carousel.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const ImageCarousel = (props) => {
+const Carousel = (props) => {
     const {
         list,
         paginationType,
@@ -18,6 +18,8 @@ const ImageCarousel = (props) => {
         titleStyleOverride,
         textStyleOverride,
     } = props;
+
+    console.log('props', props.children);
 
     const handlePaginationType = () => {
         switch (paginationType) {
@@ -33,7 +35,7 @@ const ImageCarousel = (props) => {
     };
 
     return (
-        <div className='ImageCarousel_container'>
+        <div className='Carousel_container'>
             <Swiper
                 slidesPerView={slidesPerView || 1}
                 spaceBetween={spaceBetweenSlides || 0}
@@ -80,4 +82,4 @@ const ImageCarousel = (props) => {
     );
 };
 
-export default ImageCarousel;
+export default Carousel;

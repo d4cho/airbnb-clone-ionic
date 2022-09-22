@@ -1,6 +1,6 @@
 import React from 'react';
 import './ImageCarouselRD.scss';
-import ImageCarousel from '../../../atoms/ImageCarousel/ImageCarousel';
+import Carousel from '../../../atoms/Carousel/Carousel';
 import { IonRouterLink } from '@ionic/react';
 import Button from '../../../atoms/Button/Button';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -43,7 +43,7 @@ const ImageCarouselRD = (props) => {
                     onButtonClick={() => alert('add to wishlist!')}
                 />
             </div>
-            <ImageCarousel
+            <Carousel
                 list={roomData.images}
                 paginationType='fraction'
                 imageStyleOverride={{
