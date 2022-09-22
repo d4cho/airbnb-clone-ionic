@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './DetailsRD.scss';
 import { AiFillStar, AiFillFlag, AiOutlineCar } from 'react-icons/ai';
 import { BiMedal, BiBath } from 'react-icons/bi';
@@ -6,14 +6,18 @@ import { GiCutDiamond, GiForkKnifeSpoon, GiDesk } from 'react-icons/gi';
 import { BsDoorOpen, BsCalendarX, BsSnow3 } from 'react-icons/bs';
 import { FaMedal } from 'react-icons/fa';
 import { IonGrid, IonRow, IonCol } from '@ionic/react';
+import { IonDatetime } from '@ionic/react';
 import Avatar from '../../../atoms/Avatar/Avatar';
 import ClickableSection from '../../../molecules/RoomDetailsSections/ClickableSection/ClickableSection';
 import IconList from '../../../molecules/RoomDetailsSections/IconList/IconList';
-import SlidesPerViewCarousel from '../../../molecules/RoomDetailsSections/SlidesPerViewCarousel/SlidesPerViewCarousel';
 import Carousel from '../../../atoms/Carousel/Carousel';
 import HostCard from '../../../molecules/RoomDetailsSections/HostCard/HostCard';
 import Button from '../../../atoms/Button/Button';
 import ReviewCard from '../../../molecules/RoomDetailsSections/ReviewCard/ReviewCard';
+import {
+    getDurationDates,
+    getNightsBetweenDates,
+} from '../../../../utils/functions/functions';
 
 const DetailsRD = (props) => {
     const { roomData } = props;
@@ -35,6 +39,31 @@ const DetailsRD = (props) => {
         roomImages,
         reviewList,
     } = roomData;
+
+    const [selectedDates, setSelectedDates] = useState([
+        '2022-12-11',
+        '2022-12-16',
+    ]);
+
+    const datetime = useRef();
+
+    useEffect(() => {
+        if (!datetime.current) return;
+        datetime.current.value = selectedDates;
+    }, []);
+
+    console.log('selectedDates', selectedDates);
+
+    const handleDateChange = (dates) => {
+        if (dates) {
+            const latestDate = dates[dates.length - 1];
+            const durationDates = getDurationDates(selectedDates, latestDate);
+            setSelectedDates(durationDates);
+            datetime.current.value = durationDates;
+        } else {
+            setSelectedDates([]);
+        }
+    };
 
     const reviewListArr = reviewList.map((reviewInfo, idx) => {
         return (
@@ -289,16 +318,33 @@ const DetailsRD = (props) => {
 
             {/* calendar section */}
             <div className='content'>
-                <div className='heading'>5 nights in Mill Creek</div>
-                <div className='fs14 pb font-gray'>
-                    Dec. 11, 2022 - Dec. 16, 2022
+                <div className='heading'>
+                    {selectedDates.length === 0
+                        ? 'Select check-in date'
+                        : selectedDates.length === 1
+                        ? 'Selected check-out date'
+                        : `${getNightsBetweenDates(
+                              selectedDates
+                          )} nights in Mill Creek`}
                 </div>
-                <div
-                    style={{ border: '1px solid red', width: 342, height: 218 }}
-                >
-                    calendar
-                </div>
-                <div className='fs14 bold underline pt'>Clear dates</div>
+                {selectedDates.length === 2 ? (
+                    <div className='fs14 pb font-gray'>
+                        {`${selectedDates[0]} - ${selectedDates[1]}`}
+                    </div>
+                ) : (
+                    <div className='fs14 pb font-gray'>
+                        Add your travel dates for exact pricing
+                    </div>
+                )}
+                <IonDatetime
+                    ref={datetime}
+                    presentation='date'
+                    multiple={true}
+                    onIonChange={(value) =>
+                        handleDateChange(value.detail.value)
+                    }
+                    showClearButton={true}
+                ></IonDatetime>
             </div>
             <div className='line'></div>
 

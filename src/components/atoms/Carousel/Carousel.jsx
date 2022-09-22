@@ -20,8 +20,6 @@ const Carousel = (props) => {
         centeredSlides,
     } = props;
 
-    console.log('props', props.children);
-
     const handlePaginationType = () => {
         switch (paginationType) {
             case 'dots':

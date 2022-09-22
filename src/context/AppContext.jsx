@@ -79,7 +79,7 @@ export function AppContextProvider({ children }) {
     // scroll animations code ends
 
     const handleContentScroll = (e) => {
-        console.log(e.detail.currentY);
+        // console.log(e.detail.currentY);
         if (offset < e.detail.currentY) {
             setScrollDirection('down');
         } else {
