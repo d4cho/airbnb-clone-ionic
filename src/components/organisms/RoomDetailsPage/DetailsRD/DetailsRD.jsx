@@ -12,6 +12,7 @@ import IconList from '../../../molecules/RoomDetailsSections/IconList/IconList';
 import SlidesPerViewCarousel from '../../../molecules/RoomDetailsSections/SlidesPerViewCarousel/SlidesPerViewCarousel';
 import ImageCarousel from '../../../atoms/ImageCarousel/ImageCarousel';
 import HostCard from '../../../molecules/RoomDetailsSections/HostCard/HostCard';
+import Button from '../../../atoms/Button/Button';
 
 const DetailsRD = (props) => {
     const { roomData } = props;
@@ -35,6 +36,7 @@ const DetailsRD = (props) => {
 
     return (
         <div className='DetailsRD_container'>
+            {/* summary section */}
             <div className='content'>
                 <div className='title bold'>{title}</div>
                 <div className='extra fs14'>
@@ -56,6 +58,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* rare section*/}
             {rare && (
                 <>
                     <div className='content'>
@@ -78,6 +81,7 @@ const DetailsRD = (props) => {
                 </>
             )}
 
+            {/* room availability section */}
             <div className='content'>
                 <IonGrid>
                     <IonRow>
@@ -98,6 +102,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* perks section */}
             <div className='content'>
                 {perks.selfCheckIn && (
                     <IonGrid>
@@ -153,6 +158,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* aircover section */}
             {airCover && (
                 <>
                     <div className='content'>
@@ -170,6 +176,7 @@ const DetailsRD = (props) => {
                 </>
             )}
 
+            {/* room description section */}
             {desc && (
                 <>
                     <div className='content'>
@@ -187,6 +194,7 @@ const DetailsRD = (props) => {
                 </>
             )}
 
+            {/* where you'll sleep section */}
             <div className='noMarginContent'>
                 <div className='roomsInfoHeading'>Where you'll sleep</div>
                 <ImageCarousel
@@ -215,6 +223,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* what this place offers section */}
             <div className='content'>
                 <IconList
                     heading={'What this place offers'}
@@ -245,6 +254,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* where you'll be section */}
             <div className='content'>
                 <div className='heading'>Where you'll be</div>
                 <div
@@ -262,6 +272,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* calendar section */}
             <div className='content'>
                 <div className='heading'>5 nights in Mill Creek</div>
                 <div className='fs14 pb font-gray'>
@@ -276,7 +287,11 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* reviews section */}
             <div className='content'>
+                <div className='heading'>
+                    <AiFillStar /> &nbsp; {rating} • {reviews} reviews
+                </div>
                 <SlidesPerViewCarousel
                     heading={'What this place offers'}
                     list={[
@@ -288,14 +303,28 @@ const DetailsRD = (props) => {
                     ]}
                     ctaText={'Show all 434 reviews'}
                 />
+                <div style={{ paddingTop: '1rem' }}>
+                    <Button
+                        btnContent={`Show all ${reviews} reviews`}
+                        btnStyleOverride={{
+                            border: '1px solid black',
+                            borderRadius: '10px',
+                            fontWeight: 'bold',
+                            padding: '13px 23px',
+                        }}
+                        onButtonClick={() => alert('Show all reviews clicked!')}
+                    />
+                </div>
             </div>
             <div className='line'></div>
 
+            {/* host info section */}
             <div className='content'>
                 <HostCard roomData={roomData} />
             </div>
             <div className='line'></div>
 
+            {/* house rules section */}
             <div className='content'>
                 <ClickableSection
                     heading={'House rules'}
@@ -305,6 +334,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* health and safety section */}
             <div className='content'>
                 <ClickableSection
                     heading={'Health & safety'}
@@ -314,6 +344,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* cancellation policy section */}
             <div className='content'>
                 <ClickableSection
                     heading={'Cancellation policy'}
@@ -326,6 +357,7 @@ const DetailsRD = (props) => {
             </div>
             <div className='line'></div>
 
+            {/* report section */}
             <div className='content'>
                 <div className='report'>
                     <AiFillFlag />
