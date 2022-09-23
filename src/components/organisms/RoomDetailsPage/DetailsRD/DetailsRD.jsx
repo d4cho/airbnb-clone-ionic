@@ -18,8 +18,11 @@ import {
     getDurationDates,
     getNightsBetweenDates,
 } from '../../../../utils/functions/functions';
+import { useAppContext } from '../../../../context/AppContext';
 
 const DetailsRD = (props) => {
+    const { selectedTripDates, setSelectedTripDates } = useAppContext();
+
     const { roomData } = props;
     const {
         user,
@@ -40,28 +43,23 @@ const DetailsRD = (props) => {
         reviewList,
     } = roomData;
 
-    const [selectedDates, setSelectedDates] = useState([
-        '2022-12-11',
-        '2022-12-16',
-    ]);
-
     const datetime = useRef();
-
     useEffect(() => {
         if (!datetime.current) return;
-        datetime.current.value = selectedDates;
+        datetime.current.value = selectedTripDates;
     }, []);
-
-    console.log('selectedDates', selectedDates);
 
     const handleDateChange = (dates) => {
         if (dates) {
             const latestDate = dates[dates.length - 1];
-            const durationDates = getDurationDates(selectedDates, latestDate);
-            setSelectedDates(durationDates);
+            const durationDates = getDurationDates(
+                selectedTripDates,
+                latestDate
+            );
+            setSelectedTripDates(durationDates);
             datetime.current.value = durationDates;
         } else {
-            setSelectedDates([]);
+            setSelectedTripDates([]);
         }
     };
 
@@ -319,17 +317,17 @@ const DetailsRD = (props) => {
             {/* calendar section */}
             <div className='content'>
                 <div className='heading'>
-                    {selectedDates.length === 0
+                    {selectedTripDates.length === 0
                         ? 'Select check-in date'
-                        : selectedDates.length === 1
+                        : selectedTripDates.length === 1
                         ? 'Selected check-out date'
                         : `${getNightsBetweenDates(
-                              selectedDates
+                              selectedTripDates
                           )} nights in Mill Creek`}
                 </div>
-                {selectedDates.length === 2 ? (
+                {selectedTripDates.length === 2 ? (
                     <div className='fs14 pb font-gray'>
-                        {`${selectedDates[0]} - ${selectedDates[1]}`}
+                        {`${selectedTripDates[0]} - ${selectedTripDates[1]}`}
                     </div>
                 ) : (
                     <div className='fs14 pb font-gray'>

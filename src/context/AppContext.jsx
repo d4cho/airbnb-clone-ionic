@@ -92,6 +92,11 @@ export function AppContextProvider({ children }) {
     //     console.log(offset, scrollDirection);
     // }, [offset, scrollDirection]);
 
+    const [selectedTripDates, setSelectedTripDates] = useState([
+        '2022-12-05',
+        '2022-12-10',
+    ]);
+
     return (
         <AppContext.Provider
             value={{
@@ -107,6 +112,8 @@ export function AppContextProvider({ children }) {
                 scrollDirection,
                 setScrollDirection,
                 handleContentScroll,
+                selectedTripDates,
+                setSelectedTripDates,
             }}
         >
             {children}

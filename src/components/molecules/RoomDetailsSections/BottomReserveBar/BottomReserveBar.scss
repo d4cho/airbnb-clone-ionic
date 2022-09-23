@@ -1,0 +1,39 @@
+@use '../../../../styles/styles.scss' as *;
+
+.BottomReserveBar_container {
+    background-color: $white;
+    border-top: 1px solid $lightgray;
+    color: $black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+
+    .price_dates {
+        line-height: 1.5;
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+
+            .night {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+
+        .dates {
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .text {
+            font-size: 18px;
+        }
+
+        .rating {
+            font-size: 12px;
+        }
+    }
+}
