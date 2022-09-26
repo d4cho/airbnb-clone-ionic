@@ -1,11 +1,10 @@
 import { GoogleMap } from '@capacitor/google-maps';
 import { useRef } from 'react';
+import { GOOGLE_API_KEY } from '../../../utils/keys';
 
 const MyMap: React.FC = () => {
     const mapRef = useRef<HTMLElement>();
     let newMap: GoogleMap;
-
-    const apiKey = 'AIzaSyCx510YXUouJdCWrrNqeYCoZOnP53jBtcA';
 
     async function createMap() {
         if (!mapRef.current) return;
@@ -13,7 +12,7 @@ const MyMap: React.FC = () => {
         newMap = await GoogleMap.create({
             id: 'my-cool-map',
             element: mapRef.current,
-            apiKey: apiKey,
+            apiKey: GOOGLE_API_KEY,
             config: {
                 center: {
                     lat: 33.6,

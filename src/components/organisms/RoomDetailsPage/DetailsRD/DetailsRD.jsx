@@ -20,11 +20,10 @@ import {
 } from '../../../../utils/functions/functions';
 import { useAppContext } from '../../../../context/AppContext';
 
-import { GoogleMap } from '@capacitor/google-maps';
+// import { GoogleMap } from '@capacitor/google-maps';
 
 const DetailsRD = (props) => {
     const { selectedTripDates, setSelectedTripDates } = useAppContext();
-
     const { roomData } = props;
     const {
         user,
@@ -45,10 +44,12 @@ const DetailsRD = (props) => {
         reviewList,
     } = roomData;
 
-    const datetime = useRef();
+    const dateTimeRef = useRef();
+    const hostSectionRef = useRef();
+
     useEffect(() => {
-        if (!datetime.current) return;
-        datetime.current.value = selectedTripDates;
+        if (!dateTimeRef.current) return;
+        dateTimeRef.current.value = selectedTripDates;
     }, []);
 
     const handleDateChange = (dates) => {
@@ -59,7 +60,7 @@ const DetailsRD = (props) => {
                 latestDate
             );
             setSelectedTripDates(durationDates);
-            datetime.current.value = durationDates;
+            dateTimeRef.current.value = durationDates;
         } else {
             setSelectedTripDates([]);
         }
@@ -134,7 +135,12 @@ const DetailsRD = (props) => {
                                 Entire {type} hosted by {user}
                             </div>
                         </IonCol>
-                        <IonCol className='ion-align-self-center flex-end'>
+                        <IonCol
+                            className='ion-align-self-center flex-end'
+                            onClick={() =>
+                                hostSectionRef.current.scrollIntoView()
+                            }
+                        >
                             <Avatar imageUrl={userAvatarUrl} />
                         </IonCol>
                     </IonRow>
@@ -337,7 +343,7 @@ const DetailsRD = (props) => {
                     </div>
                 )}
                 <IonDatetime
-                    ref={datetime}
+                    ref={dateTimeRef}
                     presentation='date'
                     multiple={true}
                     onIonChange={(value) =>
@@ -376,7 +382,7 @@ const DetailsRD = (props) => {
             <div className='line'></div>
 
             {/* host info section */}
-            <div className='content'>
+            <div className='content' ref={hostSectionRef}>
                 <HostCard roomData={roomData} />
             </div>
             <div className='line'></div>
