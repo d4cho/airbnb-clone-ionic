@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './DetailsRD.scss';
 import { AiFillStar, AiFillFlag, AiOutlineCar } from 'react-icons/ai';
 import { BiMedal, BiBath } from 'react-icons/bi';
@@ -19,6 +19,8 @@ import {
     getNightsBetweenDates,
 } from '../../../../utils/functions/functions';
 import { useAppContext } from '../../../../context/AppContext';
+
+import { GoogleMap } from '@capacitor/google-maps';
 
 const DetailsRD = (props) => {
     const { selectedTripDates, setSelectedTripDates } = useAppContext();
@@ -302,7 +304,7 @@ const DetailsRD = (props) => {
                 <div
                     style={{ border: '1px solid red', width: 342, height: 218 }}
                 >
-                    map
+                    {/* <GoogleMap /> */}
                 </div>
                 <div className='bold padding-top-bot'>{location}</div>
                 <div>

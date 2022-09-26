@@ -97,6 +97,14 @@ export function AppContextProvider({ children }) {
         '2022-12-10',
     ]);
 
+    const [geolocation, setGeolocation] = useState({
+        latitude: '',
+        longitude: '',
+    });
+    React.useEffect(() => {
+        console.log('geolocation', geolocation);
+    }, [geolocation]);
+
     return (
         <AppContext.Provider
             value={{
@@ -114,6 +122,8 @@ export function AppContextProvider({ children }) {
                 handleContentScroll,
                 selectedTripDates,
                 setSelectedTripDates,
+                geolocation,
+                setGeolocation,
             }}
         >
             {children}

@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
     IonApp,
@@ -44,12 +45,27 @@ import { FaAirbnb } from 'react-icons/fa';
 import { BiMessage } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import RoomDetailsPage from './pages/RoomDetailsPage';
-// import { useAppContext } from './context/AppContext';
+import { useAppContext } from './context/AppContext';
+
+/* geolocation */
+import { Geolocation } from '@capacitor/geolocation';
 
 setupIonicReact();
 
 const App: React.FC = () => {
-    // const { offset, scrollDirection } = useAppContext();
+    const { setGeolocation } = useAppContext();
+
+    useEffect(() => {
+        const printCurrentPosition = async () => {
+            const coordinates = await Geolocation.getCurrentPosition();
+            const currentGeolocation = {
+                latitude: coordinates.coords.latitude,
+                longitude: coordinates.coords.longitude,
+            };
+            setGeolocation(currentGeolocation);
+        };
+        printCurrentPosition();
+    }, []);
 
     const iconStyle = {
         fontSize: 26,
