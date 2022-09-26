@@ -101,9 +101,9 @@ export function AppContextProvider({ children }) {
         latitude: '',
         longitude: '',
     });
-    React.useEffect(() => {
-        console.log('geolocation', geolocation);
-    }, [geolocation]);
+    // React.useEffect(() => {
+    //     console.log('geolocation', geolocation);
+    // }, [geolocation]);
 
     return (
         <AppContext.Provider

@@ -1,10 +1,4 @@
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-} from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 import './RoomDetailsPage.scss';
 import { roomsData } from '../assets/data/rooms-data';
 import { useParams } from 'react-router';

@@ -81,6 +81,32 @@ export const roomsData = [
                 reviewText: 'great stay',
             },
         ],
+        reviewCriteria: [
+            {
+                criteria: 'Cleanliness',
+                rating: 4.7,
+            },
+            {
+                criteria: 'Accuracy',
+                rating: 3.8,
+            },
+            {
+                criteria: 'Communication',
+                rating: 4.9,
+            },
+            {
+                criteria: 'Location',
+                rating: 2.9,
+            },
+            {
+                criteria: 'Check-in',
+                rating: 4.9,
+            },
+            {
+                criteria: 'Value',
+                rating: 1.7,
+            },
+        ],
         superHost: true,
         rare: true,
         guests: 4,

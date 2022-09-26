@@ -19,11 +19,18 @@ import {
     getNightsBetweenDates,
 } from '../../../../utils/functions/functions';
 import { useAppContext } from '../../../../context/AppContext';
+import Modal from '../../Modal/Modal';
+import ReviewsModalPage from '../../../views/ReviewsModalPage.jsx/ReviewsModalPage';
 
 // import { GoogleMap } from '@capacitor/google-maps';
 
 const DetailsRD = (props) => {
-    const { selectedTripDates, setSelectedTripDates } = useAppContext();
+    const {
+        isModalOpen,
+        setIsModalOpen,
+        selectedTripDates,
+        setSelectedTripDates,
+    } = useAppContext();
     const { roomData } = props;
     const {
         user,
@@ -42,10 +49,16 @@ const DetailsRD = (props) => {
         desc,
         roomImages,
         reviewList,
+        reviewCriteria,
     } = roomData;
 
     const dateTimeRef = useRef();
     const hostSectionRef = useRef();
+    const modalRef = useRef(null);
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        modalRef.current?.dismiss();
+    };
 
     useEffect(() => {
         if (!dateTimeRef.current) return;
@@ -69,14 +82,17 @@ const DetailsRD = (props) => {
     const reviewListArr = reviewList.map((reviewInfo, idx) => {
         return (
             <React.Fragment key={idx}>
-                <ReviewCard reviewInfo={reviewInfo} />
+                <ReviewCard
+                    reviewInfo={reviewInfo}
+                    handleShowMoreClick={() => setIsModalOpen(true)}
+                />
             </React.Fragment>
         );
     });
     reviewListArr.push(
-        <React.Fragment key={'showAllCard'}>
+        <div key={'showAllCard'} onClick={() => setIsModalOpen(true)}>
             <ReviewCard reviews={reviews} isShowAll />
-        </React.Fragment>
+        </div>
     );
 
     return (
@@ -89,7 +105,12 @@ const DetailsRD = (props) => {
                         <AiFillStar /> {rating}
                     </span>
                     <span>&nbsp;•&nbsp;</span>
-                    <span className='underline'>{reviews} reviews</span>
+                    <span
+                        className='underline'
+                        onClick={() => setIsModalOpen(true)}
+                    >
+                        {reviews} reviews
+                    </span>
                     <span>&nbsp;•&nbsp;</span>
                     {superHost && (
                         <span>
@@ -375,7 +396,7 @@ const DetailsRD = (props) => {
                             fontWeight: 'bold',
                             padding: '13px 23px',
                         }}
-                        onButtonClick={() => alert('Show all reviews clicked!')}
+                        onButtonClick={() => setIsModalOpen(true)}
                     />
                 </div>
             </div>
@@ -428,6 +449,20 @@ const DetailsRD = (props) => {
                     <span className='bold underline'>Report this listing</span>
                 </div>
             </div>
+
+            <Modal
+                isModalOpen={isModalOpen}
+                modalRef={modalRef}
+                modalContent={
+                    <ReviewsModalPage
+                        handleModalClose={handleModalClose}
+                        rating={rating}
+                        reviews={reviews}
+                        reviewList={reviewList}
+                        reviewCriteria={reviewCriteria}
+                    />
+                }
+            />
         </div>
     );
 };
