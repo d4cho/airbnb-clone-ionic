@@ -19,19 +19,12 @@ import {
     getNightsBetweenDates,
 } from '../../../../utils/functions/functions';
 import { useAppContext } from '../../../../context/AppContext';
-import Modal from '../../Modal/Modal';
-import ReviewsModalPage from '../../../views/ReviewsModalPage.jsx/ReviewsModalPage';
 
 // import { GoogleMap } from '@capacitor/google-maps';
 
 const DetailsRD = (props) => {
-    const {
-        isModalOpen,
-        setIsModalOpen,
-        selectedTripDates,
-        setSelectedTripDates,
-    } = useAppContext();
-    const { roomData } = props;
+    const { selectedTripDates, setSelectedTripDates } = useAppContext();
+    const { roomData, handleModalOpen } = props;
     const {
         user,
         userAvatarUrl,
@@ -49,21 +42,15 @@ const DetailsRD = (props) => {
         desc,
         roomImages,
         reviewList,
-        reviewCriteria,
     } = roomData;
-
-    const dateTimeRef = useRef();
-    const hostSectionRef = useRef();
-    const modalRef = useRef(null);
-    const handleModalClose = () => {
-        setIsModalOpen(false);
-        modalRef.current?.dismiss();
-    };
 
     useEffect(() => {
         if (!dateTimeRef.current) return;
         dateTimeRef.current.value = selectedTripDates;
     }, []);
+
+    const dateTimeRef = useRef();
+    const hostSectionRef = useRef();
 
     const handleDateChange = (dates) => {
         if (dates) {
@@ -84,13 +71,13 @@ const DetailsRD = (props) => {
             <React.Fragment key={idx}>
                 <ReviewCard
                     reviewInfo={reviewInfo}
-                    handleShowMoreClick={() => setIsModalOpen(true)}
+                    handleShowMoreClick={() => handleModalOpen('reviews')}
                 />
             </React.Fragment>
         );
     });
     reviewListArr.push(
-        <div key={'showAllCard'} onClick={() => setIsModalOpen(true)}>
+        <div key={'showAllCard'} onClick={() => handleModalOpen('reviews')}>
             <ReviewCard reviews={reviews} isShowAll />
         </div>
     );
@@ -107,7 +94,7 @@ const DetailsRD = (props) => {
                     <span>&nbsp;•&nbsp;</span>
                     <span
                         className='underline'
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() => handleModalOpen('reviews')}
                     >
                         {reviews} reviews
                     </span>
@@ -396,7 +383,7 @@ const DetailsRD = (props) => {
                             fontWeight: 'bold',
                             padding: '13px 23px',
                         }}
-                        onButtonClick={() => setIsModalOpen(true)}
+                        onButtonClick={() => handleModalOpen('reviews')}
                     />
                 </div>
             </div>
@@ -449,20 +436,6 @@ const DetailsRD = (props) => {
                     <span className='bold underline'>Report this listing</span>
                 </div>
             </div>
-
-            <Modal
-                isModalOpen={isModalOpen}
-                modalRef={modalRef}
-                modalContent={
-                    <ReviewsModalPage
-                        handleModalClose={handleModalClose}
-                        rating={rating}
-                        reviews={reviews}
-                        reviewList={reviewList}
-                        reviewCriteria={reviewCriteria}
-                    />
-                }
-            />
         </div>
     );
 };

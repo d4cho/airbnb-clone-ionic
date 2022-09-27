@@ -8,7 +8,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FiShare } from 'react-icons/fi';
 
 const ImageCarouselRD = (props) => {
-    const { roomData } = props;
+    const { roomData, handleModalOpen } = props;
 
     const btnStyle = {
         backgroundColor: '#FFF',
@@ -43,13 +43,15 @@ const ImageCarouselRD = (props) => {
                     onButtonClick={() => alert('add to wishlist!')}
                 />
             </div>
-            <Carousel
-                list={roomData.images}
-                paginationType='fraction'
-                imageStyleOverride={{
-                    height: '260px',
-                }}
-            />
+            <div onClick={() => handleModalOpen('images')}>
+                <Carousel
+                    list={roomData.images}
+                    paginationType='fraction'
+                    imageStyleOverride={{
+                        height: '260px',
+                    }}
+                />
+            </div>
         </div>
     );
 };

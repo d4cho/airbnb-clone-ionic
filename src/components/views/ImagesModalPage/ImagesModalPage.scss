@@ -1,0 +1,15 @@
+@use '../../../styles/styles.scss' as *;
+
+.ImagesModalPage_container {
+    .ImagesModalPage_header {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid red;
+    }
+
+    .ImagesModalPage_content {
+        background: green;
+    }
+}
