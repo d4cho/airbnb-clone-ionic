@@ -46,7 +46,12 @@ const RoomDetailsPage: React.FC = () => {
                 );
 
             case 'images':
-                return <ImagesModalPage handleModalClose={handleModalClose} />;
+                return (
+                    <ImagesModalPage
+                        roomData={roomData}
+                        handleModalClose={handleModalClose}
+                    />
+                );
 
             default:
                 return <div>test</div>;

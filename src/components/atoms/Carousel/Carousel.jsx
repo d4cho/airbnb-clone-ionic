@@ -2,7 +2,7 @@ import React from 'react';
 import './Carousel.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import { Pagination, FreeMode } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -18,6 +18,8 @@ const Carousel = (props) => {
         titleStyleOverride,
         textStyleOverride,
         centeredSlides,
+        freeMode,
+        loop,
     } = props;
 
     const handlePaginationType = () => {
@@ -38,9 +40,11 @@ const Carousel = (props) => {
             <Swiper
                 slidesPerView={slidesPerView || 1}
                 spaceBetween={spaceBetweenSlides || 0}
-                modules={[Pagination]}
+                modules={[Pagination, FreeMode]}
                 pagination={handlePaginationType()}
                 centeredSlides={centeredSlides}
+                freeMode={freeMode}
+                loop={loop}
             >
                 {props.children
                     ? props.children.map((item, idx) => {

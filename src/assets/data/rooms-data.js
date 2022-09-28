@@ -50,6 +50,53 @@ export const roomsData = [
                 desc: '1 queen bed',
             },
         ],
+        propertyOverviewImages: [
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/e17b43c3-2751-4c0e-9d98-37c1fd6e921c.jpeg?im_w=720',
+                title: 'Living room',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/c51d63b4-6ded-494c-8821-253bae3e9ad2.jpg?im_w=720',
+                title: 'Full kitchen',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/af36ecd7-88a1-487d-b025-d511353ea0b1.jpg?im_w=720',
+                title: 'Bedroom 1',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/e17b43c3-2751-4c0e-9d98-37c1fd6e921c.jpeg?im_w=720',
+                title: 'Bedroom 2',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/5b796622-62f3-4847-b3aa-e272908de168.jpg?im_w=720',
+                title: 'Full bathroom',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/ad252311-ca94-49cc-92dd-49064771066d.jpeg?im_w=720',
+                title: 'Dining room',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/0f5b6d32-e1cb-4a7e-affa-08ad494bed46.jpg?im_w=720',
+                title: 'Exterior',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/773a2e4a-09af-473b-b0fe-ef76290a139a.jpg?im_w=720',
+                title: 'Patio',
+                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/2a9c9cb9-e959-4fbb-9454-3524505abaef.jpeg?im_w=720',
+                title: 'Additional photos',
+                desc: '',
+            },
+        ],
         category: ['Tiny homes'],
         // room details
         user: 'Elijah',
