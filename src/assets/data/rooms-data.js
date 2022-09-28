@@ -9,23 +9,15 @@ export const roomsData = [
         images: [
             {
                 url: 'https://a0.muscache.com/im/pictures/f9032a08-240f-4dfe-8470-23871c140206.jpg?aki_policy=large',
-                title: '',
-                desc: '',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/5ed56ffd-7214-4f55-8a01-6a25fa144e7c.jpg?aki_policy=large',
-                title: '',
-                desc: '',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/miso/Hosting-628115915521232124/original/c3ac8b60-9230-4a0b-9554-448a838f0b8c.jpeg?aki_policy=large',
-                title: '',
-                desc: '',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/3f4fcc31-f77c-4260-a575-88338dfa8446.jpg?aki_policy=large',
-                title: '',
-                desc: '',
             },
         ],
         roomImages: [
@@ -50,51 +42,123 @@ export const roomsData = [
                 desc: '1 queen bed',
             },
         ],
-        propertyOverviewImages: [
+        categorizedImages: [
             {
                 url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/e17b43c3-2751-4c0e-9d98-37c1fd6e921c.jpeg?im_w=720',
+                category: 'livingRoom',
                 title: 'Living room',
-                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/b93d9002-7689-446b-af66-90e15b34ee72.jpeg?im_w=720',
+                category: 'livingRoom',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/9dd35223-7273-4129-bc8f-212912e4c4c8.jpeg?im_w=720',
+                category: 'livingRoom',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/1f53a8d9-5797-4f22-a5cb-c05437646599.jpeg?im_w=720',
+                category: 'livingRoom',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/c67ab105-61af-4576-9803-b927fccc2e1b.jpeg?im_w=720',
+                category: 'livingRoom',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/c01aa4d0-9c2e-4c3d-80d7-1055242d8759.jpeg?im_w=720',
+                category: 'livingRoom',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/c51d63b4-6ded-494c-8821-253bae3e9ad2.jpg?im_w=720',
+                category: 'fullKitchen',
                 title: 'Full kitchen',
-                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/69a01d23-c872-4e2a-b771-d667711c77af.jpeg?im_w=720',
+                category: 'fullKitchen',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/5936aabb-754d-4ff7-90f8-f7c750be04fd.jpeg?im_w=720',
+                category: 'fullKitchen',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/44661cb5-87a8-46f6-8aeb-8a63edcc7463.jpg?im_w=720',
+                category: 'fullKitchen',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/af36ecd7-88a1-487d-b025-d511353ea0b1.jpg?im_w=720',
+                category: 'bedroom1',
                 title: 'Bedroom 1',
-                desc: '',
             },
             {
-                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/e17b43c3-2751-4c0e-9d98-37c1fd6e921c.jpeg?im_w=720',
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/38626e59-7314-4f25-836f-bfc5d31698bf.jpeg?im_w=720',
+                category: 'bedroom1',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/7fa34f55-12e8-4a78-9f1a-48b2b6fce0e5.jpeg?im_w=720',
+                category: 'bedroom1',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/20a210f4-b89d-4fce-8c31-fe08a25da679.jpeg?im_w=720',
+                category: 'bedroom2',
                 title: 'Bedroom 2',
-                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/cfd5a1a9-103f-4e07-b0e7-ac6197328669.jpeg?im_w=720',
+                category: 'bedroom2',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/16397f47-c446-417b-a75d-97f9fd2f95b0.jpeg?im_w=720',
+                category: 'bedroom2',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/5b796622-62f3-4847-b3aa-e272908de168.jpg?im_w=720',
+                category: 'fullBathroom',
                 title: 'Full bathroom',
-                desc: '',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/ad252311-ca94-49cc-92dd-49064771066d.jpeg?im_w=720',
+                category: 'diningRoom',
                 title: 'Dining room',
-                desc: '',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/0f5b6d32-e1cb-4a7e-affa-08ad494bed46.jpg?im_w=720',
+                category: 'exterior',
                 title: 'Exterior',
-                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/e31786cc-87e6-4202-b3b7-8deb221623cf.jpg?im_w=720',
+                category: 'exterior',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/5576a7da-673c-4035-88fb-f4d31f1e7c0c.jpg?im_w=720',
+                category: 'exterior',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/f6f4c42c-ec9b-41d4-9810-f3a1774ad1de.jpg?im_w=720',
+                category: 'exterior',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/2643f865-a131-4ec5-83f3-4a282053aaa8.jpeg?im_w=720',
+                category: 'exterior',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/2e314371-061a-4cd0-b356-df14528dfe29.jpg?im_w=720',
+                category: 'exterior',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/773a2e4a-09af-473b-b0fe-ef76290a139a.jpg?im_w=720',
+                category: 'patio',
                 title: 'Patio',
-                desc: '',
+            },
+            {
+                url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/f5f25ba2-3723-46ee-9d04-6b1e5f3ce4cb.jpeg?im_w=720',
+                category: 'patio',
             },
             {
                 url: 'https://a0.muscache.com/im/pictures/miso/Hosting-22995081/original/2a9c9cb9-e959-4fbb-9454-3524505abaef.jpeg?im_w=720',
+                category: 'additionalPhotos',
                 title: 'Additional photos',
-                desc: '',
             },
         ],
         category: ['Tiny homes'],

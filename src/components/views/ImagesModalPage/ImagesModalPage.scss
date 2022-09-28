@@ -6,19 +6,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid red;
     }
 
     .ImagesModalPage_content {
-        border: 1px solid blue;
-
         .title {
             font-size: 22px;
-            padding: 0 1.5rem 1.5rem;
+            font-weight: 600;
+            padding: 2rem 1.5rem 1.5rem;
         }
 
         .divider {
-            margin: 3rem 1.5rem;
+            margin: 3rem 1.5rem 1.5rem;
             border-bottom: 1px solid $lightgray;
         }
 
