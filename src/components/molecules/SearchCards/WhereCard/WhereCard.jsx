@@ -5,7 +5,8 @@ import './WhereCard.scss';
 import { whereCardData } from '../../../../assets/data/where-card-data';
 import { useAppContext } from '../../../../context/AppContext';
 
-const WhereCard = () => {
+const WhereCard = (props) => {
+    const { setIsSearchDestination } = props;
     const { searchData, setSearchData } = useAppContext();
 
     const updateSearchData = (destination) => {
@@ -31,7 +32,7 @@ const WhereCard = () => {
             <div className='title'>Where to?</div>
             <div className='button'>
                 <Button
-                    onButtonClick={() => alert('Search destinations clicked!')}
+                    onButtonClick={() => setIsSearchDestination(true)}
                     btnContent={
                         <>
                             <BiSearch />

@@ -7,12 +7,19 @@ import WhenCard from './WhenCard/WhenCard';
 
 const SearchCards = (props) => {
     const { isModalOpen } = useAppContext();
-    const { isExpanded, handleCardClick, searchCardsContent } = props;
+    const {
+        isExpanded,
+        handleCardClick,
+        searchCardsContent,
+        setIsSearchDestination,
+    } = props;
     const { collapsedTitle, collapsedDefaultText } = searchCardsContent;
 
     const renderCard = () => {
         if (searchCardsContent.collapsedTitle === 'Where') {
-            return <WhereCard />;
+            return (
+                <WhereCard setIsSearchDestination={setIsSearchDestination} />
+            );
         } else if (searchCardsContent.collapsedTitle === 'When') {
             return <WhenCard />;
         } else {

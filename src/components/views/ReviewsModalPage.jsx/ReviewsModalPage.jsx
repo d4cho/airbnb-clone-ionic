@@ -39,7 +39,10 @@ const ReviewsModalPage = (props) => {
                         <AiFillStar /> &nbsp;{rating} • {reviews} reviews
                     </div>
                     <div className='search_reviews'>
-                        <TextInput icon={<AiOutlineSearch size={26} />} />
+                        <TextInput
+                            icon={<AiOutlineSearch size={26} />}
+                            placeholderText={'Search reviews'}
+                        />
                     </div>
                 </div>
 

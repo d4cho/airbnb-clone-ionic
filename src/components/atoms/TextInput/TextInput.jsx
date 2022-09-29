@@ -3,7 +3,7 @@ import './TextInput.scss';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
 const TextInput = (props) => {
-    const { icon } = props;
+    const { icon, placeholderText } = props;
     const [textValue, setTextValue] = useState('');
 
     return (
@@ -13,7 +13,7 @@ const TextInput = (props) => {
                 type='text'
                 value={textValue}
                 onChange={(e) => setTextValue(e.target.value)}
-                placeholder='Search reviews'
+                placeholder={placeholderText}
                 style={{ paddingLeft: icon ? '3rem' : '1rem' }}
             />
             {textValue && (
