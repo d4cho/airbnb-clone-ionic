@@ -3,7 +3,7 @@ import './ImagesGridLayout.scss';
 import { IonGrid, IonRow, IonCol } from '@ionic/react';
 
 const ImagesGridLayout = (props) => {
-    const { images } = props;
+    const { images, onImageClick } = props;
 
     const gridifyImages = (imagesArr) => {
         let imagesGrid = [];
@@ -19,6 +19,9 @@ const ImagesGridLayout = (props) => {
                                         className='side_by_side_img'
                                         src={imagesArr[i].url}
                                         alt={imagesArr[i].category + i}
+                                        onClick={() =>
+                                            onImageClick(imagesArr[i].url)
+                                        }
                                     />
                                 </IonCol>
                                 <IonCol className='pad-l-2'>
@@ -26,6 +29,9 @@ const ImagesGridLayout = (props) => {
                                         className='side_by_side_img'
                                         src={imagesArr[i + 1].url}
                                         alt={imagesArr[i + 1].category + i + 1}
+                                        onClick={() =>
+                                            onImageClick(imagesArr[i + 1].url)
+                                        }
                                     />
                                 </IonCol>
                             </IonRow>
@@ -44,6 +50,9 @@ const ImagesGridLayout = (props) => {
                                         className='single_img'
                                         src={imagesArr[i].url}
                                         alt={imagesArr[i].category + i}
+                                        onClick={() =>
+                                            onImageClick(imagesArr[i].url)
+                                        }
                                     />
                                 </IonCol>
                             </IonRow>
@@ -55,6 +64,9 @@ const ImagesGridLayout = (props) => {
                                         className='side_by_side_img'
                                         src={imagesArr[i + 1].url}
                                         alt={imagesArr[i + 1].category + i + 1}
+                                        onClick={() =>
+                                            onImageClick(imagesArr[i + 1].url)
+                                        }
                                     />
                                 </IonCol>
                                 <IonCol className='pad-l-2'>
@@ -62,6 +74,9 @@ const ImagesGridLayout = (props) => {
                                         className='side_by_side_img'
                                         src={imagesArr[i + 2].url}
                                         alt={imagesArr[i + 2].category + i + 2}
+                                        onClick={() =>
+                                            onImageClick(imagesArr[i + 2].url)
+                                        }
                                     />
                                 </IonCol>
                             </IonRow>
@@ -80,15 +95,6 @@ const ImagesGridLayout = (props) => {
                 return <React.Fragment key={idx}>{item}</React.Fragment>;
             })}
         </div>
-        // <IonGrid>
-        //     <IonRow>
-        //         <IonCol></IonCol>
-        //     </IonRow>
-        //     <IonRow>
-        //         <IonCol></IonCol>
-        //         <IonCol></IonCol>
-        //     </IonRow>
-        // </IonGrid>
     );
 };
 

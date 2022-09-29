@@ -1,12 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './ImagesModalPage.scss';
 import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import { FiChevronLeft, FiShare } from 'react-icons/fi';
 import Carousel from '../../atoms/Carousel/Carousel';
 import ImagesGridLayout from '../../organisms/ImagesGridLayout/ImagesGridLayout';
+import Modal from '../../organisms/Modal/Modal';
+import GalleryModalPage from '../GalleryModalPage/GalleryModalPage';
 
 const ImagesModalPage = (props) => {
     const { roomData, handleModalClose } = props;
+    const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+    const galleryModalRef = useRef();
+
+    const handleGalleryModalClose = () => {
+        setIsGalleryModalOpen(false);
+        galleryModalRef.current?.dismiss();
+    };
 
     const livingRoomRef = useRef();
     const fullKitchenRef = useRef();
@@ -86,6 +97,14 @@ const ImagesModalPage = (props) => {
         );
     };
 
+    const handleImageClick = (url) => {
+        const selectedImgIdx = roomData.categorizedImages.findIndex(
+            (el) => el.url === url
+        );
+        setSelectedImageIndex(selectedImgIdx);
+        setIsGalleryModalOpen(true);
+    };
+
     return (
         <IonPage className='ImagesModalPage_container'>
             <IonHeader className='ImagesModalPage_header'>
@@ -108,6 +127,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('livingRoom')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -119,6 +139,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('fullKitchen')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -130,6 +151,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('bedroom1')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -141,6 +163,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('bedroom2')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -152,6 +175,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('fullBathroom')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -163,6 +187,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('diningRoom')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -174,6 +199,7 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('exterior')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
@@ -183,7 +209,10 @@ const ImagesModalPage = (props) => {
                         <div ref={patioRef} className='title'>
                             Patio
                         </div>
-                        <ImagesGridLayout images={getFilteredImages('patio')} />
+                        <ImagesGridLayout
+                            images={getFilteredImages('patio')}
+                            onImageClick={(url) => handleImageClick(url)}
+                        />
                     </>
                 )}
 
@@ -194,9 +223,22 @@ const ImagesModalPage = (props) => {
                         </div>
                         <ImagesGridLayout
                             images={getFilteredImages('additionalPhotos')}
+                            onImageClick={(url) => handleImageClick(url)}
                         />
                     </>
                 )}
+
+                <Modal
+                    isModalOpen={isGalleryModalOpen}
+                    modalRef={galleryModalRef}
+                    modalContent={
+                        <GalleryModalPage
+                            images={roomData.categorizedImages}
+                            onBackClick={handleGalleryModalClose}
+                            selectedImageIndex={selectedImageIndex}
+                        />
+                    }
+                />
             </IonContent>
         </IonPage>
     );

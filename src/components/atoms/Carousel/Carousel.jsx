@@ -20,6 +20,8 @@ const Carousel = (props) => {
         centeredSlides,
         freeMode,
         loop,
+        isFullHeight,
+        initialSlide,
     } = props;
 
     const handlePaginationType = () => {
@@ -35,8 +37,12 @@ const Carousel = (props) => {
         }
     };
 
+    const fullHeight = {
+        height: '100%',
+    };
+
     return (
-        <div className='Carousel_container'>
+        <div className='Carousel_container' style={isFullHeight && fullHeight}>
             <Swiper
                 slidesPerView={slidesPerView || 1}
                 spaceBetween={spaceBetweenSlides || 0}
@@ -45,10 +51,19 @@ const Carousel = (props) => {
                 centeredSlides={centeredSlides}
                 freeMode={freeMode}
                 loop={loop}
+                style={isFullHeight && fullHeight}
+                initialSlide={initialSlide || 0}
             >
                 {props.children
                     ? props.children.map((item, idx) => {
-                          return <SwiperSlide key={idx}>{item}</SwiperSlide>;
+                          return (
+                              <SwiperSlide
+                                  key={idx}
+                                  style={isFullHeight && fullHeight}
+                              >
+                                  {item}
+                              </SwiperSlide>
+                          );
                       })
                     : list.map((item, idx) => {
                           return (
@@ -86,41 +101,6 @@ const Carousel = (props) => {
                               </SwiperSlide>
                           );
                       })}
-                {/* {list.map((item, idx) => {
-                    return (
-                        <SwiperSlide
-                            key={idx}
-                            style={{
-                                '--slideWidth': slideWidth
-                                    ? `${slideWidth}px`
-                                    : '100%',
-                                '--slideHeight': slideHeight
-                                    ? `${slideHeight}px`
-                                    : '100%',
-                            }}
-                        >
-                            <>
-                                <div
-                                    style={{
-                                        ...imageStyleOverride,
-                                        '--url': `url(${item.url})`,
-                                    }}
-                                    className='slide_image'
-                                />
-                                {item.title && (
-                                    <div style={titleStyleOverride}>
-                                        {item.title}
-                                    </div>
-                                )}
-                                {item.desc && (
-                                    <div style={textStyleOverride}>
-                                        {item.desc}
-                                    </div>
-                                )}
-                            </>
-                        </SwiperSlide>
-                    );
-                })} */}
             </Swiper>
         </div>
     );
