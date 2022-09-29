@@ -20,7 +20,7 @@ import {
 } from '../../../../utils/functions/functions';
 import { useAppContext } from '../../../../context/AppContext';
 
-// import { GoogleMap } from '@capacitor/google-maps';
+import GoogleMap from '../../../atoms/GoogleMap/GoogleMap';
 
 const DetailsRD = (props) => {
     const { selectedTripDates, setSelectedTripDates } = useAppContext();
@@ -315,10 +315,8 @@ const DetailsRD = (props) => {
             {/* where you'll be section */}
             <div className='content'>
                 <div className='heading'>Where you'll be</div>
-                <div
-                    style={{ border: '1px solid red', width: 342, height: 218 }}
-                >
-                    {/* <GoogleMap /> */}
+                <div style={{ width: 342, height: 218 }}>
+                    <GoogleMap />
                 </div>
                 <div className='bold padding-top-bot'>{location}</div>
                 <div>
