@@ -8,6 +8,7 @@ import SearchCards from '../../molecules/SearchCards/SearchCards';
 import { useAppContext } from '../../../context/AppContext';
 import { capitalizeFirstLetter } from '../../../utils/functions/functions';
 import SearchDestinationCard from '../../molecules/SearchDestinationCard/SearchDestinationCard';
+import { Link } from 'react-router-dom';
 
 const SearchModalPage = (props) => {
     const { closeModal } = props;
@@ -50,7 +51,7 @@ const SearchModalPage = (props) => {
     };
 
     const handleSearchClick = () => {
-        alert('search clicked!');
+        closeModal();
     };
 
     const whoCardCollapsedDefaultText = () => {
@@ -156,6 +157,7 @@ const SearchModalPage = (props) => {
                                     searchData?.where?.destination ||
                                     "I'm flexible",
                             }}
+                            setSelectedCard={setSelectedCard}
                             setIsSearchDestination={setIsSearchDestination}
                         />
                         <SearchCards
@@ -166,6 +168,7 @@ const SearchModalPage = (props) => {
                                 collapsedDefaultText:
                                     whenCardCollapsedDefaultText(),
                             }}
+                            setSelectedCard={setSelectedCard}
                         />
                         <SearchCards
                             handleCardClick={handleCardClick}
@@ -175,24 +178,27 @@ const SearchModalPage = (props) => {
                                 collapsedDefaultText:
                                     whoCardCollapsedDefaultText(),
                             }}
+                            setSelectedCard={setSelectedCard}
                         />
                     </div>
                     <div className='bottom'>
                         <div className='clear' onClick={handleClearAll}>
                             Clear all
                         </div>
-                        <Button
-                            onButtonClick={handleSearchClick}
-                            btnContent={
-                                <>
-                                    <BiSearch />
-                                    <span style={{ paddingLeft: '0.5rem' }}>
-                                        Search
-                                    </span>
-                                </>
-                            }
-                            btnStyleOverride={searchBtnStyle}
-                        />
+                        <Link to={`/search-results`}>
+                            <Button
+                                onButtonClick={handleSearchClick}
+                                btnContent={
+                                    <>
+                                        <BiSearch />
+                                        <span style={{ paddingLeft: '0.5rem' }}>
+                                            Search
+                                        </span>
+                                    </>
+                                }
+                                btnStyleOverride={searchBtnStyle}
+                            />
+                        </Link>
                     </div>
                 </>
             )}

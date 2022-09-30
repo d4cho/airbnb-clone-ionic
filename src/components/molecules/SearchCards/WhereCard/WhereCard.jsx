@@ -6,7 +6,7 @@ import { whereCardData } from '../../../../assets/data/where-card-data';
 import { useAppContext } from '../../../../context/AppContext';
 
 const WhereCard = (props) => {
-    const { setIsSearchDestination } = props;
+    const { setIsSearchDestination, setSelectedCard } = props;
     const { searchData, setSearchData } = useAppContext();
 
     const updateSearchData = (destination) => {
@@ -16,6 +16,8 @@ const WhereCard = (props) => {
                 destination: destination,
             },
         });
+
+        setSelectedCard('When');
     };
 
     const searchBtnStyle = {

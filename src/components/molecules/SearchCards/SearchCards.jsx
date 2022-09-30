@@ -12,16 +12,20 @@ const SearchCards = (props) => {
         handleCardClick,
         searchCardsContent,
         setIsSearchDestination,
+        setSelectedCard,
     } = props;
     const { collapsedTitle, collapsedDefaultText } = searchCardsContent;
 
     const renderCard = () => {
         if (searchCardsContent.collapsedTitle === 'Where') {
             return (
-                <WhereCard setIsSearchDestination={setIsSearchDestination} />
+                <WhereCard
+                    setIsSearchDestination={setIsSearchDestination}
+                    setSelectedCard={setSelectedCard}
+                />
             );
         } else if (searchCardsContent.collapsedTitle === 'When') {
-            return <WhenCard />;
+            return <WhenCard setSelectedCard={setSelectedCard} />;
         } else {
             return <WhoCard />;
         }
@@ -33,7 +37,7 @@ const SearchCards = (props) => {
                 className={`SearchCards_container ${
                     isExpanded ? 'shadow' : ''
                 }`}
-                onClick={() => handleCardClick(collapsedTitle)}
+                // onClick={() => handleCardClick(collapsedTitle)}
             >
                 <div className='expanded_container'>{renderCard()}</div>
             </div>
