@@ -11,7 +11,7 @@ import SearchDestinationCard from '../../molecules/SearchDestinationCard/SearchD
 import { Link } from 'react-router-dom';
 
 const SearchModalPage = (props) => {
-    const { closeModal } = props;
+    const { closeModal, isFromSearchResults } = props;
     const [selectedTab, setSelectedTab] = useState('Stays');
     const [selectedCard, setSelectedCard] = useState('Where');
     const [isSearchDestination, setIsSearchDestination] = useState(false);
@@ -34,7 +34,9 @@ const SearchModalPage = (props) => {
     };
 
     const handleCloseClick = () => {
-        resetSearchData();
+        if (!isFromSearchResults) {
+            resetSearchData();
+        }
         setSelectedTab('Stays');
         setSelectedCard('Where');
         closeModal();

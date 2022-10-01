@@ -8,9 +8,12 @@ import LandingPageCardsSection from '../components/organisms/LandingPageCardsSec
 import { BsFillMapFill } from 'react-icons/bs';
 import Button from '../components/atoms/Button/Button';
 import { CreateAnimation } from '@ionic/react';
+import { BiSearch } from 'react-icons/bi';
+import { BsToggles2 } from 'react-icons/bs';
 
 import Modal from '../components/organisms/Modal/Modal';
 import SearchModalPage from '../components/views/SearchModalPage/SearchModalPage';
+import Icon from '../components/atoms/Icon/Icon';
 
 const ExplorePage: React.FC = () => {
     const {
@@ -22,6 +25,14 @@ const ExplorePage: React.FC = () => {
     } = useAppContext();
     const [modalType, setModalType] = useState('search');
     const [selectedTab, setSelectedTab] = useState(0);
+
+    // modal code
+    const modalRef = useRef<HTMLIonModalElement>(null);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        modalRef.current?.dismiss();
+    };
 
     const handleSearchClick = () => {
         setModalType('search');
@@ -55,19 +66,24 @@ const ExplorePage: React.FC = () => {
         backgroundColor: 'rgb(34, 34, 34)',
     };
 
-    // modal code
-    const modalRef = useRef<HTMLIonModalElement>(null);
-    const handleModalClose = () => {
-        setIsModalOpen(false);
-        modalRef.current?.dismiss();
-    };
-
     return (
         <IonPage className='ExplorePage_container'>
             <IonHeader className='ExplorePageHeader'>
                 <ClickableSearchBar
-                    handleSearchClick={handleSearchClick}
-                    handleFilterClick={handleFilterClick}
+                    mainText={'Where to?'}
+                    subText={'Anywhere • Any week • Add guests'}
+                    onTextClick={handleSearchClick}
+                    leftIcon={
+                        <Icon
+                            iconContent={{
+                                icon: <BiSearch size={20} />,
+                                text: '',
+                            }}
+                        />
+                    }
+                    onLeftIconClick={handleSearchClick}
+                    rightIcon={<BsToggles2 />}
+                    onRightIconClick={handleFilterClick}
                 />
                 <ScrollableSelectionBar
                     selectedTab={selectedTab}

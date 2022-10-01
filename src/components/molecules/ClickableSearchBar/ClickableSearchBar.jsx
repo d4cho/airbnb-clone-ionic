@@ -1,19 +1,28 @@
 import React from 'react';
 import './ClickableSearchBar.scss';
-import { BiSearch } from 'react-icons/bi';
-import { BsToggles2 } from 'react-icons/bs';
-import Icon from '../../atoms/Icon/Icon';
 import Button from '../../atoms/Button/Button';
 
 const ClickableSearchBar = (props) => {
-    const { handleSearchClick, handleFilterClick } = props;
+    const {
+        mainText,
+        subText,
+        onTextClick,
+        leftIcon,
+        onLeftIconClick,
+        rightIcon,
+        onRightIconClick,
+    } = props;
 
-    const handleSearchBarClick = () => {
-        handleSearchClick();
+    const handleTextClick = () => {
+        onTextClick();
     };
 
-    const handleButtonClick = () => {
-        handleFilterClick();
+    const handleLeftIconClick = () => {
+        onLeftIconClick();
+    };
+
+    const handleRightIconClick = () => {
+        onRightIconClick();
     };
 
     const filterBtnStyle = {
@@ -25,19 +34,19 @@ const ClickableSearchBar = (props) => {
 
     return (
         <div className='ClickableSearchBar_container'>
-            <div className='search' onClick={handleSearchBarClick}>
-                <div className='icon'>
-                    <Icon iconContent={{ icon: <BiSearch />, text: '' }} />
+            <div className='search'>
+                <div className='icon' onClick={handleLeftIconClick}>
+                    {leftIcon && leftIcon}
                 </div>
-                <div className='text'>
-                    <div className='where'>Where to?</div>
-                    <div className='any'>Anywhere • Any week • Add guests</div>
+                <div className='text' onClick={handleTextClick}>
+                    <div className='where'>{mainText}</div>
+                    <div className='any'>{subText}</div>
                 </div>
             </div>
             <div className='filter'>
                 <Button
-                    btnContent={<BsToggles2 />}
-                    onButtonClick={handleButtonClick}
+                    btnContent={rightIcon}
+                    onButtonClick={handleRightIconClick}
                     btnStyleOverride={filterBtnStyle}
                 />
             </div>

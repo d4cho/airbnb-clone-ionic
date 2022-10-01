@@ -6,6 +6,9 @@ export const useAppContext = () => useContext(AppContext);
 
 export function AppContextProvider({ children }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    // React.useEffect(() => {
+    //     console.log('isModalOpen', isModalOpen);
+    // }, [isModalOpen]);
 
     const [searchData, setSearchData] = useState({
         where: {
