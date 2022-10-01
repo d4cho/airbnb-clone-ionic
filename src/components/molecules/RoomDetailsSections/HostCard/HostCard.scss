@@ -1,0 +1,36 @@
+@use '../../../../styles/styles.scss' as *;
+
+.HostCard_container {
+    .host-heading {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .host-joined {
+        font-size: 14px;
+        color: $gray;
+        padding-top: 8px;
+    }
+
+    .text-heading {
+        font-weight: bold;
+        padding-bottom: 0.5rem;
+    }
+
+    .text {
+        line-height: 24px;
+        padding-bottom: 1.5rem;
+    }
+
+    .legal {
+        font-size: 12px;
+    }
+
+    .list {
+        padding-bottom: 0.5rem;
+    }
+
+    .button {
+        padding: 1rem 0;
+    }
+}

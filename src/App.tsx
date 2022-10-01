@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
     IonApp,
@@ -43,12 +44,29 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaAirbnb } from 'react-icons/fa';
 import { BiMessage } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
-// import { useAppContext } from './context/AppContext';
+import RoomDetailsPage from './pages/RoomDetailsPage';
+import { useAppContext } from './context/AppContext';
+
+/* geolocation */
+import { Geolocation } from '@capacitor/geolocation';
+import SearchResultsPage from './pages/SearchResultsPage';
 
 setupIonicReact();
 
 const App: React.FC = () => {
-    // const { offset, scrollDirection } = useAppContext();
+    const { setGeolocation } = useAppContext();
+
+    useEffect(() => {
+        const printCurrentPosition = async () => {
+            const coordinates = await Geolocation.getCurrentPosition();
+            const currentGeolocation = {
+                latitude: coordinates.coords.latitude,
+                longitude: coordinates.coords.longitude,
+            };
+            setGeolocation(currentGeolocation);
+        };
+        printCurrentPosition();
+    }, []);
 
     const iconStyle = {
         fontSize: 26,
@@ -60,23 +78,29 @@ const App: React.FC = () => {
             <IonReactRouter>
                 <IonTabs>
                     <IonRouterOutlet>
+                        <Route exact path='/'>
+                            <Redirect to='/explore' />
+                        </Route>
                         <Route exact path='/explore'>
                             <ExplorePage />
                         </Route>
                         <Route exact path='/wishlists'>
                             <WishlistsPage />
                         </Route>
-                        <Route path='/trips'>
+                        <Route exact path='/trips'>
                             <TripsPage />
                         </Route>
-                        <Route path='/inbox'>
+                        <Route exact path='/inbox'>
                             <InboxPage />
                         </Route>
-                        <Route path='/profile'>
+                        <Route exact path='/profile'>
                             <ProfilePage />
                         </Route>
-                        <Route exact path='/'>
-                            <Redirect to='/explore' />
+                        <Route path='/rooms/:id'>
+                            <RoomDetailsPage />
+                        </Route>
+                        <Route exact path='/search-results'>
+                            <SearchResultsPage />
                         </Route>
                     </IonRouterOutlet>
 

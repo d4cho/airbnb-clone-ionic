@@ -1,0 +1,36 @@
+@use '../../../styles/styles.scss' as *;
+
+.GalleryModalPage_container {
+    .GalleryModalPage_header {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $white;
+        background-color: $black;
+    }
+
+    .GalleryModalPage_content {
+        .black_background {
+            height: 100%;
+            background-color: $black;
+
+            .carousel_slide {
+                height: 100%;
+
+                img {
+                    position: absolute;
+                    top: 35%;
+                    transform: translateY(-35%);
+                }
+
+                .img_desc {
+                    position: absolute;
+                    bottom: 25px;
+                    left: 25px;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

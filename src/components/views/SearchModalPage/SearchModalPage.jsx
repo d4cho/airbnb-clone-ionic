@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import './SearchModalPage.scss';
 import Button from '../../atoms/Button/Button';
 import { GrFormClose } from 'react-icons/gr';
+import { FiChevronLeft } from 'react-icons/fi';
 import { BiSearch } from 'react-icons/bi';
 import SearchCards from '../../molecules/SearchCards/SearchCards';
 import { useAppContext } from '../../../context/AppContext';
 import { capitalizeFirstLetter } from '../../../utils/functions/functions';
+import SearchDestinationCard from '../../molecules/SearchDestinationCard/SearchDestinationCard';
+import { Link } from 'react-router-dom';
 
 const SearchModalPage = (props) => {
-    const { closeModal } = props;
+    const { closeModal, isFromSearchResults } = props;
     const [selectedTab, setSelectedTab] = useState('Stays');
     const [selectedCard, setSelectedCard] = useState('Where');
+    const [isSearchDestination, setIsSearchDestination] = useState(false);
     const { searchData, resetSearchData } = useAppContext();
 
     const closeBtnStyle = {
@@ -30,7 +34,9 @@ const SearchModalPage = (props) => {
     };
 
     const handleCloseClick = () => {
-        resetSearchData();
+        if (!isFromSearchResults) {
+            resetSearchData();
+        }
         setSelectedTab('Stays');
         setSelectedCard('Where');
         closeModal();
@@ -47,7 +53,7 @@ const SearchModalPage = (props) => {
     };
 
     const handleSearchClick = () => {
-        alert('search clicked!');
+        closeModal();
     };
 
     const whoCardCollapsedDefaultText = () => {
@@ -104,14 +110,22 @@ const SearchModalPage = (props) => {
 
     return (
         <div className='SearchModalPage_container'>
-            <div className='close_btn'>
-                <Button
-                    onButtonClick={handleCloseClick}
-                    btnContent={<GrFormClose />}
-                    btnStyleOverride={closeBtnStyle}
-                />
-            </div>
             <div className='top'>
+                <div className='close_btn'>
+                    {isSearchDestination ? (
+                        <Button
+                            onButtonClick={() => setIsSearchDestination(false)}
+                            btnContent={<FiChevronLeft />}
+                            btnStyleOverride={closeBtnStyle}
+                        />
+                    ) : (
+                        <Button
+                            onButtonClick={handleCloseClick}
+                            btnContent={<GrFormClose />}
+                            btnStyleOverride={closeBtnStyle}
+                        />
+                    )}
+                </div>
                 <div
                     className={`tab ${
                         selectedTab === 'Stays' ? 'selected' : ''
@@ -129,50 +143,67 @@ const SearchModalPage = (props) => {
                     Experiences
                 </div>
             </div>
-            <div className='cards'>
-                <SearchCards
-                    handleCardClick={handleCardClick}
-                    isExpanded={selectedCard === 'Where'}
-                    searchCardsContent={{
-                        collapsedTitle: 'Where',
-                        collapsedDefaultText:
-                            searchData?.where?.destination || "I'm flexible",
-                    }}
-                />
-                <SearchCards
-                    handleCardClick={handleCardClick}
-                    isExpanded={selectedCard === 'When'}
-                    searchCardsContent={{
-                        collapsedTitle: 'When',
-                        collapsedDefaultText: whenCardCollapsedDefaultText(),
-                    }}
-                />
-                <SearchCards
-                    handleCardClick={handleCardClick}
-                    isExpanded={selectedCard === 'Who'}
-                    searchCardsContent={{
-                        collapsedTitle: 'Who',
-                        collapsedDefaultText: whoCardCollapsedDefaultText(),
-                    }}
-                />
-            </div>
-            <div className='bottom'>
-                <div className='clear' onClick={handleClearAll}>
-                    Clear all
+            {isSearchDestination ? (
+                <div className='search_destination'>
+                    <SearchDestinationCard />
                 </div>
-                <Button
-                    onButtonClick={handleSearchClick}
-                    btnContent={
-                        <>
-                            <BiSearch />
-                            <span style={{ paddingLeft: '0.5rem' }}>
-                                Search
-                            </span>
-                        </>
-                    }
-                    btnStyleOverride={searchBtnStyle}
-                />
-            </div>
+            ) : (
+                <>
+                    <div className='cards'>
+                        <SearchCards
+                            handleCardClick={handleCardClick}
+                            isExpanded={selectedCard === 'Where'}
+                            searchCardsContent={{
+                                collapsedTitle: 'Where',
+                                collapsedDefaultText:
+                                    searchData?.where?.destination ||
+                                    "I'm flexible",
+                            }}
+                            setSelectedCard={setSelectedCard}
+                            setIsSearchDestination={setIsSearchDestination}
+                        />
+                        <SearchCards
+                            handleCardClick={handleCardClick}
+                            isExpanded={selectedCard === 'When'}
+                            searchCardsContent={{
+                                collapsedTitle: 'When',
+                                collapsedDefaultText:
+                                    whenCardCollapsedDefaultText(),
+                            }}
+                            setSelectedCard={setSelectedCard}
+                        />
+                        <SearchCards
+                            handleCardClick={handleCardClick}
+                            isExpanded={selectedCard === 'Who'}
+                            searchCardsContent={{
+                                collapsedTitle: 'Who',
+                                collapsedDefaultText:
+                                    whoCardCollapsedDefaultText(),
+                            }}
+                            setSelectedCard={setSelectedCard}
+                        />
+                    </div>
+                    <div className='bottom'>
+                        <div className='clear' onClick={handleClearAll}>
+                            Clear all
+                        </div>
+                        <Link to={`/search-results`}>
+                            <Button
+                                onButtonClick={handleSearchClick}
+                                btnContent={
+                                    <>
+                                        <BiSearch />
+                                        <span style={{ paddingLeft: '0.5rem' }}>
+                                            Search
+                                        </span>
+                                    </>
+                                }
+                                btnStyleOverride={searchBtnStyle}
+                            />
+                        </Link>
+                    </div>
+                </>
+            )}
         </div>
     );
 };

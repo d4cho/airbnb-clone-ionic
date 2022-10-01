@@ -1,0 +1,43 @@
+@use '../../../styles/styles.scss' as *;
+
+.ReviewsModalPage_container {
+    .content {
+        border: 1px solid blue;
+
+        .header {
+            padding: 1rem 1.5rem 0rem;
+            width: 100%;
+            background-color: $white;
+
+            .back_button {
+                padding-bottom: 1rem;
+            }
+
+            .rating_reviews {
+                font-size: 26px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                padding-bottom: 1rem;
+            }
+
+            .search_reviews {
+                padding-bottom: 1rem;
+            }
+        }
+
+        .reviews {
+            margin-top: 180px;
+            padding-inline: 1rem;
+
+            .criteria_grid {
+                padding-bottom: 0.5rem;
+                font-size: 14px;
+
+                .criteria_row {
+                    padding-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+}

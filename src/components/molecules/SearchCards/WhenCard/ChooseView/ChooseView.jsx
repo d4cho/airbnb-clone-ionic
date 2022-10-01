@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './ChooseView.scss';
 import { IonDatetime } from '@ionic/react';
 import Button from '../../../../atoms/Button/Button';
 import { useAppContext } from '../../../../../context/AppContext';
+import { getDurationDates } from '../../../../../utils/functions/functions';
 
 const PLUS_MINUS_DAYS = [
     'Exact dates',
@@ -16,8 +17,18 @@ const PLUS_MINUS_DAYS = [
 ];
 
 const ChooseView = () => {
-    const { searchData, setSearchData } = useAppContext();
-    const { startDate, endDate, plusMinusDays } = searchData.when.choose;
+    const {
+        searchData,
+        setSearchData,
+        selectedTripDates,
+        setSelectedTripDates,
+    } = useAppContext();
+    const { plusMinusDays } = searchData.when.choose;
+
+    useEffect(() => {
+        if (!dateTimeRef.current) return;
+        dateTimeRef.current.value = selectedTripDates;
+    }, []);
 
     const plusMinusDaysBtnStyle = {
         border: '1px solid #ebebeb',
@@ -27,6 +38,8 @@ const ChooseView = () => {
         fontSize: '14px',
         width: 'fit-content',
     };
+
+    const dateTimeRef = useRef();
 
     const handleButtonClick = (option) => {
         setSearchData({
@@ -55,12 +68,28 @@ const ChooseView = () => {
         });
     };
 
+    const handleDateChange = (dates) => {
+        if (dates) {
+            const latestDate = dates[dates.length - 1];
+            const durationDates = getDurationDates(
+                selectedTripDates,
+                latestDate
+            );
+            setSelectedTripDates(durationDates);
+            updateSearchData(durationDates);
+            dateTimeRef.current.value = durationDates;
+        } else {
+            setSelectedTripDates([]);
+        }
+    };
+
     return (
         <div className='ChooseView_container'>
             <IonDatetime
+                ref={dateTimeRef}
                 presentation='date'
                 multiple={true}
-                onIonChange={(value) => updateSearchData(value.detail.value)}
+                onIonChange={(value) => handleDateChange(value.detail.value)}
             ></IonDatetime>
             <div className='scrollableButtons'>
                 {PLUS_MINUS_DAYS.map((item, idx) => {

@@ -6,6 +6,9 @@ export const useAppContext = () => useContext(AppContext);
 
 export function AppContextProvider({ children }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    // React.useEffect(() => {
+    //     console.log('isModalOpen', isModalOpen);
+    // }, [isModalOpen]);
 
     const [searchData, setSearchData] = useState({
         where: {
@@ -79,7 +82,7 @@ export function AppContextProvider({ children }) {
     // scroll animations code ends
 
     const handleContentScroll = (e) => {
-        console.log(e.detail.currentY);
+        // console.log(e.detail.currentY);
         if (offset < e.detail.currentY) {
             setScrollDirection('down');
         } else {
@@ -88,9 +91,22 @@ export function AppContextProvider({ children }) {
         setOffset(e.detail.currentY);
     };
 
-    React.useEffect(() => {
-        console.log(offset, scrollDirection);
-    }, [offset, scrollDirection]);
+    // React.useEffect(() => {
+    //     console.log(offset, scrollDirection);
+    // }, [offset, scrollDirection]);
+
+    const [selectedTripDates, setSelectedTripDates] = useState([
+        '2022-12-05',
+        '2022-12-10',
+    ]);
+
+    const [geolocation, setGeolocation] = useState({
+        latitude: '',
+        longitude: '',
+    });
+    // React.useEffect(() => {
+    //     console.log('geolocation', geolocation);
+    // }, [geolocation]);
 
     return (
         <AppContext.Provider
@@ -107,6 +123,10 @@ export function AppContextProvider({ children }) {
                 scrollDirection,
                 setScrollDirection,
                 handleContentScroll,
+                selectedTripDates,
+                setSelectedTripDates,
+                geolocation,
+                setGeolocation,
             }}
         >
             {children}

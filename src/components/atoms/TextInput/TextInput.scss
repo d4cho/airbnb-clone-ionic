@@ -1,0 +1,36 @@
+@use '../../../styles/styles.scss' as *;
+
+.TextInput_container {
+    // border: 1px solid red;
+    position: relative;
+    width: 100%;
+
+    .input_icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1rem;
+    }
+
+    input {
+        width: 100%;
+        background-color: $lightgray;
+        padding: 1rem 3rem 1rem 3rem;
+        border: 1px solid $gray;
+        border-radius: 25px;
+    }
+
+    input:focus {
+        background-color: $white;
+        outline: 2px solid $black;
+        box-shadow: none !important;
+        /*Sometime the blue border you see is from the box-shadow and removing box-shadow will remove the border*/
+    }
+
+    .clear_icon {
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

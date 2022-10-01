@@ -1,24 +1,25 @@
 @use '../../../styles/styles.scss' as *;
 
 .SearchModalPage_container {
-    position: relative;
     height: 100%;
     width: 100%;
     background-color: $lightgray;
-
-    .close_btn {
-        position: absolute;
-        top: 1.25rem;
-        left: 1.25rem;
-        z-index: 1;
-    }
 
     .top {
         position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 7rem;
+        padding-inline: 7rem;
+        height: 10%;
+
+        .close_btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 1.25rem;
+            z-index: 1;
+        }
 
         .tab {
             color: $gray;
@@ -28,6 +29,10 @@
             color: #000;
             border-bottom: 2.5px solid black;
         }
+    }
+
+    .search_destination {
+        height: 90%;
     }
 
     .cards {
@@ -47,6 +52,10 @@
 
         .clear {
             text-decoration: underline;
+        }
+
+        a {
+            text-decoration: none;
         }
     }
 }

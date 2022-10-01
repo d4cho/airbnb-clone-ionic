@@ -1,0 +1,37 @@
+@use '../../../styles/styles.scss' as *;
+
+.ImagesModalPage_container {
+    .ImagesModalPage_header {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ImagesModalPage_content {
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            padding: 2rem 1.5rem 1.5rem;
+        }
+
+        .divider {
+            margin: 3rem 1.5rem 1.5rem;
+            border-bottom: 1px solid $lightgray;
+        }
+
+        .image_container {
+            .image {
+                width: 165px;
+                height: 165px;
+                border-radius: 10px;
+            }
+
+            .image_title {
+                padding-top: 0.5rem;
+                font-size: 14px;
+                color: $gray;
+            }
+        }
+    }
+}

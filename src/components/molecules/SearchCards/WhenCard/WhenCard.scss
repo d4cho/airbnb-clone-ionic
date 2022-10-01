@@ -5,4 +5,11 @@
         font-size: 22px;
         padding: 0 1.5rem 0.75rem;
     }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem 0;
+    }
 }
