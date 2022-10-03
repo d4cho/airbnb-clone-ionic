@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import './SearchResultsPage.scss';
-import { IonContent, IonHeader, IonPage } from '@ionic/react';
+import { CreateAnimation, IonContent, IonHeader, IonPage } from '@ionic/react';
 import ClickableSearchBar from '../components/molecules/ClickableSearchBar/ClickableSearchBar';
-import { BsArrowLeftShort, BsToggles2 } from 'react-icons/bs';
+import { BsArrowLeftShort, BsToggles2, BsFillMapFill } from 'react-icons/bs';
 import { useHistory } from 'react-router';
 import { useAppContext } from '../context/AppContext';
 import Modal from '../components/organisms/Modal/Modal';
@@ -10,12 +10,19 @@ import SearchModalPage from '../components/views/SearchModalPage/SearchModalPage
 import { capitalizeFirstLetter } from '../utils/functions/functions';
 import GoogleMap from '../components/atoms/GoogleMap/GoogleMap';
 import LandingPageCardsSection from '../components/organisms/LandingPageCardsSection/LandingPageCardsSection';
+import Button from '../components/atoms/Button/Button';
 
 const SearchResultsPage = () => {
     let history = useHistory();
 
-    const { isModalOpen, setIsModalOpen, resetSearchData, searchData } =
-        useAppContext();
+    const {
+        isModalOpen,
+        setIsModalOpen,
+        resetSearchData,
+        searchData,
+        offset,
+        handleContentScroll,
+    } = useAppContext();
 
     const { where, when, who } = searchData;
 
@@ -88,16 +95,45 @@ const SearchResultsPage = () => {
         }
     };
 
+    const btnContent = (
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <span style={{ paddingRight: '5px' }}>Map</span>
+            <BsFillMapFill />
+        </div>
+    );
+
+    const btnStyleOverride = {
+        outline: '1px solid rgba(0, 0, 0, 0.08)',
+        borderRadius: '24px',
+        padding: '11px 19px',
+        color: '#FFF',
+        fontSize: '12px',
+        backgroundColor: 'rgb(34, 34, 34)',
+    };
+
+    const numHomesRef = useRef();
+
+    const handleMapBtnClick = () => {
+        numHomesRef.current.scrollIntoView();
+        searchResultsModalRef.current?.setCurrentBreakpoint(0.08);
+    };
+
     return (
         <IonPage className='SearchResultsPage_container'>
             <IonHeader className='SearchResultsPage_header'>
                 <ClickableSearchBar
                     mainText={where.destination || 'Where to?'}
-                    subText={
-                        `${generateWhenText()} • ${
-                            who.adults + who.children
-                        } guests` || 'Anywhere • Any week • Add guests'
-                    }
+                    subText={`${generateWhenText()} • ${
+                        who.adults + who.children
+                            ? who.adults + who.children + ' guests'
+                            : 'Add guests'
+                    }`}
                     onTextClick={handleTextClick}
                     leftIcon={<BsArrowLeftShort size={24} color={'#000'} />}
                     onLeftIconClick={handleBackArrowClick}
@@ -105,53 +141,107 @@ const SearchResultsPage = () => {
                     onRightIconClick={handleFilterClick}
                 />
             </IonHeader>
-            <IonContent>
+            <IonContent className='SearchResultsPage_content'>
                 <div className='google_map'>
                     <GoogleMap />
                 </div>
-            </IonContent>
 
-            {/* for search modal and filter modal */}
-            <Modal
-                isModalOpen={isModalOpen}
-                modalRef={modalRef}
-                modalContent={
-                    modalType === 'search' ? (
-                        <SearchModalPage
-                            closeModal={handleModalClose}
-                            isFromSearchResults={true}
-                        />
-                    ) : (
-                        <div>
-                            <button onClick={handleModalClose}>close</button>
-                            <h1>filter modal page</h1>
-                        </div>
-                    )
-                }
-            />
+                {/* for search modal and filter modal */}
+                <Modal
+                    isModalOpen={isModalOpen}
+                    modalRef={modalRef}
+                    modalContent={
+                        modalType === 'search' ? (
+                            <SearchModalPage
+                                closeModal={handleModalClose}
+                                isFromSearchResults={true}
+                            />
+                        ) : (
+                            <div>
+                                <button onClick={handleModalClose}>
+                                    close
+                                </button>
+                                <h1>filter modal page</h1>
+                            </div>
+                        )
+                    }
+                />
 
-            {/* for search results modal that shows properties */}
-            <Modal
-                isModalOpen={isSearchResultsModalOpen}
-                modalRef={searchResultsModalRef}
-                initialBreakpoint={0.5}
-                breakpoints={[0.08, 0.5, 0.7, 0.9, 1]}
-                modalContent={
-                    <IonContent>
-                        <div
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                fontSize: '14px',
-                                paddingTop: '2rem',
-                            }}
+                {/* for search results modal that shows properties */}
+                <Modal
+                    isModalOpen={isSearchResultsModalOpen}
+                    modalRef={searchResultsModalRef}
+                    initialBreakpoint={0.5}
+                    breakpoints={[0.08, 0.5, 0.7, 0.9, 1]}
+                    modalContent={
+                        <IonContent
+                            scrollEvents={true}
+                            onIonScroll={(e) => handleContentScroll(e)}
                         >
-                            Over 1,000 homes
-                        </div>
-                        <LandingPageCardsSection />
-                    </IonContent>
-                }
-            />
+                            <div
+                                ref={numHomesRef}
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    fontSize: '14px',
+                                    paddingTop: '2rem',
+                                }}
+                            >
+                                Over 1,000 homes
+                            </div>
+
+                            <LandingPageCardsSection
+                                handleCardClick={() => {
+                                    searchResultsModalRef.current?.setCurrentBreakpoint(
+                                        0.08
+                                    );
+                                }}
+                            />
+
+                            <CreateAnimation
+                                duration={300}
+                                fromTo={[
+                                    {
+                                        property: 'bottom',
+                                        fromValue: '0px',
+                                        toValue: '30px',
+                                    },
+                                    {
+                                        property: 'opacity',
+                                        fromValue: '0',
+                                        toValue: '1',
+                                    },
+                                ]}
+                                play={offset >= 200}
+                            >
+                                <div
+                                    slot='fixed'
+                                    style={
+                                        offset < 200
+                                            ? {
+                                                  visibility: 'hidden',
+                                              }
+                                            : {
+                                                  left: '50%',
+                                                  transform:
+                                                      'translate(-50%, 0)',
+                                              }
+                                    }
+                                >
+                                    <Button
+                                        btnContent={btnContent}
+                                        onButtonClick={() =>
+                                            handleMapBtnClick()
+                                        }
+                                        btnOptions={null}
+                                        btnStyleOverride={btnStyleOverride}
+                                    />
+                                </div>
+                            </CreateAnimation>
+                        </IonContent>
+                    }
+                />
+            </IonContent>
         </IonPage>
     );
 };

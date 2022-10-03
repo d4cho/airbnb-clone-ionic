@@ -15,7 +15,7 @@ const RoomDetailsPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const roomData = roomsData.filter((item) => item.id === id)[0];
 
-    const { isModalOpen, setIsModalOpen } = useAppContext();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [modalType, setModalType] = useState('');
     // reviews, images

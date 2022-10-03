@@ -14,6 +14,7 @@ import { BsToggles2 } from 'react-icons/bs';
 import Modal from '../components/organisms/Modal/Modal';
 import SearchModalPage from '../components/views/SearchModalPage/SearchModalPage';
 import Icon from '../components/atoms/Icon/Icon';
+import { Link } from 'react-router-dom';
 
 const ExplorePage: React.FC = () => {
     const {
@@ -116,14 +117,14 @@ const ExplorePage: React.FC = () => {
                         }`}
                         slot='fixed'
                     >
-                        <Button
-                            btnContent={btnContent}
-                            onButtonClick={() => {
-                                alert('map clicked!');
-                            }}
-                            btnOptions={null}
-                            btnStyleOverride={btnStyleOverride}
-                        />
+                        <Link to={`/search-results`}>
+                            <Button
+                                btnContent={btnContent}
+                                onButtonClick={() => {}}
+                                btnOptions={null}
+                                btnStyleOverride={btnStyleOverride}
+                            />
+                        </Link>
                     </div>
                 </CreateAnimation>
 
