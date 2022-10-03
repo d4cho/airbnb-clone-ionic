@@ -3,7 +3,8 @@ import './FilterModalPage.scss';
 import { IonContent, IonFooter, IonHeader, IonPage } from '@ionic/react';
 import { IoClose } from 'react-icons/io5';
 import Button from '../../atoms/Button/Button';
-import TypeOfPlace from '../../organisms/FilterModalOrgs/TypeOfPlace/TypeOfPlace';
+import CheckboxList from '../../organisms/FilterModalOrgs/CheckboxList/CheckboxList';
+import { typeOfPlaceCheckboxItems } from '../../../assets/data/filter-data';
 
 const FilterModalPage = (props) => {
     const { closeModal } = props;
@@ -39,7 +40,10 @@ const FilterModalPage = (props) => {
                     <div>Price range</div>
                     <div className='divider_line' />
 
-                    <TypeOfPlace />
+                    <CheckboxList
+                        headingText={'Type of place'}
+                        checkboxItems={typeOfPlaceCheckboxItems}
+                    />
                     <div className='divider_line' />
 
                     <div>Rooms and beds</div>
