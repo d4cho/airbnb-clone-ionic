@@ -4,4 +4,11 @@
     .SearchResultsPage_header {
         background-color: $white;
     }
+
+    .SearchResultsPage_content {
+        .google_map {
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
