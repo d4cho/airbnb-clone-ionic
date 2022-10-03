@@ -1,0 +1,11 @@
+@use '../../../styles/styles.scss' as *;
+
+ion-checkbox {
+    // --size: 32px;
+    --background-checked: #000;
+}
+
+ion-checkbox::part(container) {
+    border-radius: 6px;
+    border: 1px solid #000;
+}

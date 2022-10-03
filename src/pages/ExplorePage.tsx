@@ -15,6 +15,7 @@ import Modal from '../components/organisms/Modal/Modal';
 import SearchModalPage from '../components/views/SearchModalPage/SearchModalPage';
 import Icon from '../components/atoms/Icon/Icon';
 import { Link } from 'react-router-dom';
+import FilterModalPage from '../components/views/FilterModalPage/FilterModalPage';
 
 const ExplorePage: React.FC = () => {
     const {
@@ -135,12 +136,7 @@ const ExplorePage: React.FC = () => {
                         modalType === 'search' ? (
                             <SearchModalPage closeModal={handleModalClose} />
                         ) : (
-                            <div>
-                                <button onClick={handleModalClose}>
-                                    close
-                                </button>
-                                <h1>filter modal page</h1>
-                            </div>
+                            <FilterModalPage closeModal={handleModalClose} />
                         )
                     }
                 />
