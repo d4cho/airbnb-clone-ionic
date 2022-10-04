@@ -2,9 +2,15 @@
 
 .CheckboxList_container {
     .CheckboxList_heading {
-        padding-bottom: 1.5rem;
+        padding-bottom: 1rem;
         font-size: 18px;
         font-weight: bold;
+    }
+
+    .CheckboxList_descText {
+        font-size: 16px;
+        color: #717171;
+        padding-bottom: 0.5rem;
     }
 
     .CheckboxList_subheading {

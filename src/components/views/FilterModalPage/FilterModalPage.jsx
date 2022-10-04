@@ -7,6 +7,8 @@ import CheckboxList from '../../organisms/FilterModalOrgs/CheckboxList/CheckboxL
 import {
     typeOfPlaceData,
     amenitiesData,
+    accessibilityFeaturesData,
+    hostLanguageData,
 } from '../../../assets/data/filter-data';
 
 const FilterModalPage = (props) => {
@@ -66,14 +68,26 @@ const FilterModalPage = (props) => {
                     <div>Booking options</div>
                     <div className='divider_line' />
 
-                    <div>Accessibility features</div>
+                    <CheckboxList
+                        headingText={'Accessibility features'}
+                        descTextExpanded={
+                            'This info was provided by the Host and reviewed by Airbnb.'
+                        }
+                        checkboxData={accessibilityFeaturesData}
+                        isExpandable={true}
+                        numItemsCollapsed={2}
+                    />
                     <div className='divider_line' />
 
                     <div>Top tier stays</div>
                     <div className='divider_line' />
 
-                    <div>Host language</div>
-                    <div className='divider_line' />
+                    <CheckboxList
+                        headingText={'Host language'}
+                        checkboxData={hostLanguageData}
+                        isExpandable={true}
+                        numItemsCollapsed={3}
+                    />
                 </div>
             </IonContent>
             <IonFooter className='FilterModalPage_footer'>

@@ -118,3 +118,138 @@ export const amenitiesData = [
         ],
     },
 ];
+
+export const accessibilityFeaturesData = [
+    {
+        checkboxListTitle: 'Guest entrance and parking',
+        checkboxItems: [
+            {
+                text: 'Step-free guest entrance',
+                subtext: '',
+            },
+            {
+                text: 'Guest entrance wider than 32 inches (81 centimeters)',
+            },
+            {
+                text: 'Step-free oath to the guest entrance',
+            },
+            {
+                text: 'Accessible parking spot',
+            },
+        ],
+    },
+    {
+        checkboxListTitle: 'Bedroom',
+        checkboxItems: [
+            {
+                text: 'Step-free bedroom access',
+            },
+            {
+                text: 'Bedroom entrance wider than 32 inches (81 centimeters)',
+            },
+        ],
+    },
+    {
+        checkboxListTitle: 'Bathroom',
+        checkboxItems: [
+            {
+                text: 'Step-free bathroom access',
+            },
+            {
+                text: 'Bathroom entrance wider than 32 inches (81 centimeters)',
+            },
+            {
+                text: 'Shower grab bar',
+            },
+            {
+                text: 'Toilet grab bar',
+            },
+            {
+                text: 'Step-free shower',
+            },
+            {
+                text: 'Shower or bath chair',
+            },
+        ],
+    },
+    {
+        checkboxListTitle: 'Adaptive equipment',
+        checkboxItems: [
+            {
+                text: 'Ceiling or mobile hoist',
+            },
+        ],
+    },
+];
+
+export const hostLanguageData = [
+    {
+        checkboxListTitle: '',
+        checkboxItems: [
+            {
+                text: 'English',
+                subtext: '',
+            },
+            {
+                text: 'French',
+            },
+            {
+                text: 'German',
+            },
+            {
+                text: 'Japanese',
+            },
+            {
+                text: 'Italian',
+            },
+            {
+                text: 'Russian',
+            },
+            {
+                text: 'Spanish',
+            },
+            {
+                text: 'Chinese (Simplified)',
+            },
+            {
+                text: 'Arabic',
+            },
+            {
+                text: 'Hindi',
+            },
+            {
+                text: 'Portuguese',
+            },
+            {
+                text: 'Dutch',
+            },
+            {
+                text: 'Korean',
+            },
+            {
+                text: 'Punjabi',
+            },
+            {
+                text: 'Greek',
+            },
+            {
+                text: 'Hebrew',
+            },
+            {
+                text: 'Polish',
+            },
+            {
+                text: 'Swedish',
+            },
+            {
+                text: 'Norwegian',
+            },
+            {
+                text: 'Hungarian',
+            },
+            {
+                text: 'Ukrainian',
+            },
+        ],
+    },
+];

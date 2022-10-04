@@ -4,8 +4,13 @@ import { IonGrid, IonRow, IonCol } from '@ionic/react';
 import Checkbox from '../../../atoms/Checkbox/Checkbox';
 
 const CheckboxList = (props) => {
-    const { headingText, checkboxData, isExpandable, numItemsCollapsed } =
-        props;
+    const {
+        headingText,
+        descTextExpanded,
+        checkboxData,
+        isExpandable,
+        numItemsCollapsed,
+    } = props;
     const [isExpanded, setIsExpanded] = useState(false);
 
     const renderCheckboxItems = (arr) => {
@@ -56,6 +61,9 @@ const CheckboxList = (props) => {
         <div className='CheckboxList_container'>
             {headingText && (
                 <div className='CheckboxList_heading'>{headingText}</div>
+            )}
+            {descTextExpanded && isExpanded && (
+                <div className='CheckboxList_descText'>{descTextExpanded}</div>
             )}
             <div>
                 <IonGrid className='ion-no-padding'>
