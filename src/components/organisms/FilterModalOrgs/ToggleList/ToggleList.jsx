@@ -1,6 +1,7 @@
 import React from 'react';
 import './ToggleList.scss';
-import { IonGrid, IonRow, IonCol, IonToggle } from '@ionic/react';
+import { IonGrid, IonRow, IonCol } from '@ionic/react';
+import Toggle from '../../../atoms/Toggle/Toggle';
 
 const ToggleList = (props) => {
     const { headingText, toggleListData } = props;
@@ -22,9 +23,7 @@ const ToggleList = (props) => {
                             </IonCol>
                             <IonCol size={1} />
                             <IonCol className='ion-align-self-center' size={2}>
-                                <div>
-                                    <IonToggle color='dark' />
-                                </div>
+                                <Toggle color={'dark'} />
                             </IonCol>
                         </IonRow>
                     );
