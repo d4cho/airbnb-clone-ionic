@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './CheckboxList.scss';
 import { IonGrid, IonRow, IonCol } from '@ionic/react';
 import Checkbox from '../../../atoms/Checkbox/Checkbox';
@@ -12,6 +12,8 @@ const CheckboxList = (props) => {
         numItemsCollapsed,
     } = props;
     const [isExpanded, setIsExpanded] = useState(false);
+
+    const headingRef = useRef();
 
     const renderCheckboxItems = (arr) => {
         let newArr = [...arr];
@@ -55,12 +57,15 @@ const CheckboxList = (props) => {
 
     const handleExpandCollapse = () => {
         setIsExpanded(!isExpanded);
+        headingRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
         <div className='CheckboxList_container'>
             {headingText && (
-                <div className='CheckboxList_heading'>{headingText}</div>
+                <div ref={headingRef} className='CheckboxList_heading'>
+                    {headingText}
+                </div>
             )}
             {descTextExpanded && isExpanded && (
                 <div className='CheckboxList_descText'>{descTextExpanded}</div>
