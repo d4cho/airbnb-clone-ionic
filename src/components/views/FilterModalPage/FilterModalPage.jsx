@@ -7,9 +7,12 @@ import CheckboxList from '../../organisms/FilterModalOrgs/CheckboxList/CheckboxL
 import {
     typeOfPlaceData,
     amenitiesData,
+    bookingOptionsData,
     accessibilityFeaturesData,
+    topTierStaysData,
     hostLanguageData,
 } from '../../../assets/data/filter-data';
+import ToggleList from '../../organisms/FilterModalOrgs/ToggleList/ToggleList';
 
 const FilterModalPage = (props) => {
     const { closeModal } = props;
@@ -65,7 +68,10 @@ const FilterModalPage = (props) => {
                     />
                     <div className='divider_line' />
 
-                    <div>Booking options</div>
+                    <ToggleList
+                        headingText={'Booking options'}
+                        toggleListData={bookingOptionsData}
+                    />
                     <div className='divider_line' />
 
                     <CheckboxList
@@ -79,7 +85,10 @@ const FilterModalPage = (props) => {
                     />
                     <div className='divider_line' />
 
-                    <div>Top tier stays</div>
+                    <ToggleList
+                        headingText={'Top tier stays'}
+                        toggleListData={topTierStaysData}
+                    />
                     <div className='divider_line' />
 
                     <CheckboxList

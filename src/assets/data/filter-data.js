@@ -119,6 +119,17 @@ export const amenitiesData = [
     },
 ];
 
+export const bookingOptionsData = [
+    {
+        title: 'Instant Book',
+        desc: 'Listing you can book without waiting for host approval',
+    },
+    {
+        title: 'Self check-in',
+        desc: 'Easy access to the property once you arrive',
+    },
+];
+
 export const accessibilityFeaturesData = [
     {
         checkboxListTitle: 'Guest entrance and parking',
@@ -179,6 +190,17 @@ export const accessibilityFeaturesData = [
                 text: 'Ceiling or mobile hoist',
             },
         ],
+    },
+];
+
+export const topTierStaysData = [
+    {
+        title: 'Superhost',
+        desc: 'Stay with recognized hosts',
+    },
+    {
+        title: 'Airbnb Plus',
+        desc: 'A selection of places to stay verified for quality and design',
     },
 ];
 
