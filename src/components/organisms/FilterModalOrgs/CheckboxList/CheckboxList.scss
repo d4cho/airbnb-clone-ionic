@@ -8,7 +8,8 @@
     }
 
     .CheckboxList_subheading {
-        padding-bottom: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         font-size: 16px;
         font-weight: bold;
     }
@@ -26,5 +27,10 @@
 
     .pad-12 {
         padding: 12px 0;
+    }
+
+    .expand_collapse {
+        font-weight: bold;
+        text-decoration: underline;
     }
 }

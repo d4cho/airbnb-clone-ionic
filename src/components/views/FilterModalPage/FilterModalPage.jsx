@@ -4,7 +4,10 @@ import { IonContent, IonFooter, IonHeader, IonPage } from '@ionic/react';
 import { IoClose } from 'react-icons/io5';
 import Button from '../../atoms/Button/Button';
 import CheckboxList from '../../organisms/FilterModalOrgs/CheckboxList/CheckboxList';
-import { typeOfPlaceCheckboxItems } from '../../../assets/data/filter-data';
+import {
+    typeOfPlaceData,
+    amenitiesData,
+} from '../../../assets/data/filter-data';
 
 const FilterModalPage = (props) => {
     const { closeModal } = props;
@@ -42,7 +45,7 @@ const FilterModalPage = (props) => {
 
                     <CheckboxList
                         headingText={'Type of place'}
-                        checkboxItems={typeOfPlaceCheckboxItems}
+                        checkboxData={typeOfPlaceData}
                     />
                     <div className='divider_line' />
 
@@ -52,7 +55,12 @@ const FilterModalPage = (props) => {
                     <div>Property type</div>
                     <div className='divider_line' />
 
-                    <div>Amenities</div>
+                    <CheckboxList
+                        headingText={'Amenities'}
+                        checkboxData={amenitiesData}
+                        isExpandable={true}
+                        numItemsCollapsed={2}
+                    />
                     <div className='divider_line' />
 
                     <div>Booking options</div>
