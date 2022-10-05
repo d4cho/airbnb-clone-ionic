@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SelectableCard.scss';
 
 const SelectableCard = (props) => {
-    const { text, icon } = props;
-    const [isSelected, setIsSelected] = useState(false);
-
-    const handleCardClick = () => {
-        setIsSelected(!isSelected);
-    };
+    const { text, onCardClick, isSelected, icon } = props;
 
     return (
         <div
             className={`SelectableCard_container ${
                 isSelected ? 'selected' : 'not-selected'
             }`}
-            onClick={handleCardClick}
+            onClick={() => onCardClick(text)}
         >
             <div className='SelectableCard_icon'>{icon}</div>
             <div className='SelectableCard_text'>{text}</div>
