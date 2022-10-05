@@ -13,6 +13,7 @@ import {
     hostLanguageData,
 } from '../../../assets/data/filter-data';
 import ToggleList from '../../organisms/FilterModalOrgs/ToggleList/ToggleList';
+import PropertyTypeSection from '../../organisms/FilterModalOrgs/PropertyTypeSection/PropertyTypeSection';
 
 const FilterModalPage = (props) => {
     const { closeModal } = props;
@@ -57,7 +58,7 @@ const FilterModalPage = (props) => {
                     <div>Rooms and beds</div>
                     <div className='divider_line' />
 
-                    <div>Property type</div>
+                    <PropertyTypeSection />
                     <div className='divider_line' />
 
                     <CheckboxList

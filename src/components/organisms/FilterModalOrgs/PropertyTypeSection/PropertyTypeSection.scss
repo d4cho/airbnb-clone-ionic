@@ -1,0 +1,26 @@
+@use '../../../../styles/styles.scss' as *;
+
+.PropertyTypeSection_container {
+    .PropertyTypeSection_heading {
+        padding-bottom: 1rem;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .pad-t-8 {
+        padding-top: 8px;
+    }
+    .pad-b-8 {
+        padding-bottom: 8px;
+    }
+    .pad-r-8 {
+        padding-right: 8px;
+    }
+    .pad-l-8 {
+        padding-left: 8px;
+    }
+
+    .test {
+        border: 1px solid red;
+    }
+}
