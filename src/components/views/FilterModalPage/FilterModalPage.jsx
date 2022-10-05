@@ -14,6 +14,7 @@ import {
 } from '../../../assets/data/filter-data';
 import ToggleList from '../../organisms/FilterModalOrgs/ToggleList/ToggleList';
 import PropertyTypeSection from '../../organisms/FilterModalOrgs/PropertyTypeSection/PropertyTypeSection';
+import RoomsAndBedsSection from '../../organisms/FilterModalOrgs/RoomsAndBedsSection/RoomsAndBedsSection';
 
 const FilterModalPage = (props) => {
     const { closeModal } = props;
@@ -55,7 +56,7 @@ const FilterModalPage = (props) => {
                     />
                     <div className='divider_line' />
 
-                    <div>Rooms and beds</div>
+                    <RoomsAndBedsSection />
                     <div className='divider_line' />
 
                     <PropertyTypeSection />
