@@ -15,6 +15,7 @@ import {
 import ToggleList from '../../organisms/FilterModalOrgs/ToggleList/ToggleList';
 import PropertyTypeSection from '../../organisms/FilterModalOrgs/PropertyTypeSection/PropertyTypeSection';
 import RoomsAndBedsSection from '../../organisms/FilterModalOrgs/RoomsAndBedsSection/RoomsAndBedsSection';
+import PriceRangeSection from '../../organisms/FilterModalOrgs/PriceRangeSection/PriceRangeSection';
 
 const FilterModalPage = (props) => {
     const { closeModal } = props;
@@ -47,7 +48,7 @@ const FilterModalPage = (props) => {
                     <h1>Filter Modal Page</h1>
                     <div className='divider_line' />
 
-                    <div>Price range</div>
+                    <PriceRangeSection />
                     <div className='divider_line' />
 
                     <CheckboxList
