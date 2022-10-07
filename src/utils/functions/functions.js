@@ -40,3 +40,19 @@ export const getFrequencyOfNum = (num, arrOfNums) => {
 export const getAverage = (arrOfNums) => {
     return arrOfNums.reduce((a, b) => a + b, 0) / arrOfNums.length;
 };
+
+export const fixDataByIncrement = (dataArr, start, end, inc) => {
+    let result = [];
+    let current = start;
+
+    while (current <= end) {
+        let newArr = dataArr.filter(
+            (num) => num >= current && num < current + inc
+        );
+        result.push(newArr);
+
+        current = current + inc;
+    }
+
+    return result;
+};

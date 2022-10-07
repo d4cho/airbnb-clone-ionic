@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PriceInput from '../../../atoms/PriceInput/PriceInput';
-import PriceRangeSlider from '../../../molecules/PriceRangeSlider/PriceRangeSlider';
 import { priceRangeData } from '../../../../assets/data/filter-data';
 import { getAverage } from '../../../../utils/functions/functions';
 import './PriceRangeSection.scss';
+import MultiRangeSlider from '../../../atoms/MultiRangeSlider/MultiRangeSlider';
+import FrequencyGraph from '../../../atoms/FrequencyGraph/FrequencyGraph';
 
 const PriceRangeSection = () => {
-    // const handleDrag = (e) => {
-    //     console.log(e.clientX);
-    // };
-
-    const [minPositionX, setMinPositionX] = useState(0);
-    const [maxPositionX, setMaxPositionX] = useState(0);
     const [minPrice, setMinPrice] = useState(10);
     const [maxPrice, setMaxPrice] = useState(1000);
+    const [minPercentage, setMinPercentage] = useState(0);
+    const [maxPercentage, setMaxPercentage] = useState(100);
 
-    let fixedThousandPlusPriceData = [];
-    priceRangeData.forEach((price) => {
-        if (price >= 1000) {
-            fixedThousandPlusPriceData.push(1000);
-        } else {
-            fixedThousandPlusPriceData.push(price);
-        }
-    });
+    const updateMinPrice = (percentage) => {
+        setMinPercentage(percentage);
 
-    const uniquePriceData = Array.from(new Set(fixedThousandPlusPriceData));
+        const newMin = (percentage / 100) * 1000;
+        setMinPrice(newMin);
+    };
+
+    const updateMaxPrice = (percentage) => {
+        setMaxPercentage(percentage);
+
+        const newMax = (percentage / 100) * 1000;
+        setMaxPrice(newMax);
+    };
 
     return (
         <div className='PriceRangeSection_container'>
@@ -34,15 +34,18 @@ const PriceRangeSection = () => {
                 {Math.floor(getAverage(priceRangeData))}
             </div>
             <div className='PriceRangeSection_slider'>
-                <PriceRangeSlider
-                    fixedThousandPlusPriceData={fixedThousandPlusPriceData}
-                    uniquePriceData={uniquePriceData}
-                    minPositionX={minPositionX}
-                    setMinPositionX={setMinPositionX}
-                    maxPositionX={maxPositionX}
-                    setMaxPositionX={setMaxPositionX}
-                    setMinPrice={setMinPrice}
-                    setMaxPrice={setMaxPrice}
+                <FrequencyGraph
+                    arrOfNums={priceRangeData}
+                    minPercentage={minPercentage}
+                    maxPercentage={maxPercentage}
+                />
+                <MultiRangeSlider
+                    initialMin={0}
+                    initialMax={100}
+                    getMinValue={updateMinPrice}
+                    getMaxValue={updateMaxPrice}
+                    minDisabled={false}
+                    maxDisabled={false}
                 />
             </div>
             <div className='PriceRangeSection_textbox'>
