@@ -21,7 +21,7 @@ const FrequencyGraph = (props) => {
         fixedThousandPlusPriceData,
         0,
         1000,
-        50
+        25
     );
 
     const renderBarGraph = () => {

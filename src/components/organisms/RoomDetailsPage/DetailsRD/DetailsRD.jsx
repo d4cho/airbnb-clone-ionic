@@ -334,7 +334,7 @@ const DetailsRD = (props) => {
                     {selectedTripDates.length === 0
                         ? 'Select check-in date'
                         : selectedTripDates.length === 1
-                        ? 'Selected check-out date'
+                        ? 'Select a check-out date'
                         : `${getNightsBetweenDates(
                               selectedTripDates
                           )} nights in Mill Creek`}
