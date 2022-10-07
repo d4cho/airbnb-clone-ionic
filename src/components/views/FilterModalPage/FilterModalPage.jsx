@@ -45,9 +45,6 @@ const FilterModalPage = (props) => {
             </IonHeader>
             <IonContent>
                 <div className='FilterModalPage_content'>
-                    <h1>Filter Modal Page</h1>
-                    <div className='divider_line' />
-
                     <PriceRangeSection />
                     <div className='divider_line' />
 

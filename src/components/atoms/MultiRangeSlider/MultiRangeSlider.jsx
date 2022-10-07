@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MultiRangeSlider.scss';
 import { FaGripLinesVertical } from 'react-icons/fa';
 
@@ -11,8 +11,18 @@ const MultiRangeSlider = (props) => {
         minDisabled,
         maxDisabled,
     } = props;
-    const [minValue, setMinValue] = useState(initialMin || 0);
-    const [maxValue, setMaxValue] = useState(initialMax || 100);
+    const [minValue, setMinValue] = useState(0);
+    const [maxValue, setMaxValue] = useState(100);
+
+    useEffect(() => {
+        if (initialMin) {
+            setMinValue(initialMin);
+        }
+
+        if (initialMax) {
+            setMaxValue(initialMax);
+        }
+    }, [initialMin, initialMax]);
 
     const handleMinChange = (e) => {
         setMinValue(e.target.value);

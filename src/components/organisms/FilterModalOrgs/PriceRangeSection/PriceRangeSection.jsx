@@ -9,19 +9,13 @@ import FrequencyGraph from '../../../atoms/FrequencyGraph/FrequencyGraph';
 const PriceRangeSection = () => {
     const [minPrice, setMinPrice] = useState(10);
     const [maxPrice, setMaxPrice] = useState(1000);
-    const [minPercentage, setMinPercentage] = useState(0);
-    const [maxPercentage, setMaxPercentage] = useState(100);
 
-    const updateMinPrice = (percentage) => {
-        setMinPercentage(percentage);
-
+    const updateMinPriceSlider = (percentage) => {
         const newMin = (percentage / 100) * 1000;
         setMinPrice(newMin);
     };
 
-    const updateMaxPrice = (percentage) => {
-        setMaxPercentage(percentage);
-
+    const updateMaxPriceSlider = (percentage) => {
         const newMax = (percentage / 100) * 1000;
         setMaxPrice(newMax);
     };
@@ -36,14 +30,14 @@ const PriceRangeSection = () => {
             <div className='PriceRangeSection_slider'>
                 <FrequencyGraph
                     arrOfNums={priceRangeData}
-                    minPercentage={minPercentage}
-                    maxPercentage={maxPercentage}
+                    minPercentage={(minPrice / 1000) * 100}
+                    maxPercentage={(maxPrice / 1000) * 100}
                 />
                 <MultiRangeSlider
-                    initialMin={0}
-                    initialMax={100}
-                    getMinValue={updateMinPrice}
-                    getMaxValue={updateMaxPrice}
+                    initialMin={(minPrice / 1000) * 100}
+                    initialMax={(maxPrice / 1000) * 100}
+                    getMinValue={updateMinPriceSlider}
+                    getMaxValue={updateMaxPriceSlider}
                     minDisabled={false}
                     maxDisabled={false}
                 />
