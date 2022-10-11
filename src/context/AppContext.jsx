@@ -108,6 +108,118 @@ export function AppContextProvider({ children }) {
     //     console.log('geolocation', geolocation);
     // }, [geolocation]);
 
+    const [filters, setFilters] = useState({
+        priceRange: {
+            minPrice: 10,
+            maxPrice: 1000,
+        },
+        typeOfPlace: {
+            entirePlace: false,
+            privateRoom: false,
+            sharedRoom: false,
+        },
+        roomsAndBeds: {
+            bedrooms: 'any',
+            beds: 'any',
+            bathrooms: 'any',
+        },
+        propertyType: {
+            house: false,
+            apartment: false,
+            guestHouse: false,
+            hotel: false,
+        },
+        amenities: {
+            essentials: {
+                wifi: false,
+                kitchen: false,
+                washer: false,
+                dryer: false,
+                airConditioner: false,
+                heating: false,
+                dedicatedWorkspace: false,
+                tv: false,
+                hairDryer: false,
+                iron: false,
+            },
+            features: {
+                pool: false,
+                hotTub: false,
+                freeParkingOnPremise: false,
+                evCharger: false,
+                crib: false,
+                gym: false,
+                bbqGrill: false,
+                breakfast: false,
+                indoorFireplace: false,
+                smokingAllowed: false,
+            },
+            location: {
+                beachfront: false,
+                waterfront: false,
+                skiInSkiOut: false,
+            },
+            safety: {
+                smokeAlarm: false,
+                carbonMonoxideAlarm: false,
+            },
+        },
+        bookingOptions: {
+            instantBook: false,
+            selfCheckIn: false,
+        },
+        accessibilityFeatures: {
+            guestEntranceAndParking: {
+                stepFree: false,
+                wider: false,
+                stepFreePath: false,
+                accessibleParking: false,
+            },
+            bedroom: {
+                stepFree: false,
+                wider: false,
+            },
+            bathroom: {
+                stepFree: false,
+                wider: false,
+                showerGrabBar: false,
+                toiletGrabBar: false,
+                stepFreeShower: false,
+                chair: false,
+            },
+            adaptiveEquipment: {
+                hoist: false,
+            },
+        },
+        topTierStays: {
+            superhost: false,
+            airbnbPlus: false,
+        },
+        hostLanguage: {
+            english: false,
+            french: false,
+            german: false,
+            japanese: false,
+            italian: false,
+            russian: false,
+            spanish: false,
+            chinese: false,
+            arabic: false,
+            hindi: false,
+            portuguese: false,
+            dutch: false,
+            korean: false,
+            punjabi: false,
+            greek: false,
+            hebrew: false,
+            polish: false,
+            swedish: false,
+            norwegian: false,
+            hungarian: false,
+            ukrainian: false,
+        },
+    });
+
     return (
         <AppContext.Provider
             value={{
@@ -127,6 +239,8 @@ export function AppContextProvider({ children }) {
                 setSelectedTripDates,
                 geolocation,
                 setGeolocation,
+                filters,
+                setFilters,
             }}
         >
             {children}

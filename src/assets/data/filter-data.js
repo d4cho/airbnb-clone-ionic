@@ -157,7 +157,7 @@ export const accessibilityFeaturesData = [
                 text: 'Guest entrance wider than 32 inches (81 centimeters)',
             },
             {
-                text: 'Step-free oath to the guest entrance',
+                text: 'Step-free path to the guest entrance',
             },
             {
                 text: 'Accessible parking spot',

@@ -110,6 +110,7 @@ const FilterModalPage = (props) => {
                     <Button
                         btnContent={'Show 777 homes'}
                         btnStyleOverride={showBtnStyle}
+                        onButtonClick={closeModal}
                     />
                 </div>
             </IonFooter>
