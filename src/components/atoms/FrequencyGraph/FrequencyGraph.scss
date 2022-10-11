@@ -1,0 +1,21 @@
+@use '../../../styles/styles.scss' as *;
+
+.FrequencyGraph_container {
+    padding-inline: 16px;
+    width: 100%;
+
+    .FrequencyGraph_graph {
+        border-bottom: 2px solid #808080;
+        height: 100px;
+        display: flex;
+        // justify-content: space-evenly;
+        align-items: flex-end;
+
+        .FrequencyGraph_bar {
+            background-color: #808080;
+            height: 100%;
+            width: 5px;
+            margin-inline: 0.5px;
+        }
+    }
+}

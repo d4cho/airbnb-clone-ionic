@@ -1,0 +1,27 @@
+@use '../../../styles/styles.scss' as *;
+
+.Chip_container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid $lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px 22px;
+}
+
+.Chip_selected {
+    background-color: $black;
+    color: $white;
+    animation: clicked 0.2s linear;
+}
+
+@keyframes clicked {
+    0% {
+        scale: 0.85;
+    }
+    100% {
+        scale: 1;
+    }
+}

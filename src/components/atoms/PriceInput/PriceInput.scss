@@ -1,0 +1,44 @@
+@use '../../../styles/styles.scss' as *;
+
+.PriceInput_container {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+
+    .PriceInput_label {
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        font-size: 14px;
+        color: $subgray;
+    }
+
+    .PriceInput_startAdornment {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+    }
+
+    input {
+        width: 100%;
+        background-color: $white;
+        padding: 12px 12px;
+        outline: 1px solid $subgray;
+        border-radius: 5px;
+        border: none;
+        box-shadow: none !important;
+    }
+
+    input:focus {
+        outline: 2px solid $black;
+        box-shadow: none !important;
+    }
+
+    .pad-l-28 {
+        padding-left: 28px;
+    }
+
+    .pad-t-24 {
+        padding-top: 32px;
+    }
+}

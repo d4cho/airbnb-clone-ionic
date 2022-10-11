@@ -1,0 +1,36 @@
+@use '../../../../styles/styles.scss' as *;
+
+.ToggleList_container {
+    .ToggleList_heading {
+        padding-bottom: 1rem;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .ToggleList_optionTitle {
+        font-size: 16px;
+        color: #222222;
+        padding-bottom: 4px;
+    }
+
+    .ToggleList_optionDesc {
+        font-size: 14px;
+        color: #717171;
+    }
+
+    .pad-12 {
+        padding: 12px 0;
+    }
+
+    .expand_collapse {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    ion-toggle.toggle-checked::part(handle) {
+        background-image: url('../../../../assets/images/check-solid.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 14px;
+    }
+}

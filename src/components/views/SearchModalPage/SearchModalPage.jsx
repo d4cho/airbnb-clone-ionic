@@ -128,7 +128,9 @@ const SearchModalPage = (props) => {
                 </div>
                 <div
                     className={`tab ${
-                        selectedTab === 'Stays' ? 'selected' : ''
+                        selectedTab === 'Stays'
+                            ? 'SearchModalPage_selected'
+                            : ''
                     }`}
                     onClick={() => setSelectedTab('Stays')}
                 >
@@ -136,7 +138,9 @@ const SearchModalPage = (props) => {
                 </div>
                 <div
                     className={`tab ${
-                        selectedTab === 'Experiences' ? 'selected' : ''
+                        selectedTab === 'Experiences'
+                            ? 'SearchModalPage_selected'
+                            : ''
                     }`}
                     onClick={() => setSelectedTab('Experiences')}
                 >

@@ -1,0 +1,38 @@
+@use '../../../styles/styles.scss' as *;
+
+.FilterModalPage_container {
+    .FilterModalPage_header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid $lightgray;
+
+        .close_btn {
+            position: absolute;
+            left: 24px;
+        }
+
+        .filter_title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    .FilterModalPage_content {
+        padding: 1.5rem;
+
+        .divider_line {
+            border-bottom: 1px solid $lightgray;
+            margin: 1.5rem 0;
+        }
+    }
+
+    .FilterModalPage_footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid $lightgray;
+    }
+}

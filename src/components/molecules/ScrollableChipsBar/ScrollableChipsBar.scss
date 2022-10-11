@@ -1,0 +1,26 @@
+@use '../../../styles/styles.scss' as *;
+
+.ScrollableChipsBar_container {
+    display: flex;
+    overflow-x: scroll;
+    margin-right: -1rem;
+    scroll-snap-type: x mandatory;
+
+    .ScrollableChipsBar_chip {
+        min-width: fit-content;
+        height: 40px;
+        scroll-snap-align: start;
+        margin-right: 1rem;
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.ScrollableChipsBar_container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.ScrollableChipsBar_container {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}

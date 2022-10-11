@@ -1,0 +1,30 @@
+@use '../../../../styles/styles.scss' as *;
+
+.PriceRangeSection_container {
+    .PriceRangeSection_heading {
+        padding-bottom: 1rem;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .PriceRangeSection_average {
+        font-size: 16px;
+        color: $subgray;
+        padding-bottom: 40px;
+    }
+
+    .PriceRangeSection_slider {
+        padding-bottom: 40px;
+    }
+
+    .PriceRangeSection_textbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 1rem;
+
+        .PriceRangeSection_hyphen {
+            padding-inline: 0.5rem;
+        }
+    }
+}

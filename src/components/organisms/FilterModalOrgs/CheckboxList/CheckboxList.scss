@@ -1,0 +1,42 @@
+@use '../../../../styles/styles.scss' as *;
+
+.CheckboxList_container {
+    .CheckboxList_heading {
+        padding-bottom: 1rem;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .CheckboxList_descText {
+        font-size: 16px;
+        color: #717171;
+        padding-bottom: 0.5rem;
+    }
+
+    .CheckboxList_subheading {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .CheckboxList_text {
+        font-size: 16px;
+        color: #222222;
+        padding-bottom: 4px;
+    }
+
+    .CheckboxList_subtext {
+        font-size: 14px;
+        color: #717171;
+    }
+
+    .pad-12 {
+        padding: 12px 0;
+    }
+
+    .expand_collapse {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}
