@@ -1,0 +1,28 @@
+@use '../../../styles/styles.scss' as *;
+
+.CreditCardModalPage_container {
+    border: 1px solid red;
+
+    .CreditCardModalPage_header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 24px;
+
+        .CreditCardModalPage_closeBtn {
+            position: absolute;
+            left: 24px;
+        }
+
+        .CreditCardModalPage_title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    .CreditCardModalPage_content {
+        border: 1px solid blue;
+        padding: 24px 24px;
+    }
+}

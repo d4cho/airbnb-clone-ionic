@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './PaymentOptions.scss';
 import { IonGrid, IonRow, IonCol } from '@ionic/react';
 import Button from '../../../atoms/Button/Button';
 import { BsCreditCard2Back, BsPlus } from 'react-icons/bs';
 import { FaCcPaypal, FaGooglePay } from 'react-icons/fa';
+import Modal from '../../Modal/Modal';
+import CreditCardModalPage from '../../../views/CreditCardModalPage/CreditCardModalPage';
 
 const PaymentOptions = () => {
+    const [isCreditCardModalOpen, setIsCreditCardModalOpen] = useState(false);
+    const cardModalRef = useRef();
+
+    const handleModalClose = () => {
+        setIsCreditCardModalOpen(false);
+        cardModalRef.current?.dismiss();
+    };
+
     const btnStyle = {
         fontSize: '16px',
         fontWeight: 'bold',
@@ -25,7 +35,10 @@ const PaymentOptions = () => {
                         Credit or debit card
                     </IonCol>
                     <IonCol size={1} className='ion-align-self-center'>
-                        <BsPlus size={30} />
+                        <BsPlus
+                            size={30}
+                            onClick={() => setIsCreditCardModalOpen(true)}
+                        />
                     </IonCol>
                 </IonRow>
                 <IonRow className='PaymentOptions_row'>
@@ -56,6 +69,26 @@ const PaymentOptions = () => {
                     btnStyleOverride={btnStyle}
                 />
             </div>
+
+            <Modal
+                isModalOpen={isCreditCardModalOpen}
+                setIsModalOpen={setIsCreditCardModalOpen}
+                modalRef={cardModalRef}
+                modalContent={
+                    <div style={{ height: '50%' }}>
+                        <CreditCardModalPage
+                            handleModalClose={() =>
+                                setIsCreditCardModalOpen(false)
+                            }
+                        />
+                    </div>
+                }
+                initialBreakpoint={0.5}
+                breakpoints={[0.1, 0.5]}
+                showBackdrop={true}
+                backdropDismiss={true}
+                backdropBreakpoint={0.1}
+            />
         </div>
     );
 };

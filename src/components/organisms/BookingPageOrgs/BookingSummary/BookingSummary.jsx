@@ -9,8 +9,6 @@ const BookingSummary = (props) => {
     const imageUrl = roomData.images[0].url;
     const { rating, reviews, superHost } = roomData;
 
-    console.log(imageUrl);
-
     return (
         <div className='BookingSummary_container'>
             <IonGrid className='BookingSummary_grid ion-no-padding'>

@@ -17,6 +17,7 @@ const ReviewsModalPage = (props) => {
         display: 'flex',
         justifyContent: 'flex-start',
         width: 'fit-content',
+        backgroundColor: 'transparent',
     };
 
     const reviewCardStyle = {
