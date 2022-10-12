@@ -1,0 +1,25 @@
+@use '../../../../styles/styles.scss' as *;
+
+.TripDetails_container {
+    .TripDetails_heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 1.5rem;
+    }
+
+    .TripDetails_row {
+        padding-bottom: 1rem;
+        .TripDetails_content {
+            padding-right: 24px;
+
+            .TripDetails_title {
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 8px;
+            }
+            .TripDetails_text {
+                font-size: 16px;
+            }
+        }
+    }
+}

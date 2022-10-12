@@ -1,0 +1,24 @@
+@use '../../../../styles/styles.scss' as *;
+
+.RequiredActions_container {
+    .RequiredActions_heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
+
+    .RequiredActions_row {
+        padding-bottom: 1rem;
+        .RequiredActions_content {
+            padding-right: 24px;
+
+            .RequiredActions_title {
+                font-weight: bold;
+                padding-bottom: 4px;
+            }
+            .RequiredActions_text {
+                font-size: 14px;
+            }
+        }
+    }
+}

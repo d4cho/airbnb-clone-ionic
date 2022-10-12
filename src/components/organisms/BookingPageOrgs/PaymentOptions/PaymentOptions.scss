@@ -1,0 +1,25 @@
+@use '../../../../styles/styles.scss' as *;
+
+.PaymentOptions_container {
+    .PaymentOptions_heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
+
+    .PaymentOptions_grid {
+        padding: 1rem 0;
+
+        .PaymentOptions_row {
+            padding: 1rem 0;
+        }
+    }
+
+    .PaymentOptions_divider {
+        border-bottom: 2px solid $lightgray;
+    }
+
+    .PaymentOptions_button {
+        padding-top: 1.5rem;
+    }
+}

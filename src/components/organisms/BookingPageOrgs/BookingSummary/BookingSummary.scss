@@ -1,0 +1,53 @@
+@use '../../../../styles/styles.scss' as *;
+
+.BookingSummary_container {
+    .BookingSummary_grid {
+        .BookingSummary_row {
+            .BookingSummary_image {
+                width: 126px;
+                height: 96px;
+                border-radius: 10px;
+                background-image: var(--imageUrl);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .BookingSummary_content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 12px;
+
+                .BookingSummary_category {
+                    font-size: 12px;
+                    color: $subgray;
+                    padding-bottom: 4px;
+                }
+
+                .BookingSummary_title {
+                    font-size: 14px;
+                }
+
+                .BookingSummary_ratings {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .BookingSummary_divider {
+        border-bottom: 1px solid $lightgray;
+        margin: 1.5rem 0;
+    }
+
+    .BookingSummary_aircover {
+        // padding-top: 1.5rem;
+        .BookingSummary_air {
+            font-weight: bold;
+            color: $red;
+        }
+        .BookingSummary_cover {
+            font-weight: bold;
+        }
+    }
+}

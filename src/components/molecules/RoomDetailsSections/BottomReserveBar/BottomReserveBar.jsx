@@ -3,8 +3,10 @@ import { useAppContext } from '../../../../context/AppContext';
 import Button from '../../../atoms/Button/Button';
 import { AiFillStar } from 'react-icons/ai';
 import './BottomReserveBar.scss';
+import { useHistory } from 'react-router';
 
 const BottomReserveBar = (props) => {
+    const history = useHistory();
     const { selectedTripDates } = useAppContext();
     const { roomData } = props;
 
@@ -53,13 +55,13 @@ const BottomReserveBar = (props) => {
                 </div>
                 <div className='dates'>{`${selectedTripDates[0]} to ${selectedTripDates[1]}`}</div>
             </div>
-            <div>
-                <Button
-                    btnContent={'Reserve'}
-                    btnStyleOverride={reserveBtnStyle}
-                    onButtonClick={() => alert('room reserved!')}
-                />
-            </div>
+            <Button
+                btnContent={'Reserve'}
+                btnStyleOverride={reserveBtnStyle}
+                onButtonClick={() => {
+                    history.push(`/book/${roomData.id}`);
+                }}
+            />
         </div>
     );
 };

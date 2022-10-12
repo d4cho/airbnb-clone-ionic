@@ -6,7 +6,6 @@ import { useParams } from 'react-router';
 import ImageCarouselRD from '../components/organisms/RoomDetailsPage/ImageCarouselRD/ImageCarouselRD';
 import DetailsRD from '../components/organisms/RoomDetailsPage/DetailsRD/DetailsRD';
 import BottomReserveBar from '../components/molecules/RoomDetailsSections/BottomReserveBar/BottomReserveBar';
-import { useAppContext } from '../context/AppContext';
 import ReviewsModalPage from '../components/views/ReviewsModalPage.jsx/ReviewsModalPage';
 import Modal from '../components/organisms/Modal/Modal';
 import ImagesModalPage from '../components/views/ImagesModalPage/ImagesModalPage';

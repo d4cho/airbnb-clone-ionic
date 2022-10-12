@@ -1,0 +1,30 @@
+@use '../../../../styles/styles.scss' as *;
+
+.PriceDetails_container {
+    .PriceDetails_heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
+
+    .PriceDetails_grid {
+        .PriceDetails_row {
+            padding: 1rem 0;
+
+            .PriceDetails_col {
+                span {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .PriceDetails_bold {
+        font-weight: bold;
+    }
+
+    .PriceDetails_flex-end {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

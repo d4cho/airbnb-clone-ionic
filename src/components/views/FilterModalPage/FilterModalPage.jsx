@@ -23,6 +23,7 @@ const FilterModalPage = (props) => {
     const clearBtnStyle = {
         fontWeight: 'bold',
         textDecoration: 'underline',
+        backgroundColor: 'transparent',
     };
 
     const showBtnStyle = {
@@ -39,6 +40,7 @@ const FilterModalPage = (props) => {
                 <div className='close_btn'>
                     <Button
                         btnContent={<IoClose size={28} onClick={closeModal} />}
+                        btnStyleOverride={{ backgroundColor: 'transparent' }}
                     />
                 </div>
                 <div className='filter_title'>Filters</div>
