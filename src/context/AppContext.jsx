@@ -5,10 +5,7 @@ const AppContext = createContext();
 export const useAppContext = () => useContext(AppContext);
 
 export function AppContextProvider({ children }) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    // React.useEffect(() => {
-    //     console.log('isModalOpen', isModalOpen);
-    // }, [isModalOpen]);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [searchData, setSearchData] = useState({
         where: {
@@ -91,10 +88,6 @@ export function AppContextProvider({ children }) {
         setOffset(e.detail.currentY);
     };
 
-    // React.useEffect(() => {
-    //     console.log(offset, scrollDirection);
-    // }, [offset, scrollDirection]);
-
     const [selectedTripDates, setSelectedTripDates] = useState([
         '2022-12-05',
         '2022-12-10',
@@ -104,9 +97,6 @@ export function AppContextProvider({ children }) {
         latitude: '',
         longitude: '',
     });
-    // React.useEffect(() => {
-    //     console.log('geolocation', geolocation);
-    // }, [geolocation]);
 
     const [filters, setFilters] = useState({
         priceRange: {
@@ -223,8 +213,8 @@ export function AppContextProvider({ children }) {
     return (
         <AppContext.Provider
             value={{
-                isModalOpen,
-                setIsModalOpen,
+                // isModalOpen,
+                // setIsModalOpen,
                 searchData,
                 setSearchData,
                 resetSearchData,

@@ -17,6 +17,7 @@ const FlexibleView = () => {
         padding: '0.25rem 0.75rem',
         textAlign: 'center',
         fontSize: '14px',
+        backgroundColor: '#FFF',
     };
 
     const monthYearBtnStyle = {
@@ -27,6 +28,7 @@ const FlexibleView = () => {
         fontSize: '14px',
         marginRight: '0.5rem',
         width: '6.5rem',
+        backgroundColor: '#FFF',
     };
 
     const updateSearchData = (duration, monthYear) => {

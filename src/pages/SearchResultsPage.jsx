@@ -11,20 +11,18 @@ import { capitalizeFirstLetter } from '../utils/functions/functions';
 import GoogleMap from '../components/atoms/GoogleMap/GoogleMap';
 import LandingPageCardsSection from '../components/organisms/LandingPageCardsSection/LandingPageCardsSection';
 import Button from '../components/atoms/Button/Button';
+import FilterModalPage from '../components/views/FilterModalPage/FilterModalPage';
 
 const SearchResultsPage = () => {
     let history = useHistory();
 
-    const {
-        isModalOpen,
-        setIsModalOpen,
-        resetSearchData,
-        searchData,
-        offset,
-        handleContentScroll,
-    } = useAppContext();
+    const { resetSearchData, searchData, offset, handleContentScroll } =
+        useAppContext();
 
     const { where, when, who } = searchData;
+
+    // for search modal and filter modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // for search results modal that shows properties
     const [isSearchResultsModalOpen, setIsSearchResultsModalOpen] =
@@ -157,12 +155,7 @@ const SearchResultsPage = () => {
                                 isFromSearchResults={true}
                             />
                         ) : (
-                            <div>
-                                <button onClick={handleModalClose}>
-                                    close
-                                </button>
-                                <h1>filter modal page</h1>
-                            </div>
+                            <FilterModalPage closeModal={handleModalClose} />
                         )
                     }
                 />
@@ -240,6 +233,7 @@ const SearchResultsPage = () => {
                             </CreateAnimation>
                         </IonContent>
                     }
+                    backdropBreakpoint={1}
                 />
             </IonContent>
         </IonPage>

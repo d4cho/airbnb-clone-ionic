@@ -25,6 +25,7 @@ const WhenCard = (props) => {
     const clearBtnSyle = {
         fontWeight: 'bold',
         textDecoration: 'underline',
+        backgroundColor: 'transparent',
     };
 
     const nextBtnStyle = {

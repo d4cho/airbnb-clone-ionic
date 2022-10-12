@@ -8,25 +8,24 @@ const Modal = (props) => {
         modalContent,
         initialBreakpoint,
         breakpoints,
+        showBackdrop,
+        backdropDismiss,
+        swipeToClose,
+        backdropBreakpoint,
     } = props;
-
-    // const handleModalDismissed = () => {
-    //     console.log('modal dismissed');
-    // };
 
     if (initialBreakpoint && breakpoints.length > 0) {
         return (
             <IonModal
                 isOpen={isModalOpen}
                 ref={modalRef}
-                initialBreakpoint={initialBreakpoint}
-                breakpoints={breakpoints}
-                showBackdrop={false} // don't want to show gray backdrop
-                backdropDismiss={false}
-                swipeToClose={false}
+                initialBreakpoint={initialBreakpoint || undefined}
+                breakpoints={breakpoints || undefined}
+                showBackdrop={showBackdrop || false} // don't want to show gray backdrop
+                backdropDismiss={backdropDismiss || false}
+                swipeToClose={swipeToClose || false}
                 // backdrop shows only after modal is fully opened. This allows interaction with elements behind modal
-                backdropBreakpoint={1}
-                // onDidDismiss={() => handleModalDismissed()}
+                backdropBreakpoint={backdropBreakpoint || undefined}
             >
                 <IonContent>{modalContent}</IonContent>
             </IonModal>
