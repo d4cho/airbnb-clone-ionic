@@ -258,7 +258,6 @@ export const roomsData = [
                 desc: '',
             },
         ],
-
         category: ['Luxe'],
     },
     {
