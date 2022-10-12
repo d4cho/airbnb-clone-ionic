@@ -18,6 +18,8 @@ const HostCard = (props) => {
         borderRadius: '10px',
         fontWeight: 'bold',
         padding: '13px 23px',
+        backgroundColor: '#FFF',
+        width: '100%',
     };
 
     return (

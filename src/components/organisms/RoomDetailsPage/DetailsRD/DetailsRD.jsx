@@ -380,6 +380,8 @@ const DetailsRD = (props) => {
                             borderRadius: '10px',
                             fontWeight: 'bold',
                             padding: '13px 23px',
+                            width: '100%',
+                            backgroundColor: '#FFF',
                         }}
                         onButtonClick={() => handleModalOpen('reviews')}
                     />

@@ -27,6 +27,7 @@ const WhereCard = (props) => {
         color: '#000',
         backgroundColor: '#FFF',
         justifyContent: 'flex-start',
+        width: '100%',
     };
 
     return (

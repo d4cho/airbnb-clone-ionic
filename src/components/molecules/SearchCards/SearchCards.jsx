@@ -1,12 +1,10 @@
 import React from 'react';
 import './SearchCards.scss';
-import { useAppContext } from '../../../context/AppContext';
 import WhereCard from './WhereCard/WhereCard';
 import WhoCard from './WhoCard/WhoCard';
 import WhenCard from './WhenCard/WhenCard';
 
 const SearchCards = (props) => {
-    const { isModalOpen } = useAppContext();
     const {
         isExpanded,
         handleCardClick,
@@ -46,7 +44,7 @@ const SearchCards = (props) => {
 
     return (
         <div
-            className={`SearchCards_container ${isModalOpen ? 'animate' : ''}`}
+            className={`SearchCards_container animate`}
             onClick={() => handleCardClick(collapsedTitle)}
         >
             <div className='collapsed_container'>

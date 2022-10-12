@@ -37,6 +37,7 @@ const ChooseView = () => {
         textAlign: 'center',
         fontSize: '14px',
         width: 'fit-content',
+        backgroundColor: '#FFF',
     };
 
     const dateTimeRef = useRef();

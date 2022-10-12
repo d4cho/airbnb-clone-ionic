@@ -1,0 +1,18 @@
+@use '../../../../styles/styles.scss' as *;
+
+.CancellationPolicy_container {
+    .CancellationPolicy_heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
+
+    .CancellationPolicy_body {
+        font-size: 16px;
+
+        span {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+}

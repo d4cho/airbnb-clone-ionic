@@ -50,6 +50,7 @@ import { useAppContext } from './context/AppContext';
 /* geolocation */
 import { Geolocation } from '@capacitor/geolocation';
 import SearchResultsPage from './pages/SearchResultsPage';
+import RequestToBookPage from './pages/RequestToBookPage';
 
 setupIonicReact();
 
@@ -101,6 +102,9 @@ const App: React.FC = () => {
                         </Route>
                         <Route exact path='/search-results'>
                             <SearchResultsPage />
+                        </Route>
+                        <Route exact path='/book/:id'>
+                            <RequestToBookPage />
                         </Route>
                     </IonRouterOutlet>
 

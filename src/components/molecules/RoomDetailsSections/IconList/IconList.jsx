@@ -11,6 +11,8 @@ const IconList = (props) => {
         border: '1px solid black',
         borderRadius: '10px',
         padding: '13px 23px',
+        backgroundColor: '#FFF',
+        width: '100%',
     };
 
     return (

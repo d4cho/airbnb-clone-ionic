@@ -1,0 +1,20 @@
+@use '../../../../styles/styles.scss' as *;
+
+.LegalSection_container {
+    .LegalSection_p1 {
+        padding-bottom: 1.5rem;
+        font-size: 12px;
+        line-height: 16px;
+
+        span {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+
+    .LegalSection_p2 {
+        padding-bottom: 1.5rem;
+        font-size: 12px;
+        line-height: 16px;
+    }
+}

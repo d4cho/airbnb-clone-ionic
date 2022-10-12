@@ -18,13 +18,8 @@ import { Link } from 'react-router-dom';
 import FilterModalPage from '../components/views/FilterModalPage/FilterModalPage';
 
 const ExplorePage: React.FC = () => {
-    const {
-        isModalOpen,
-        setIsModalOpen,
-        offset,
-        scrollDirection,
-        handleContentScroll,
-    } = useAppContext();
+    const { offset, scrollDirection, handleContentScroll } = useAppContext();
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalType, setModalType] = useState('search');
     const [selectedTab, setSelectedTab] = useState(0);
 
