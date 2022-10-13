@@ -41,8 +41,13 @@ const ReviewsModalPage = (props) => {
                     </div>
                     <div className='search_reviews'>
                         <TextInput
-                            icon={<AiOutlineSearch size={26} />}
+                            startAdornment={<AiOutlineSearch size={26} />}
                             placeholderText={'Search reviews'}
+                            clearable={true}
+                            styleOverride={{
+                                backgroundColor: '#ebebeb',
+                                borderRadius: '25px',
+                            }}
                         />
                     </div>
                 </div>

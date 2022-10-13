@@ -1,0 +1,47 @@
+@use '../../../styles/styles.scss' as *;
+
+.CountryModalPage_container {
+    .CountryModalPage_header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px 24px;
+
+        .CountryModalPage_closeBtn {
+            position: absolute;
+            left: 24px;
+        }
+
+        .CountryModalPage_title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    .CountryModalPage_content {
+        padding: 0 24px;
+
+        .CountryModalPage_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .CountryModalPage_country {
+                font-size: 16px;
+                height: 72px;
+                padding: 12px 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .country_selected {
+                font-weight: bold;
+            }
+        }
+
+        .CountryModalPage_divider {
+            border-bottom: 1px solid $lightgray;
+        }
+    }
+}

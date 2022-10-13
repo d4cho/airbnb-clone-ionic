@@ -7,8 +7,13 @@ const SearchDestinationCard = () => {
     return (
         <div className='SearchDestinationCard_container'>
             <TextInput
-                icon={<AiOutlineSearch size={26} />}
+                startAdornment={<AiOutlineSearch size={26} />}
                 placeholderText={'Search destinations'}
+                clearable={true}
+                styleOverride={{
+                    backgroundColor: '#ebebeb',
+                    borderRadius: '25px',
+                }}
             />
         </div>
     );
