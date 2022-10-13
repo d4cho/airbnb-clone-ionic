@@ -19,13 +19,17 @@
         color: $subgray;
     }
 
-    .TextInput_isFocused {
+    .TextInput_wasTouched {
         position: absolute;
         top: 16px;
         left: 16px;
-        color: $subgray;
         font-size: 12px;
         transition: all 0.2s;
+    }
+
+    .TextInput_error {
+        color: red;
+        font-weight: bold;
     }
 
     input {

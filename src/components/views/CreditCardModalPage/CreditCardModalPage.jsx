@@ -78,6 +78,8 @@ const CreditCardModalPage = (props) => {
                                     styleOverride={{
                                         borderRadius: '10px 10px 0 0',
                                     }}
+                                    isRequired={true}
+                                    maxLength={16}
                                 />
                             </IonCol>
                         </IonRow>
@@ -89,6 +91,8 @@ const CreditCardModalPage = (props) => {
                                     styleOverride={{
                                         borderRadius: '0 0 0 10px',
                                     }}
+                                    isRequired={true}
+                                    maxLength={4}
                                 />
                             </IonCol>
                             <IonCol>
@@ -98,6 +102,8 @@ const CreditCardModalPage = (props) => {
                                     styleOverride={{
                                         borderRadius: '0 0 10px 0',
                                     }}
+                                    isRequired={true}
+                                    maxLength={3}
                                 />
                             </IonCol>
                         </IonRow>
@@ -108,6 +114,8 @@ const CreditCardModalPage = (props) => {
                             styleOverride={{
                                 borderRadius: '10px',
                             }}
+                            isRequired={true}
+                            maxLength={6}
                         />
                     </div>
                     <div className='CreditCardModalPage_countryRegion'>

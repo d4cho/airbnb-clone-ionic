@@ -56,3 +56,8 @@ export const fixDataByIncrement = (dataArr, start, end, inc) => {
 
     return result;
 };
+
+export const isValid = (regExp, text) => {
+    let regex = new RegExp(regExp);
+    return regex.test(text);
+};
