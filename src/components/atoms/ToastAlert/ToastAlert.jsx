@@ -18,7 +18,7 @@ const ToastAlert = (props) => {
         if (!closeable && isOpen) {
             setTimeout(() => {
                 setIsOpen(false);
-            }, alertDuration || 3000);
+            }, alertDuration * 1000 || 3000);
         }
     }, [isOpen]);
 
