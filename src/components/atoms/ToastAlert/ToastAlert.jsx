@@ -18,7 +18,7 @@ const ToastAlert = (props) => {
         if (!closeable && isOpen) {
             setTimeout(() => {
                 setIsOpen(false);
-            }, alertDuration || 3000);
+            }, alertDuration * 1000 || 3000);
         }
     }, [isOpen]);
 
@@ -43,12 +43,8 @@ const ToastAlert = (props) => {
         <div className='ToastAlert_container alert_slide_in'>
             <div className='ToastAlert_icon'>{renderIcon()}</div>
             <div className='ToastAlert_textContainer'>
-                <div className='ToastAlert_text'>
-                    {text || 'text goes here'}
-                </div>
-                <div className='ToastAlert_subtext'>
-                    {subtext || 'subtext goes here'}
-                </div>
+                {text && <div className='ToastAlert_text'>{text}</div>}
+                {subtext && <div className='ToastAlert_subtext'>{subtext}</div>}
             </div>
             {closeable && (
                 <div className='ToastAlert_close'>
