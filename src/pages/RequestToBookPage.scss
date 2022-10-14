@@ -27,8 +27,13 @@
             height: 8px;
             background-color: $lightgray;
         }
+
         section {
             padding: 1.5rem 1.5rem;
+        }
+
+        .RequestToBookPage_alert {
+            width: 100%;
         }
     }
 }
