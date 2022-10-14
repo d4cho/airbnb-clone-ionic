@@ -42,8 +42,6 @@ const TextInput = (props) => {
     };
 
     const handleOnBlur = (e) => {
-        console.log(e.target.value);
-
         // required error is shown on blur
         if (isRequired && !value) {
             setHasError(true);
