@@ -1,0 +1,55 @@
+@use '../../../styles/styles.scss' as *;
+
+.ToastAlert_container {
+    z-index: 100;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    border: 1px solid $lightgray;
+    border-radius: 10px;
+    box-shadow: $gray 0px 6px 20px;
+
+    .ToastAlert_icon {
+        padding-right: 16px;
+    }
+
+    .ToastAlert_textContainer {
+        font-size: 14px;
+
+        .ToastAlert_text {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .ToastAlert_subtext {
+            color: $subgray;
+        }
+    }
+
+    .ToastAlert_close {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+}
+
+.alert_slide_in {
+    animation: alertSlideIn 0.2s linear;
+}
+
+@keyframes alertSlideIn {
+    0% {
+        opacity: 0;
+        bottom: 0px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 16px;
+    }
+}

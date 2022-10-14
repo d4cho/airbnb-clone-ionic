@@ -2,7 +2,9 @@ import React from 'react';
 import Button from '../../../atoms/Button/Button';
 import './LegalSection.scss';
 
-const LegalSection = () => {
+const LegalSection = (props) => {
+    const { setShowAlert } = props;
+
     const btnStyle = {
         padding: '1rem 0',
         color: '#FFF',
@@ -33,7 +35,7 @@ const LegalSection = () => {
                 <Button
                     btnContent={'Request to book • Airbnb'}
                     btnStyleOverride={btnStyle}
-                    onButtonClick={() => alert('reserve')}
+                    onButtonClick={() => setShowAlert(true)}
                 />
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './RequestToBookPage.scss';
 import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import { HiChevronLeft } from 'react-icons/hi';
@@ -12,10 +12,13 @@ import PriceDetails from '../components/organisms/BookingPageOrgs/PriceDetails/P
 import TripDetails from '../components/organisms/BookingPageOrgs/TripDetails/TripDetails';
 import BookingSummary from '../components/organisms/BookingPageOrgs/BookingSummary/BookingSummary';
 import { roomsData } from '../assets/data/rooms-data';
+import ToastAlert from '../components/atoms/ToastAlert/ToastAlert';
 
 const RequestToBookPage = () => {
     const history = useHistory();
     const { id } = useParams();
+
+    const [showAlert, setShowAlert] = useState(false);
 
     const roomData = roomsData.filter((data) => data.id === id)[0];
 
@@ -65,9 +68,19 @@ const RequestToBookPage = () => {
                     </section>
                     <div className='RequestToBookPage_divider' />
                     <section>
-                        <LegalSection />
+                        <LegalSection setShowAlert={setShowAlert} />
                     </section>
                     <div className='RequestToBookPage_divider' />
+                    <div className='RequestToBookPage_alert'>
+                        <ToastAlert
+                            isOpen={showAlert}
+                            setIsOpen={setShowAlert}
+                            alertType={'error'}
+                            closeable={true}
+                            text={"Let's try that again"}
+                            subtext={'Payment method required'}
+                        />
+                    </div>
                 </div>
             </IonContent>
         </IonPage>

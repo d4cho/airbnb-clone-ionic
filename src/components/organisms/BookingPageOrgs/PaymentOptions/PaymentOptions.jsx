@@ -77,9 +77,7 @@ const PaymentOptions = () => {
                 modalContent={
                     <div style={{ height: '50%' }}>
                         <CreditCardModalPage
-                            handleModalClose={() =>
-                                setIsCreditCardModalOpen(false)
-                            }
+                            handleModalClose={handleModalClose}
                         />
                     </div>
                 }

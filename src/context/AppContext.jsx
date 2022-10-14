@@ -210,6 +210,14 @@ export function AppContextProvider({ children }) {
         },
     });
 
+    const [creditCardInfo, setCreditCardInfo] = useState({
+        cardNumber: '',
+        expirationDate: '',
+        cvv: '',
+        postalCode: '',
+        country: 'Canada',
+    });
+
     return (
         <AppContext.Provider
             value={{
@@ -231,6 +239,8 @@ export function AppContextProvider({ children }) {
                 setGeolocation,
                 filters,
                 setFilters,
+                creditCardInfo,
+                setCreditCardInfo,
             }}
         >
             {children}
