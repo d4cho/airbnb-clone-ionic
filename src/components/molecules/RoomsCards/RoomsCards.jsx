@@ -1,19 +1,12 @@
-import React from 'react';
 import Carousel from '../../atoms/Carousel/Carousel';
 import './RoomsCards.scss';
-import { AiOutlineHeart } from 'react-icons/ai';
 
 const RoomsCards = (props) => {
     const { roomData } = props;
-    const { location, rating, distance, dates, price, images, category } =
-        roomData;
+    const { location, rating, distance, dates, price, images } = roomData;
     return (
         <div className='RoomsCards_container'>
             <div className='carousel'>
-                <AiOutlineHeart
-                    className='icon'
-                    onClick={() => alert('add to wishlist')}
-                />
                 <Carousel
                     list={images}
                     paginationType='dots'
@@ -29,7 +22,7 @@ const RoomsCards = (props) => {
                 </div>
                 <div className='distance'>{distance} km</div>
                 <div className='dates'>{dates}</div>
-                <div className='price'>${price} night</div>
+                <div className='price'>${price} /night</div>
             </div>
         </div>
     );

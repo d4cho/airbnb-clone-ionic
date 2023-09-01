@@ -5,7 +5,7 @@ export const roomsData = [
         rating: '4.95',
         distance: '376',
         dates: 'Oct. 15 - 20',
-        price: '233',
+        price: '233 USD',
         images: [
             {
                 url: 'https://a0.muscache.com/im/pictures/f9032a08-240f-4dfe-8470-23871c140206.jpg?aki_policy=large',
@@ -333,7 +333,7 @@ export const roomsData = [
         rating: '4.95',
         distance: '376',
         dates: 'Oct. 15 - 20',
-        price: '233',
+        price: '233 USD',
         images: [
             {
                 url: 'https://a0.muscache.com/im/pictures/f9032a08-240f-4dfe-8470-23871c140206.jpg?aki_policy=large',
@@ -457,7 +457,7 @@ export const roomsData = [
         rating: '4.95',
         distance: '376',
         dates: 'Oct. 15 - 20',
-        price: '233',
+        price: '233 USD',
         images: [
             {
                 url: 'https://a0.muscache.com/im/pictures/f9032a08-240f-4dfe-8470-23871c140206.jpg?aki_policy=large',
