@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
     IonApp,
@@ -47,27 +47,27 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaAirbnb } from 'react-icons/fa';
 import { BiMessage } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
-import { useAppContext } from './context/AppContext';
+// import { useAppContext } from './context/AppContext';
 
 /* geolocation */
-import { Geolocation } from '@capacitor/geolocation';
+// import { Geolocation } from '@capacitor/geolocation';
 
 setupIonicReact();
 
 const App: React.FC = () => {
-    const { setGeolocation } = useAppContext();
+    // const { setGeolocation } = useAppContext();
 
-    useEffect(() => {
-        const printCurrentPosition = async () => {
-            const coordinates = await Geolocation.getCurrentPosition();
-            const currentGeolocation = {
-                latitude: coordinates.coords.latitude,
-                longitude: coordinates.coords.longitude,
-            };
-            setGeolocation(currentGeolocation);
-        };
-        printCurrentPosition();
-    }, [setGeolocation]);
+    // React.useEffect(() => {
+    //     const printCurrentPosition = async () => {
+    //         const coordinates = await Geolocation.getCurrentPosition();
+    //         const currentGeolocation = {
+    //             latitude: coordinates.coords.latitude,
+    //             longitude: coordinates.coords.longitude,
+    //         };
+    //         setGeolocation(currentGeolocation);
+    //     };
+    //     printCurrentPosition();
+    // }, [setGeolocation]);
 
     const iconStyle = {
         fontSize: 26,
