@@ -22,7 +22,7 @@ const LandingPageCardsSection = (props) => {
         <div className='LandingPageCardsSection_container'>
             {roomsData.map((roomData, idx) => {
                 return (
-                    <div className='card-wrapper'>
+                    <div className='card-wrapper' key={idx}>
                         {likedRooms.includes(roomData.id) ? (
                             <AiFillHeart
                                 className='icon'
@@ -37,7 +37,6 @@ const LandingPageCardsSection = (props) => {
                         <Link
                             to={`/rooms/1`} // we only have pics for room 1
                             // to={`/rooms/${roomData.id}`}
-                            key={idx}
                             onClick={() => {
                                 if (handleCardClick) {
                                     handleCardClick();

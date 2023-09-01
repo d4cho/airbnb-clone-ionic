@@ -67,7 +67,7 @@ const App: React.FC = () => {
             setGeolocation(currentGeolocation);
         };
         printCurrentPosition();
-    }, []);
+    }, [setGeolocation]);
 
     const iconStyle = {
         fontSize: 26,
