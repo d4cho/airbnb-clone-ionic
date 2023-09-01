@@ -19,6 +19,8 @@ import TripsPage from './pages/TripsPage';
 import InboxPage from './pages/InboxPage';
 import ProfilePage from './pages/ProfilePage';
 import RoomDetailsPage from './pages/RoomDetailsPage';
+import SearchResultsPage from './pages/SearchResultsPage';
+import RequestToBookPage from './pages/RequestToBookPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -49,8 +51,6 @@ import { useAppContext } from './context/AppContext';
 
 /* geolocation */
 import { Geolocation } from '@capacitor/geolocation';
-import SearchResultsPage from './pages/SearchResultsPage';
-import RequestToBookPage from './pages/RequestToBookPage';
 
 setupIonicReact();
 

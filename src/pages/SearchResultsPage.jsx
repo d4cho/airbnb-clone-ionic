@@ -3,7 +3,7 @@ import './SearchResultsPage.scss';
 import { CreateAnimation, IonContent, IonHeader, IonPage } from '@ionic/react';
 import ClickableSearchBar from '../components/molecules/ClickableSearchBar/ClickableSearchBar';
 import { BsArrowLeftShort, BsToggles2, BsFillMapFill } from 'react-icons/bs';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { useAppContext } from '../context/AppContext';
 import Modal from '../components/organisms/Modal/Modal';
 import SearchModalPage from '../components/views/SearchModalPage/SearchModalPage';
@@ -14,6 +14,7 @@ import Button from '../components/atoms/Button/Button';
 import FilterModalPage from '../components/views/FilterModalPage/FilterModalPage';
 
 const SearchResultsPage = () => {
+    const location = useLocation();
     let history = useHistory();
 
     const { resetSearchData, searchData, offset, handleContentScroll } =
@@ -29,6 +30,12 @@ const SearchResultsPage = () => {
         useState(true);
     // for search results modal that shows properties
     const searchResultsModalRef = useRef(null);
+    // open search results modal when moved to /search-results page
+    React.useEffect(() => {
+        if (location.pathname === '/search-results') {
+            setIsSearchResultsModalOpen(true);
+        }
+    }, [location.pathname]);
 
     // for search modal and filter modal
     const [modalType, setModalType] = useState('search');
@@ -185,9 +192,11 @@ const SearchResultsPage = () => {
 
                             <LandingPageCardsSection
                                 handleCardClick={() => {
-                                    searchResultsModalRef.current?.setCurrentBreakpoint(
-                                        0.08
-                                    );
+                                    setIsSearchResultsModalOpen(false);
+                                    // searchResultsModalRef.current?.dismiss();
+                                    // searchResultsModalRef.current?.setCurrentBreakpoint(
+                                    //     0.08
+                                    // );
                                 }}
                             />
 
