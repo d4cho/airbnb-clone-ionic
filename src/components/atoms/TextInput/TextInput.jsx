@@ -5,6 +5,7 @@ import { isValid } from '../../../utils/functions/functions';
 
 const STRONG_PASSWORD_REGEX =
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})';
+// eslint-disable-next-line no-useless-escape
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const TextInput = (props) => {
@@ -27,6 +28,7 @@ const TextInput = (props) => {
 
     useEffect(() => {
         if (!label) setPlaceholder(placeholderText || '');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const textInputStyle = {

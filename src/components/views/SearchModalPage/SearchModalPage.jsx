@@ -88,7 +88,8 @@ const SearchModalPage = (props) => {
             return `${start} ~ ${end} ${
                 plusMinusDays === 'Exact dates'
                     ? ''
-                    : '(' + '\xB1' + plusMinusDays + ')'
+                    : // eslint-disable-next-line no-useless-concat
+                      '(' + '\xB1' + plusMinusDays + ')'
             }`;
         }
 

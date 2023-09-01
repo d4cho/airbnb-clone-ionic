@@ -28,6 +28,7 @@ const ChooseView = () => {
     useEffect(() => {
         if (!dateTimeRef.current) return;
         dateTimeRef.current.value = selectedTripDates;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const plusMinusDaysBtnStyle = {

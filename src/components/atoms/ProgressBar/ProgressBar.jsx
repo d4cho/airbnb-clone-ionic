@@ -7,7 +7,7 @@ const ProgressBar = (props) => {
 
     useEffect(() => {
         setProgress(currProgress / totalProgress);
-    }, []);
+    }, [currProgress, totalProgress]);
 
     return (
         <IonProgressBar

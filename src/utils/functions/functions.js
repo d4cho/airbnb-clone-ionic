@@ -47,6 +47,7 @@ export const fixDataByIncrement = (dataArr, start, end, inc) => {
 
     while (current <= end) {
         let newArr = dataArr.filter(
+            // eslint-disable-next-line no-loop-func
             (num) => num >= current && num < current + inc
         );
         result.push(newArr);

@@ -20,6 +20,7 @@ const ToastAlert = (props) => {
                 setIsOpen(false);
             }, alertDuration * 1000 || 3000);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
     const renderIcon = () => {
