@@ -7,15 +7,25 @@ interface ContainerProps {
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     return (
         <div className='container'>
-            <strong>{name}</strong>
+            <div className='container__title'>{name}</div>
             <p>
-                Explore{' '}
+                See{' '}
                 <a
                     target='_blank'
                     rel='noopener noreferrer'
-                    href='https://ionicframework.com/docs/components'
+                    href='https://bio-component-library.vercel.app/'
                 >
-                    UI Components
+                    More Projects
+                </a>
+            </p>
+            <p>
+                See{' '}
+                <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://bio-storybook.vercel.app/?path=/docs/getting-started-introduction--docs'
+                >
+                    More Components
                 </a>
             </p>
         </div>
