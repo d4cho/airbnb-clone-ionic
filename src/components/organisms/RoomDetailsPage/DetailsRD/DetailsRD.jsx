@@ -400,7 +400,7 @@ const DetailsRD = (props) => {
                 <ClickableSection
                     heading={'House rules'}
                     text={'Check-in: After 3:00 p.m.'}
-                    handleClick={() => alert('open HOUSE RULES modal')}
+                    // handleClick={() => alert('open HOUSE RULES modal')}
                 />
             </div>
             <div className='line'></div>
@@ -410,7 +410,7 @@ const DetailsRD = (props) => {
                 <ClickableSection
                     heading={'Health & safety'}
                     text={"Airbnb's COVID-19 safety practices apply"}
-                    handleClick={() => alert('open H&S modal')}
+                    // handleClick={() => alert('open H&S modal')}
                 />
             </div>
             <div className='line'></div>
@@ -423,7 +423,7 @@ const DetailsRD = (props) => {
                     moreText={
                         "Review the Host's full cancellation policy, which applies even if you cancel for illness or disruptions caused by COVID-19."
                     }
-                    handleClick={() => alert('open CANCELLATION modal')}
+                    // handleClick={() => alert('open CANCELLATION modal')}
                 />
             </div>
             <div className='line'></div>

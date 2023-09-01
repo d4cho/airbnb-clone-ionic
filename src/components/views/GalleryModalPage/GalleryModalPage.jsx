@@ -11,7 +11,10 @@ const GalleryModalPage = (props) => {
         <IonPage className='GalleryModalPage_container'>
             <IonHeader className='GalleryModalPage_header'>
                 <FiChevronLeft size={28} onClick={onBackClick} />
-                <FiShare size={20} onClick={() => alert('share clicked')} />
+                <FiShare
+                    size={20}
+                    // onClick={() => alert('share clicked')}
+                />
             </IonHeader>
             <IonContent className='GalleryModalPage_content'>
                 <div className='black_background'>

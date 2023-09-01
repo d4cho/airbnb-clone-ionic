@@ -18,6 +18,7 @@ import WishlistsPage from './pages/WishlistsPage';
 import TripsPage from './pages/TripsPage';
 import InboxPage from './pages/InboxPage';
 import ProfilePage from './pages/ProfilePage';
+import RoomDetailsPage from './pages/RoomDetailsPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,7 +45,6 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FaAirbnb } from 'react-icons/fa';
 import { BiMessage } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
-import RoomDetailsPage from './pages/RoomDetailsPage';
 import { useAppContext } from './context/AppContext';
 
 /* geolocation */

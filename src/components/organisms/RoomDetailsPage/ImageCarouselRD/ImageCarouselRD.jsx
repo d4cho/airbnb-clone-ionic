@@ -1,15 +1,16 @@
-import React from 'react';
+import { useState } from 'react';
 import './ImageCarouselRD.scss';
 import Carousel from '../../../atoms/Carousel/Carousel';
 import Button from '../../../atoms/Button/Button';
 import { IoIosArrowBack } from 'react-icons/io';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { FiShare } from 'react-icons/fi';
 import { useHistory } from 'react-router';
 
 const ImageCarouselRD = (props) => {
     let history = useHistory();
     const { roomData, handleModalOpen } = props;
+    const [isLiked, setIsLiked] = useState(false);
 
     const btnStyle = {
         backgroundColor: '#FFF',
@@ -31,14 +32,20 @@ const ImageCarouselRD = (props) => {
                 <Button
                     btnContent={<FiShare fontSize={20} />}
                     btnStyleOverride={btnStyle}
-                    onButtonClick={() => alert('share clicked!')}
+                    // onButtonClick={() => alert('share clicked!')}
                 />
             </div>
             <div className='wishlist_btn'>
                 <Button
-                    btnContent={<AiOutlineHeart fontSize={20} />}
+                    btnContent={
+                        isLiked ? (
+                            <AiFillHeart fontSize={20} />
+                        ) : (
+                            <AiOutlineHeart fontSize={20} />
+                        )
+                    }
                     btnStyleOverride={btnStyle}
-                    onButtonClick={() => alert('add to wishlist!')}
+                    onButtonClick={() => setIsLiked(!isLiked)}
                 />
             </div>
             <div onClick={() => handleModalOpen('images')}>

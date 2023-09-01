@@ -102,7 +102,7 @@ const HostCard = (props) => {
                 <Button
                     btnContent={'Contact host'}
                     btnStyleOverride={btnStyle}
-                    onButtonClick={() => alert('CONTACT HOST clicked!')}
+                    // onButtonClick={() => alert('CONTACT HOST clicked!')}
                 />
             </div>
             <IonGrid>

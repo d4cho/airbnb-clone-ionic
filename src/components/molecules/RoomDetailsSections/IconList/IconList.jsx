@@ -40,7 +40,7 @@ const IconList = (props) => {
                     <Button
                         btnContent={ctaText}
                         btnStyleOverride={btnStyle}
-                        onButtonClick={() => alert('open AMENITIES modal')}
+                        // onButtonClick={() => alert('open AMENITIES modal')}
                     />
                 </div>
             )}

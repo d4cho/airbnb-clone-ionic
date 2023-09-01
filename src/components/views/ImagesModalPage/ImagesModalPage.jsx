@@ -109,7 +109,10 @@ const ImagesModalPage = (props) => {
         <IonPage className='ImagesModalPage_container'>
             <IonHeader className='ImagesModalPage_header'>
                 <FiChevronLeft size={28} onClick={handleModalClose} />
-                <FiShare size={20} onClick={() => alert('share clicked')} />
+                <FiShare
+                    size={20}
+                    // onClick={() => alert('share clicked')}
+                />
             </IonHeader>
             <IonContent className='ImagesModalPage_content'>
                 <div className='title'>Property overview</div>
