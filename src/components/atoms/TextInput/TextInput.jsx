@@ -3,8 +3,8 @@ import './TextInput.scss';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { isValid } from '../../../utils/functions/functions';
 
-// const STRONG_PASSWORD_REGEX =
-//     '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})';
+const STRONG_PASSWORD_REGEX =
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})';
 // eslint-disable-next-line no-useless-escape
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -17,8 +17,9 @@ const TextInput = (props) => {
         label,
         isRequired,
         maxLength,
-        // isPassword,
+        isPassword,
         isEmail,
+        isDisabled,
     } = props;
 
     const [value, setValue] = useState('');
@@ -49,9 +50,9 @@ const TextInput = (props) => {
             setHasError(true);
         }
 
-        // if (isPassword) {
-        //     setHasError(!isValid(STRONG_PASSWORD_REGEX, value));
-        // }
+        if (isPassword) {
+            setHasError(!isValid(STRONG_PASSWORD_REGEX, value));
+        }
 
         if (isEmail) {
             setHasError(!isValid(EMAIL_REGEX, value));
@@ -73,7 +74,7 @@ const TextInput = (props) => {
     };
 
     const getInputType = () => {
-        // if (isPassword) return 'password';
+        if (isPassword) return 'password';
         if (isEmail) return 'email';
 
         return 'text';
@@ -101,6 +102,7 @@ const TextInput = (props) => {
                 style={textInputStyle}
                 onTouchStart={handleTouched}
                 onBlur={handleOnBlur}
+                disabled={isDisabled}
             />
             {clearable && value && (
                 <div className='TextInput_endAdornment'>
