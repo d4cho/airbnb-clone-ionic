@@ -224,10 +224,10 @@ export const selectionItems = [
         icon: <TbTent />,
         text: 'Riads',
     },
-    {
-        icon: <TbTent />,
-        text: 'Dammusos',
-    },
+    // {
+    //     icon: <TbTent />,
+    //     text: 'Dammusos',
+    // },
     {
         icon: <TbTent />,
         text: 'Lake',
